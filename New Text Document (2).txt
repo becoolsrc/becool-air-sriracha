@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่อเรา | BE COOL AIR ศรีราชา</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;600&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Kanit', sans-serif; } </style>
+</head>
+<body class="bg-white text-slate-800">
+    <nav class="flex justify-between items-center px-10 py-6 bg-white border-b border-blue-50">
+        <div class="text-2xl font-semibold text-blue-900">BE COOL <span class="text-blue-400 font-light">AIR ศรีราชา</span></div>
+        <div class="hidden md:flex space-x-10 text-sm font-normal text-slate-500">
+            <a href="index.html" class="hover:text-blue-500 transition">หน้าหลัก</a>
+            <a href="products.html" class="hover:text-blue-500 transition">เลือกซื้อแอร์</a>
+            <a href="contact.html" class="text-blue-600 font-semibold border-b-2 border-blue-600">ติดต่อเรา</a>
+        </div>
+        <div class="w-32"></div> </nav>
+
+    <section class="py-24 px-10 max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-semibold text-blue-900 mb-4">ปรึกษาเรื่องแอร์กับเรา</h2>
+            <p class="text-slate-400 font-light italic text-lg">"เราพร้อมดูแลคุณในเขตพื้นที่ศรีราชา แหลมฉบัง และใกล้เคียง"</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 bg-blue-50/50 p-12 rounded-[40px] border border-blue-50">
+            <div class="space-y-10 text-center md:text-left">
+                <div>
+                    <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">เบอร์โทรศัพท์</h4>
+                    <p class="text-3xl font-semibold text-blue-900">081-5251916, 088-6634666</p>
+                </div>
+                <div>
+                    <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">Line</h4>
+                    <p class="text-2xl font-medium text-blue-900">becoolair</p>
+                    <a href="https://line.me" class="inline-block mt-4 bg-green-500 text-white px-6 py-2 rounded-full text-sm hover:bg-green-600 transition">คุยผ่าน Line ด่วน</a>
+                </div>
+                <div>
+                    <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">ที่ตั้งร้าน</h4>
+                    <p class="text-slate-600 font-light">ต.สุรศักดิ์ อ.ศรีราชา จ.ชลบุรี</p>
+                </div>
+            </div>
+            <div class="h-full min-h-[300px] bg-white rounded-3xl shadow-inner flex items-center justify-center text-blue-200 border border-blue-100 overflow-hidden italic text-sm p-6 text-center">
+                https://maps.app.goo.gl/yf9nr5BeydgiZbDt6
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-slate-300 text-xs tracking-widest uppercase">
+        © 2026 Be Cool Home AIR ศรีราชา
+    </footer>
+</body>
+</html>
