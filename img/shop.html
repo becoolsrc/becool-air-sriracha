@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกซื้อแอร์ | BE COOL AIR ร้านแอร์บ้าน ศรีราชา</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style> 
+        body { font-family: 'Kanit', sans-serif; scroll-behavior: smooth; }
+        .product-card { transition: all 0.4s ease; border-radius: 2.5rem; display: flex; flex-direction: column; height: 100%; overflow: hidden; background: white; border: 1px solid #f1f5f9; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -12px rgba(30, 58, 138, 0.15); border-color: #dbeafe; }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #f1f5f9; }
+        .btu-box { background: rgba(241, 245, 249, 0.7); border-radius: 1.5rem; padding: 12px; text-align: center; margin-bottom: 15px; min-height: 70px; display: flex; flex-direction: column; justify-content: center; }
+        input[type="checkbox"] { accent-color: #1e3a8a; width: 1.1rem; height: 1.1rem; cursor: pointer; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="flex justify-between items-center px-6 md:px-10 py-4 sticky top-0 glass-nav z-50">
+        <a href="index.html" class="flex items-center">
+            <img src="becool_logo.jpg" alt="Logo" class="h-14 md:h-16 w-auto object-contain" onerror="this.src='https://placehold.co/200x80?text=BE+COOL'">
+        </a>
+        <div class="hidden lg:flex space-x-8 text-sm font-medium text-slate-500 items-center">
+            <a href="index.html" class="hover:text-blue-600 transition">หน้าหลัก</a>
+            <a href="shop.html" class="text-blue-700 font-bold border-b-2 border-blue-700 pb-1">เลือกซื้อแอร์</a>
+            <a href="services.html" class="hover:text-blue-600 transition">บริการ</a>
+            <a href="projects.html" class="hover:text-blue-600 transition">ผลงานที่ผ่านมา</a>
+        </div>
+        <div class="flex items-center space-x-3">
+            <a href="https://www.facebook.com/profile.php?id=61583101650416" target="_blank"><img src="facebook_logo.jpg" class="w-9 h-9 rounded-full shadow-sm" alt="FB"></a>
+            <a href="https://line.me/ti/p/~becoolair" target="_blank"><img src="line_logo.jpg" class="w-9 h-9 rounded-full shadow-sm" alt="Line"></a>
+            <a href="tel:0815251916" class="bg-blue-900 text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-lg hover:bg-blue-800 transition">081-5251916</a>
+        </div>
+    </nav>
+
+    <div class="max-w-[1400px] mx-auto px-6 mt-12 mb-10 text-center">
+        <h1 class="text-3xl font-extrabold text-blue-900 mb-3 uppercase tracking-tight">Air Conditioning Catalog</h1>
+        <p class="text-slate-500 mb-8 text-sm">เลือกแอร์ที่ใช่ ในราคาที่คุณพอใจ พร้อมบริการติดตั้งมาตรฐาน Be Cool Air</p>
+        <div class="relative max-w-2xl mx-auto">
+            <input type="text" id="searchInput" placeholder="ค้นหาแบรนด์ หรือ รุ่น (เช่น KQ, Copper, KD...)" class="w-full pl-14 pr-6 py-4 bg-white border-2 border-blue-100 rounded-full shadow-xl focus:outline-none focus:border-blue-500 transition-all text-slate-700">
+            <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
+        </div>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto px-6 pb-24 flex flex-col lg:flex-row gap-8">
+        
+        <aside class="w-full lg:w-72 shrink-0">
+            <div class="bg-white p-8 rounded-[2.5rem] border border-blue-50 shadow-sm sticky top-28 space-y-8">
+                <div>
+                    <h3 class="font-bold text-blue-900 mb-4 flex items-center gap-2"><i class="fas fa-th-large text-blue-500 text-sm"></i> แบรนด์สินค้า</h3>
+                    <div id="brandFilter" class="space-y-2 text-sm">
+                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Daikin" class="filter-check"> Daikin</label>
+                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Carrier" class="filter-check"> Carrier</label>
+                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Hisense" class="filter-check"> Hisense</label>
+                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Haier" class="filter-check"> Haier</label>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-blue-900 mb-4 flex items-center gap-2"><i class="fas fa-cog text-blue-500 text-sm"></i> ระบบแอร์</h3>
+                    <div id="systemFilter" class="space-y-2 text-sm">
+                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Inverter" class="filter-check"> Inverter</label>
+                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Fixed" class="filter-check"> Fixed Speed</label>
+                    </div>
+                </div>
+                <button id="resetFilters" class="w-full py-2.5 text-xs text-blue-500 font-medium hover:bg-blue-50 rounded-xl transition underline">ล้างตัวกรองทั้งหมด</button>
+            </div>
+        </aside>
+
+        <main class="flex-1">
+            <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                </div>
+
+            <div id="noResults" class="hidden text-center py-24 bg-white rounded-[3rem] border-2 border-dashed border-blue-50">
+                <i class="fas fa-search text-slate-200 text-5xl mb-4"></i>
+                <h3 class="text-xl font-bold text-blue-900 mb-2">ไม่พบรุ่นที่ต้องการ</h3>
+                <p class="text-slate-400 text-sm">ลองปรับตัวกรอง หรือติดต่อเราเพื่อสอบถามรุ่นอื่นๆ</p>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-blue-950 py-12 px-6 text-center text-white/50 text-[10px] tracking-[0.2em] uppercase font-light">
+        © 2026 BE COOL AIR SRIRACHA. Professional Air Conditioning Services.
+    </footer>
+
+    <script>
+        /**
+         * รายชื่อสินค้า (พี่แก้ข้อมูลตรงนี้ได้เลย)
+         * id: ต้องตรงกับชื่อไฟล์รูปในโฟลเดอร์ img/ เช่น daikin-ftm.jpg
+         * price: ใส่ราคาเริ่มต้น (ถ้าไม่มีใส่ '')
+         */
+        const products = [
+            // --- DAIKIN ---
+            { id: 'daikin-ftm', brand: 'Daikin', name: 'FTM Series', system: 'Fixed', btu: '9,200 - 24,500', tag: 'ทนทาน', price: '14,500' },
+            { id: 'daikin-sabai', brand: 'Daikin', name: 'MAX INVERTER SABAI', system: 'Inverter', btu: '9,200 - 20,500', tag: 'ยอดนิยม', price: '12,900' },
+            { id: 'daikin-star-kq', brand: 'Daikin', name: 'MAX INVERTER STAR (KQ)', system: 'Inverter', btu: '9,200 - 24,200', tag: 'Premium', price: '14,300' },
+            { id: 'daikin-star-kf', brand: 'Daikin', name: 'MAX INVERTER STAR (KF)', system: 'Inverter', btu: '9,200 - 24,200', tag: 'Premium', price: '18,500' },
+            { id: 'daikin-star-km', brand: 'Daikin', name: 'MAX INVERTER STAR (KM)', system: 'Inverter', btu: '9,200 - 24,200', tag: 'Premium', price: '23,900' },
+            { id: 'daikin-star-kz', brand: 'Daikin', name: 'MAX INVERTER STAR (KZ)', system: 'Inverter', btu: '9,200 - 24,200', tag: 'Flagship', price: '31,500' },
+            { id: 'daikin-favf', brand: 'Daikin', name: 'MAX INVERTER (FAVF)', system: 'Inverter', btu: '30,000 - 36,200', tag: 'Big Room', price: '44,900' },
+
+            // --- CARRIER ---
+            { id: 'carrier-tech-s-2026', brand: 'Carrier', name: 'TECH-S 2026', system: 'Inverter', btu: '9,200 - 25,200', tag: 'New', price: '12,900' },
+            { id: 'carrier-copper-7', brand: 'Carrier', name: 'COPPER 7', system: 'Inverter', btu: '9,200 - 20,400', tag: '', price: '11,500' },
+            { id: 'carrier-copper-seal-2026', brand: 'Carrier', name: 'COPPER SEAL 2026', system: 'Inverter', btu: '9,200 - 25,200', tag: 'คุ้มค่า', price: '13,900' },
+            { id: 'carrier-colorsmart', brand: 'Carrier', name: 'COLORSMART', system: 'Inverter', btu: '9,200 - 25,200', tag: 'ดีไซน์', price: '21,000' },
+
+            // --- HISENSE ---
+		{ id: 'hisense-dj', brand: 'Hisense', name: 'DJ Series', system: 'Inverter', btu: '9,500', tag: '', price: '9,900' },
+		{ id: 'hisense-kc', brand: 'Hisense', name: 'KC Series', system: 'Inverter', btu: '9,500 - 18,000', tag: '', price: '10,100' },
+            	{ id: 'hisense-kd-2026', brand: 'Hisense', name: 'KD Series 2026', system: 'Inverter', btu: '9,500 - 23,500', tag: 'New 2026', price: '11,000' },
+            
+
+            // --- HAIER ---
+            { id: 'haier-turbo-cool', brand: 'Haier', name: 'Turbo Cool', system: 'Fixed', btu: '9,000 - 24,000', tag: '', price: '9,500' },
+            { id: 'haier-clean-cool', brand: 'Haier', name: 'CLEAN COOL', system: 'Inverter', btu: '9,000 - 24,000', tag: 'ล้างตัวเอง', price: '10,900' }
+        ];
+
+        const grid = document.getElementById('productGrid');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+
+        /**
+         * ฟังก์ชันสร้าง Card สินค้า
+         */
+        function renderProducts(list) {
+            if (list.length === 0) {
+                grid.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+            noResults.classList.add('hidden');
+            grid.innerHTML = list.map(p => `
+                <div class="product-card p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="${p.system === 'Inverter' ? 'bg-blue-600' : 'bg-slate-500'} text-white text-[9px] px-2.5 py-1 rounded-lg font-bold uppercase tracking-wider">${p.system}</span>
+                        ${p.tag ? `<span class="bg-red-500 text-white text-[9px] px-2 py-1 rounded-lg font-bold uppercase">${p.tag}</span>` : ''}
+                    </div>
+                    
+                    <img src="img/${p.id}.jpg" class="h-32 w-full object-contain mb-4" onerror="this.src='https://placehold.co/300x200?text=${p.brand}+${p.name}'">
+                    
+                    <div class="btu-box">
+                        <p class="text-[10px] text-slate-400 font-bold mb-1 tracking-widest uppercase text-center">BTU Range</p>
+                        <p class="text-xs font-semibold text-slate-700">${p.btu}</p>
+                    </div>
+
+                    <h3 class="text-md font-bold text-blue-900 text-center mb-2">${p.brand} ${p.name}</h3>
+                    
+                    <div class="text-center mb-6">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-tighter">ราคาเริ่มต้น</p>
+                        <p class="text-xl font-extrabold text-orange-600">฿${p.price ? Number(p.price.replace(/,/g, '')).toLocaleString() : 'สอบถามราคา'}</p>
+                    </div>
+
+                    <a href="product-detail.html?model=${p.id}" class="mt-auto block text-center bg-blue-900 text-white py-3.5 rounded-2xl text-xs font-bold hover:bg-blue-800 transition shadow-md shadow-blue-100">ดูรายละเอียด</a>
+                </div>
+            `).join('');
+        }
+
+        /**
+         * ฟังก์ชันกรองข้อมูล
+         */
+        function performFilter() {
+            const term = searchInput.value.toLowerCase();
+            const activeBrands = Array.from(document.querySelectorAll('#brandFilter input:checked')).map(i => i.value);
+            const activeSystems = Array.from(document.querySelectorAll('#systemFilter input:checked')).map(i => i.value);
+
+            const filtered = products.filter(p => {
+                const brandMatch = activeBrands.length === 0 || activeBrands.includes(p.brand);
+                const systemMatch = activeSystems.length === 0 || activeSystems.includes(p.system);
+                const searchMatch = p.name.toLowerCase().includes(term) || p.brand.toLowerCase().includes(term);
+                return brandMatch && systemMatch && searchMatch;
+            });
+
+            renderProducts(filtered);
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', performFilter);
+        document.querySelectorAll('.filter-check').forEach(f => f.addEventListener('change', performFilter));
+        document.getElementById('resetFilters').addEventListener('click', () => {
+            document.querySelectorAll('.filter-check').forEach(f => f.checked = false);
+            searchInput.value = '';
+            renderProducts(products);
+        });
+
+        // แสดงผลครั้งแรกเมื่อโหลดหน้า
+        renderProducts(products);
+    </script>
+</body>
+</html>
