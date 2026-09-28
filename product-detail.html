@@ -1,6 +1,3 @@
-<!-- ========================================== -->
-<!-- 3. product-detail.html                     -->
-<!-- ========================================== -->
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -19,112 +16,125 @@
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
     <!-- Navigation Bar -->
-    <nav class="flex justify-between items-center px-6 md:px-10 py-3 sticky top-0 glass-nav z-50">
-        <a href="shop.html" class="text-blue-900 font-semibold hover:text-blue-700 transition flex items-center gap-2 text-sm md:text-base">
-            <i class="fas fa-arrow-left"></i> ย้อนกลับไปเลือกสินค้า
+    <nav class="flex justify-between items-center px-4 md:px-10 py-3 sticky top-0 glass-nav z-50">
+        <a href="shop.html" class="text-blue-900 font-semibold hover:text-blue-700 transition flex items-center gap-1.5 text-xs md:text-sm">
+            <i class="fas fa-arrow-left"></i> ย้อนกลับ
         </a>
         <a href="index.html" class="flex items-center py-1">
-            <img src="becool_logo.jpg" alt="BE COOL Logo" class="h-16 md:h-20 w-auto object-contain scale-105 origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
+            <img src="becool_logo.jpg" alt="BE COOL Logo" class="h-12 md:h-16 w-auto object-contain" onerror="this.src='https://placehold.co/180x60?text=BE+COOL+AIR'">
         </a>
     </nav>
 
     <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12 flex-grow w-full">
-        <div id="loadingState" class="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
-            <i class="fas fa-circle-notch fa-spin text-blue-900 text-4xl mb-4"></i>
-            <p class="text-slate-400 animate-pulse">กำลังโหลดข้อมูลสินค้าจาก Google Sheets...</p>
+    <main class="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-12 flex-grow w-full">
+        
+        <!-- Loading State -->
+        <div id="loadingState" class="bg-white rounded-2xl p-8 text-center shadow-sm border border-slate-100">
+            <i class="fas fa-circle-notch fa-spin text-blue-900 text-3xl mb-3"></i>
+            <p class="text-slate-400 text-xs animate-pulse">กำลังโหลดข้อมูลสินค้าจาก Google Sheets...</p>
         </div>
 
-        <div id="productContainer" class="hidden bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-slate-100 flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
+        <!-- Product Card Content -->
+        <div id="productContainer" class="hidden bg-white rounded-2xl md:rounded-3xl p-5 md:p-10 shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 md:gap-12 items-center md:items-start">
+            
+            <!-- Product Image Section -->
             <div class="w-full md:w-1/2 flex flex-col items-center">
-                <div class="w-full bg-slate-50 rounded-2xl p-6 border border-slate-100 flex items-center justify-center min-h-[300px]">
-                    <img id="productImg" src="" class="w-full h-auto max-h-[360px] object-contain rounded-xl transition-all duration-300">
+                <div class="w-full bg-slate-50 rounded-xl p-4 border border-slate-100 flex items-center justify-center min-h-[220px] md:min-h-[300px]">
+                    <img id="productImg" src="" class="w-full h-auto max-h-[260px] md:max-h-[360px] object-contain rounded-xl transition-all duration-300">
                 </div>
-                <div class="w-full bg-blue-50 border border-blue-100 rounded-2xl p-4 mt-4 text-center">
-                    <p class="text-xs text-blue-600 font-bold uppercase tracking-widest">ขนาดทำความเย็น</p>
-                    <p id="productBtu" class="text-2xl md:text-3xl font-extrabold text-blue-900 mt-1">- BTU</p>
+                
+                <!-- BTUs Banner Badge -->
+                <div class="w-full bg-blue-50 border border-blue-100/80 rounded-xl p-3 mt-3 text-center">
+                    <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">ขนาดทำความเย็น</p>
+                    <p id="productBtu" class="text-xl md:text-3xl font-extrabold text-blue-900 mt-0.5">- BTU</p>
                 </div>
             </div>
             
-            <div class="w-full md:w-1/2 space-y-6">
+            <!-- Product Details Section -->
+            <div class="w-full md:w-1/2 space-y-4 md:space-y-6">
                 <div>
-                    <div class="flex flex-wrap gap-2 mb-3" id="badgeContainer">
-                        <span id="productBrandBadge" class="bg-blue-100 text-blue-800 px-3 py-1 rounded-lg text-xs font-bold">แบรนด์</span>
-                        <span id="productSystemBadge" class="text-white px-3 py-1 rounded-lg text-xs font-bold uppercase">ระบบ</span>
-                        <span id="productTypeBadge" class="bg-slate-100 text-slate-700 px-3 py-1 rounded-lg text-xs font-bold">ประเภท</span>
+                    <div class="flex flex-wrap gap-1.5 mb-2.5" id="badgeContainer">
+                        <span id="productBrandBadge" class="bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-md text-[10px] font-bold">แบรนด์</span>
+                        <span id="productSystemBadge" class="text-white px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase">ระบบ</span>
+                        <span id="productTypeBadge" class="bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-md text-[10px] font-bold">ประเภท</span>
                     </div>
-                    <h1 id="productTitle" class="text-2xl md:text-3xl font-bold text-slate-800 leading-tight">ชื่อรุ่นสินค้า</h1>
-                    <p id="productSubTitle" class="text-sm font-semibold text-blue-600 mt-1">ซีรีส์ / รหัสรุ่น</p>
+                    <h1 id="productTitle" class="text-xl md:text-3xl font-bold text-slate-800 leading-tight">ชื่อรุ่นสินค้า</h1>
+                    <p id="productSubTitle" class="text-xs md:text-sm font-semibold text-blue-600 mt-1">ซีรีส์ / รหัสรุ่น</p>
                 </div>
 
-                <div class="border border-slate-100 rounded-2xl overflow-hidden text-sm">
+                <!-- Specs Table -->
+                <div class="border border-slate-100 rounded-xl overflow-hidden text-xs md:text-sm">
                     <table class="w-full text-left border-collapse spec-table">
                         <tbody>
                             <tr class="border-b border-slate-100">
-                                <th class="py-3 px-4 text-slate-400 font-normal w-1/3">แบรนด์สินค้า</th>
-                                <td id="specBrand" class="py-3 px-4 font-semibold text-slate-700">-</td>
+                                <th class="py-2.5 px-3 text-slate-400 font-normal w-1/3">แบรนด์สินค้า</th>
+                                <td id="specBrand" class="py-2.5 px-3 font-semibold text-slate-700">-</td>
                             </tr>
                             <tr class="border-b border-slate-100">
-                                <th class="py-3 px-4 text-slate-400 font-normal">ซีรีส์ (Series)</th>
-                                <td id="specModel" class="py-3 px-4 font-semibold text-slate-700">-</td>
+                                <th class="py-2.5 px-3 text-slate-400 font-normal">ซีรีส์ (Series)</th>
+                                <td id="specModel" class="py-2.5 px-3 font-semibold text-slate-700">-</td>
                             </tr>
                             <tr class="border-b border-slate-100">
-                                <th class="py-3 px-4 text-slate-400 font-normal">รหัสรุ่น (Model Code)</th>
-                                <td id="specModel2" class="py-3 px-4 font-semibold text-slate-700">-</td>
+                                <th class="py-2.5 px-3 text-slate-400 font-normal">รหัสรุ่น (Model Code)</th>
+                                <td id="specModel2" class="py-2.5 px-3 font-semibold text-slate-700">-</td>
                             </tr>
                             <tr class="border-b border-slate-100">
-                                <th class="py-3 px-4 text-slate-400 font-normal">ระบบการทำงาน</th>
-                                <td id="specSystem" class="py-3 px-4 font-semibold text-slate-700">-</td>
+                                <th class="py-2.5 px-3 text-slate-400 font-normal">ระบบการทำงาน</th>
+                                <td id="specSystem" class="py-2.5 px-3 font-semibold text-slate-700">-</td>
                             </tr>
                             <tr>
-                                <th class="py-3 px-4 text-slate-400 font-normal">ประเภทแอร์</th>
-                                <td id="specType" class="py-3 px-4 font-semibold text-slate-700">-</td>
+                                <th class="py-2.5 px-3 text-slate-400 font-normal">ประเภทแอร์</th>
+                                <td id="specType" class="py-2.5 px-3 font-semibold text-slate-700">-</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-2">
-                    <p class="text-xs font-bold text-blue-900 uppercase tracking-wider flex items-center gap-1.5">
+                <!-- Included Services Box -->
+                <div class="bg-slate-50 border border-slate-200/60 rounded-xl p-3.5 space-y-1.5">
+                    <p class="text-[11px] md:text-xs font-bold text-blue-900 uppercase tracking-wider flex items-center gap-1.5">
                         <i class="fas fa-shield-alt text-blue-600"></i> มาตรฐานการติดตั้ง & สิทธิประโยชน์
                     </p>
-                    <ul class="text-xs text-slate-600 space-y-1.5 list-disc list-inside">
+                    <ul class="text-[11px] md:text-xs text-slate-600 space-y-1 list-disc list-inside">
                         <li>ฟรี อุปกรณ์ติดตั้งมาตรฐานตามระยะศูนย์กำหนด</li>
                         <li>ฟรี เดินท่อน้ำยาแอร์ 4 ม. พร้อมรางครอบท่อ 4 ม.และสายไฟรวม 10 ม.</li>
                         <li>รับประกันงานติดตั้งนาน 1 ปีเต็ม</li>
-                        <li>บริการสำรวจหน้างานและปรึกษาฟรีพื้นที่ศรีราชาและใกล้เคียง</li>
+                        <li>บริการสำรวจหน้างานฟรีพื้นที่ศรีราชาและใกล้เคียง</li>
                     </ul>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                    <a id="lineBtn" href="https://line.me/ti/p/~becoolair" target="_blank" class="bg-[#06C755] text-white text-center py-3.5 rounded-2xl font-bold shadow-md hover:bg-[#05b34c] transition flex items-center justify-center gap-2 text-sm">
-                        <i class="fab fa-line text-xl"></i> เช็คราคา / สอบถามผ่าน LINE
+                <!-- Action Buttons -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                    <a id="lineBtn" href="https://line.me/ti/p/~becoolair" target="_blank" class="bg-[#06C755] text-white text-center py-3 rounded-xl font-bold shadow-sm hover:bg-[#05b34c] transition flex items-center justify-center gap-2 text-xs md:text-sm">
+                        <i class="fab fa-line text-lg"></i> สอบถามผ่าน LINE
                     </a>
-                    <a href="tel:0815251916" class="bg-blue-900 text-white text-center py-3.5 rounded-2xl font-bold shadow-md hover:bg-blue-800 transition flex items-center justify-center gap-2 text-sm">
+                    <a href="tel:0815251916" class="bg-blue-900 text-white text-center py-3 rounded-xl font-bold shadow-sm hover:bg-blue-800 transition flex items-center justify-center gap-2 text-xs md:text-sm">
                         <i class="fas fa-phone-alt"></i> โทรสายด่วน 081-525-1916
                     </a>
                 </div>
             </div>
+
         </div>
 
-        <div id="errorState" class="hidden bg-white rounded-3xl p-16 text-center shadow-sm border border-slate-100 max-w-2xl mx-auto">
-            <i class="fas fa-exclamation-circle text-red-500 text-5xl mb-4"></i>
-            <h2 class="text-2xl font-bold text-slate-800 mb-2">ไม่พบข้อมูลสินค้า</h2>
-            <p class="text-slate-500 text-sm mb-6">รหัสสินค้าไม่ถูกต้อง หรือสินค้าอาจถูกยกเลิกรายการแล้ว</p>
-            <a href="shop.html" class="inline-block bg-blue-900 text-white px-8 py-3 rounded-full text-sm font-bold hover:bg-blue-800 transition">
+        <!-- Error State -->
+        <div id="errorState" class="hidden bg-white rounded-2xl p-10 text-center shadow-sm border border-slate-100 max-w-xl mx-auto">
+            <i class="fas fa-exclamation-circle text-red-500 text-4xl mb-3"></i>
+            <h2 class="text-xl font-bold text-slate-800 mb-1">ไม่พบข้อมูลสินค้า</h2>
+            <p class="text-slate-500 text-xs mb-5">รหัสสินค้าไม่ถูกต้อง หรือสินค้าอาจถูกยกเลิกรายการแล้ว</p>
+            <a href="shop.html" class="inline-block bg-blue-900 text-white px-6 py-2.5 rounded-full text-xs font-bold hover:bg-blue-800 transition">
                 กลับไปเลือกซื้อแอร์
             </a>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="py-10 text-center border-t border-slate-100 mt-auto">
-        <p class="text-slate-400 text-xs tracking-widest uppercase">© 2026 BE COOL SUPPLY & SERVICE SRIRACHA. ALL RIGHTS RESERVED.</p>
+    <footer class="bg-blue-950 py-8 px-4 text-center text-white/50 text-[10px] tracking-widest uppercase font-light mt-auto">
+        © 2026 BE COOL AIR SRIRACHA. Professional Air Conditioning Services.
     </footer>
 
     <!-- Fixed Line Floating Button -->
-    <a href="https://line.me/ti/p/~becoolair" target="_blank" class="fixed bottom-6 right-6 z-[100] hover:scale-110 transition duration-300 drop-shadow-2xl">
-        <img src="line_logo.jpg" alt="Line Support" class="w-14 h-14 rounded-full border-4 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
+    <a href="https://line.me/ti/p/~becoolair" target="_blank" class="fixed bottom-5 right-5 z-[100] hover:scale-110 transition duration-300 drop-shadow-2xl">
+        <img src="line_logo.jpg" alt="Line Support" class="w-12 h-12 rounded-full border-2 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
     </a>
 
     <script>
@@ -223,9 +233,9 @@
                 const systemBadge = document.getElementById('productSystemBadge');
                 systemBadge.innerText = product.system;
                 if (product.system.toLowerCase().includes('inverter')) {
-                    systemBadge.className = "bg-blue-600 text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider";
+                    systemBadge.className = "bg-blue-600 text-white px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider";
                 } else {
-                    systemBadge.className = "bg-red-600 text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider";
+                    systemBadge.className = "bg-red-600 text-white px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider";
                 }
 
                 document.getElementById('specBrand').innerText = product.brand;

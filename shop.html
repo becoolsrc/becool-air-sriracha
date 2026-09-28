@@ -1,6 +1,3 @@
-<!-- ========================================== -->
-<!-- 4. shop.html                               -->
-<!-- ========================================== -->
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -12,19 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Kanit', sans-serif; scroll-behavior: smooth; }
-        .product-card { transition: 0.3s; border-radius: 2rem; background: white; border: 1px solid #f1f5f9; display: flex; flex-direction: column; height: 100%; overflow: hidden; }
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(30, 58, 138, 0.1); border-color: #dbeafe; }
-        .btu-badge { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 1.25rem; padding: 10px; text-align: center; }
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #f1f5f9; }
         .filter-check { accent-color: #1e3a8a; width: 1rem; height: 1rem; }
+        
+        .sidebar-scroll::-webkit-scrollbar { width: 4px; }
+        .sidebar-scroll::-webkit-scrollbar-track { background: #f8fafc; }
+        .sidebar-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
     <!-- Navigation Bar -->
-    <nav class="flex justify-between items-center px-6 md:px-10 py-3 sticky top-0 glass-nav z-50">
+    <nav class="flex justify-between items-center px-4 md:px-10 py-3 sticky top-0 glass-nav z-50">
         <a href="index.html" class="flex items-center py-1">
-            <img src="becool_logo.jpg" alt="BE COOL Logo" class="h-16 md:h-20 w-auto object-contain scale-105 origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
+            <img src="becool_logo.jpg" alt="BE COOL Logo" class="h-12 md:h-20 w-auto object-contain origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
         </a>
 
         <div class="hidden lg:flex space-x-8 text-sm font-normal text-slate-500 uppercase tracking-wide items-center">
@@ -49,95 +47,98 @@
             <a href="contact.html" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
         </div>
 
-        <div class="flex items-center space-x-2 md:space-x-3">
-            <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-4 py-2 rounded-full shadow-md font-medium text-xs">
-                <i class="fab fa-line text-base mr-1.5"></i> แอดไลน์
+        <div class="flex items-center space-x-2">
+            <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-md font-medium text-xs">
+                <i class="fab fa-line text-sm md:text-base mr-1"></i> แอดไลน์
             </a>
-            <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-2 pr-4 py-1.5 rounded-full shadow-lg">
-                <img src="tel_logo.jpg" alt="Call" class="w-6 h-6 rounded-full mr-2 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
+            <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-1.5 pr-3 py-1 md:pl-2 md:pr-4 md:py-1.5 rounded-full shadow-lg">
+                <img src="tel_logo.jpg" alt="Call" class="w-5 h-5 md:w-6 md:h-6 rounded-full mr-1.5 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
                 <span class="text-[10px] md:text-xs font-medium whitespace-nowrap">โทรเลย</span>
             </a>
         </div>
     </nav>
 
     <!-- Main Content Area -->
-    <div class="max-w-7xl mx-auto px-6 mt-12 mb-10">
-        <div class="text-center mb-12">
-            <h1 class="text-3xl font-extrabold text-blue-900 mb-2 uppercase tracking-tight">Air Conditioning Catalog</h1>
-            <p class="text-slate-500 text-sm italic">"เย็นสบาย มั่นใจ ในราคามาตรฐาน Be Cool Air ศรีราชา"</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-6 md:mt-12 mb-10 flex-grow w-full">
+        <div class="text-center mb-6 md:mb-10">
+            <h1 class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-1 uppercase tracking-tight">Air Conditioning Catalog</h1>
+            <p class="text-slate-500 text-xs md:text-sm italic">"เย็นสบาย มั่นใจ ในราคามาตรฐาน Be Cool Air ศรีราชา"</p>
         </div>
         
-        <div class="relative max-w-2xl mx-auto mb-12">
-            <input type="text" id="searchInput" placeholder="ค้นหาแบรนด์ หรือ รุ่นแอร์..." class="w-full pl-14 pr-6 py-4 bg-white border-2 border-blue-50 rounded-full shadow-xl focus:outline-none focus:border-blue-500 transition-all">
-            <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
+        <!-- ช่องค้นหา -->
+        <div class="relative max-w-2xl mx-auto mb-6 md:mb-10">
+            <input type="text" id="searchInput" placeholder="ค้นหาแบรนด์ หรือ รุ่นแอร์..." class="w-full pl-12 pr-4 py-3 md:py-4 bg-white border border-blue-100 rounded-2xl md:rounded-full shadow-md text-sm focus:outline-none focus:border-blue-500 transition-all">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-sm"></i>
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-8">
-            <aside class="w-full lg:w-72 shrink-0">
-                <div class="bg-white p-6 rounded-[2.5rem] border border-blue-50 shadow-sm lg:sticky lg:top-28 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto space-y-6">
+        <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
+            <!-- Sidebar ตัวกรอง -->
+            <aside class="w-full lg:w-64 shrink-0">
+                <div class="bg-white p-5 rounded-2xl md:rounded-[2rem] border border-slate-100 shadow-sm lg:sticky lg:top-28 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto sidebar-scroll space-y-5">
                     <div class="flex justify-between items-center pb-2 border-b border-slate-100">
-                        <h2 class="font-bold text-blue-900 text-base"><i class="fas fa-filter text-blue-600 mr-1"></i> ตัวกรองสินค้า</h2>
+                        <h2 class="font-bold text-blue-900 text-sm md:text-base"><i class="fas fa-filter text-blue-600 mr-1"></i> ตัวกรองสินค้า</h2>
                         <button id="resetFilters" class="text-xs text-blue-500 font-medium hover:underline">ล้างทั้งหมด</button>
                     </div>
 
                     <div>
-                        <h3 class="font-bold text-slate-700 mb-2 text-sm flex items-center gap-2"><i class="fas fa-tag text-blue-500 text-xs"></i> ยี่ห้อ (Brand)</h3>
-                        <div id="brandFilter" class="space-y-2 text-sm"></div>
+                        <h3 class="font-bold text-slate-700 mb-2 text-xs md:text-sm flex items-center gap-2"><i class="fas fa-tag text-blue-500 text-xs"></i> ยี่ห้อ (Brand)</h3>
+                        <div id="brandFilter" class="space-y-1.5 text-xs md:text-sm"></div>
                     </div>
 
                     <hr class="border-slate-100">
 
                     <div>
-                        <h3 class="font-bold text-slate-700 mb-2 text-sm flex items-center gap-2"><i class="fas fa-layer-group text-blue-500 text-xs"></i> ประเภทแอร์</h3>
-                        <div id="typeFilter" class="space-y-2 text-sm"></div>
+                        <h3 class="font-bold text-slate-700 mb-2 text-xs md:text-sm flex items-center gap-2"><i class="fas fa-layer-group text-blue-500 text-xs"></i> ประเภทแอร์</h3>
+                        <div id="typeFilter" class="space-y-1.5 text-xs md:text-sm"></div>
                     </div>
 
                     <hr class="border-slate-100">
 
                     <div>
-                        <h3 class="font-bold text-slate-700 mb-2 text-sm flex items-center gap-2"><i class="fas fa-microchip text-blue-500 text-xs"></i> ระบบการทำงาน</h3>
-                        <div id="systemFilter" class="space-y-2 text-sm"></div>
+                        <h3 class="font-bold text-slate-700 mb-2 text-xs md:text-sm flex items-center gap-2"><i class="fas fa-microchip text-blue-500 text-xs"></i> ระบบการทำงาน</h3>
+                        <div id="systemFilter" class="space-y-1.5 text-xs md:text-sm"></div>
                     </div>
 
                     <hr class="border-slate-100">
 
                     <div>
-                        <h3 class="font-bold text-slate-700 mb-2 text-sm flex items-center gap-2"><i class="fas fa-expand-arrows-alt text-blue-500 text-xs"></i> ขนาด BTU</h3>
-                        <div id="btuFilter" class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2.5 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="0-10000" class="filter-check"> 9,000 - 10,000</label>
-                            <label class="flex items-center gap-2.5 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="11000-14000" class="filter-check"> 12,000 - 14,000</label>
-                            <label class="flex items-center gap-2.5 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="15000-20000" class="filter-check"> 15,000 - 20,000</label>
-                            <label class="flex items-center gap-2.5 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="21000-99999" class="filter-check"> 24,000 ขึ้นไป</label>
+                        <h3 class="font-bold text-slate-700 mb-2 text-xs md:text-sm flex items-center gap-2"><i class="fas fa-expand-arrows-alt text-blue-500 text-xs"></i> ขนาด BTU</h3>
+                        <div id="btuFilter" class="space-y-1.5 text-xs md:text-sm">
+                            <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="0-10000" class="filter-check"> 9,000 - 10,000</label>
+                            <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="11000-14000" class="filter-check"> 12,000 - 14,000</label>
+                            <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="15000-20000" class="filter-check"> 15,000 - 20,000</label>
+                            <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="21000-99999" class="filter-check"> 24,000 ขึ้นไป</label>
                         </div>
                     </div>
                 </div>
             </aside>
 
+            <!-- สินค้า Grid -->
             <main class="flex-1">
-                <div id="loading" class="text-center py-20 bg-white rounded-[2.5rem] border border-slate-100 mb-6">
-                    <i class="fas fa-circle-notch fa-spin text-blue-900 text-4xl mb-4"></i>
-                    <p class="text-slate-400 animate-pulse">กำลังดึงข้อมูลจาก Google Sheets...</p>
+                <div id="loading" class="text-center py-16 bg-white rounded-2xl md:rounded-[2rem] border border-slate-100 mb-6">
+                    <i class="fas fa-circle-notch fa-spin text-blue-900 text-3xl mb-3"></i>
+                    <p class="text-slate-400 text-xs md:text-sm animate-pulse">กำลังดึงข้อมูลสินค้าจาก Google Sheets...</p>
                 </div>
                 
-                <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+                <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6"></div>
 
-                <div id="noResults" class="hidden text-center py-24 bg-white rounded-[3rem] border-2 border-dashed border-slate-100">
-                    <i class="fas fa-search text-slate-200 text-5xl mb-4"></i>
-                    <h3 class="text-xl font-bold text-blue-900">ไม่พบรุ่นที่ต้องการ</h3>
-                    <p class="text-slate-400 text-sm mt-2">กรุณาลองเปลี่ยนคำค้นหา หรือล้างตัวกรอง</p>
+                <div id="noResults" class="hidden text-center py-20 bg-white rounded-2xl border-2 border-dashed border-slate-100">
+                    <i class="fas fa-search text-slate-200 text-4xl mb-3"></i>
+                    <h3 class="text-lg font-bold text-blue-900">ไม่พบรุ่นที่ต้องการ</h3>
+                    <p class="text-slate-400 text-xs mt-1">กรุณาลองเปลี่ยนคำค้นหา หรือล้างตัวกรอง</p>
                 </div>
             </main>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="py-10 text-center border-t border-slate-100 mt-20">
-        <p class="text-slate-400 text-xs tracking-widest uppercase">© 2026 BE COOL SUPPLY & SERVICE SRIRACHA. ALL RIGHTS RESERVED.</p>
+    <footer class="py-8 px-4 text-center border-t border-slate-100 mt-auto bg-white">
+        <p class="text-slate-400 text-[10px] tracking-widest uppercase">© 2026 BE COOL SUPPLY & SERVICE SRIRACHA. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <!-- Fixed Line Floating Button -->
-    <a href="https://line.me/ti/p/~becoolair" target="_blank" class="fixed bottom-6 right-6 z-[100] hover:scale-110 transition duration-300 drop-shadow-2xl">
-        <img src="line_logo.jpg" alt="Line Support" class="w-14 h-14 rounded-full border-4 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
+    <a href="https://line.me/ti/p/~becoolair" target="_blank" class="fixed bottom-5 right-5 z-[100] hover:scale-110 transition duration-300 drop-shadow-2xl">
+        <img src="line_logo.jpg" alt="Line Support" class="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
     </a>
 
     <script>
@@ -185,7 +186,7 @@
                 }).filter(p => p.brand && p.brand !== 'X' && (p.model || p.model2));
 
                 if (allProducts.length === 0) {
-                    loading.innerHTML = '<p class="text-red-500 p-4">ไม่พบข้อมูลสินค้าที่ถูกต้องใน Google Sheets</p>';
+                    loading.innerHTML = '<p class="text-red-500 p-4 text-xs">ไม่พบข้อมูลสินค้าที่ถูกต้องใน Google Sheets</p>';
                     return;
                 }
 
@@ -201,7 +202,7 @@
                 filter();
             } catch (e) {
                 console.error("Debug Error:", e);
-                loading.innerHTML = `<div class="text-red-500 p-8"><p class="font-bold">โหลดข้อมูลไม่สำเร็จ!</p></div>`;
+                loading.innerHTML = `<div class="text-red-500 p-6 text-xs"><p class="font-bold">โหลดข้อมูลไม่สำเร็จ!</p></div>`;
             }
         }
 
@@ -212,19 +213,19 @@
             const systems = [...new Set(allProducts.map(p => p.system))].filter(s => !invalidValues.includes(s)).sort();
 
             document.getElementById('brandFilter').innerHTML = brands.map(b => `
-                <label class="flex items-center gap-2.5 cursor-pointer hover:text-blue-600 transition">
+                <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition">
                     <input type="checkbox" value="${b}" class="brand-check filter-check"> ${b}
                 </label>
             `).join('');
 
             document.getElementById('typeFilter').innerHTML = types.map(t => `
-                <label class="flex items-center gap-2.5 cursor-pointer hover:text-blue-600 transition">
+                <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition">
                     <input type="checkbox" value="${t}" class="type-check filter-check"> ${t}
                 </label>
             `).join('');
 
             document.getElementById('systemFilter').innerHTML = systems.map(s => `
-                <label class="flex items-center gap-2.5 cursor-pointer hover:text-blue-600 transition">
+                <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition">
                     <input type="checkbox" value="${s}" class="system-check filter-check"> ${s}
                 </label>
             `).join('');
@@ -250,30 +251,37 @@
                 const nameRaw = rawModel.trim();
 
                 return `
-                    <div class="product-card p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[9px] ${p.system.toLowerCase().includes('inverter') ? 'bg-blue-600' : 'bg-red-600'} text-white px-2.5 py-1 rounded-lg font-bold uppercase tracking-wider">${p.system}</span>
-                            <span class="text-[9px] bg-blue-100 text-blue-800 px-2.5 py-1 rounded-lg font-bold">${p.type}</span>
-                        </div>
-                        
-                        <div class="h-32 flex items-center justify-center mb-4">
-                            <img src="img/${nameWithUnderscore}.jpg" 
-                                 class="max-h-full max-w-full object-contain" 
-                                 onerror="this.onerror=null; this.src='img/${nameWithHyphen}.jpg'; this.onerror=function(){ this.onerror=null; this.src='img/${nameRaw}.jpg'; this.onerror=function(){ this.src='https://placehold.co/300x200?text=${encodeURIComponent(p.brand)}'; }; };">
-                        </div>
-                        
-                        <div class="btu-badge mb-4">
-                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1 text-center">ขนาดทำความเย็น</p>
-                            <p class="text-xl font-bold text-blue-900 text-center">${p.btu_text} BTU</p>
+                    <div class="p-4 flex flex-col justify-between h-full bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition duration-300">
+                        <div>
+                            <!-- Badges -->
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[9px] ${p.system.toLowerCase().includes('inverter') ? 'bg-blue-600' : 'bg-red-600'} text-white px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">${p.system}</span>
+                                <span class="text-[9px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md font-bold">${p.type}</span>
+                            </div>
+                            
+                            <!-- รูปภาพแอร์ (ความสูงคงที่) -->
+                            <div class="h-32 sm:h-36 w-full flex items-center justify-center p-2 mb-3 bg-slate-50/50 rounded-xl">
+                                <img src="img/${nameWithUnderscore}.jpg" 
+                                     class="max-h-full max-w-full object-contain" 
+                                     onerror="this.onerror=null; this.src='img/${nameWithHyphen}.jpg'; this.onerror=function(){ this.onerror=null; this.src='img/${nameRaw}.jpg'; this.onerror=function(){ this.src='https://placehold.co/300x200?text=${encodeURIComponent(p.brand)}'; }; };">
+                            </div>
+                            
+                            <!-- BTU -->
+                            <div class="mb-3 bg-blue-50/40 border border-blue-100/50 rounded-xl p-2 text-center">
+                                <p class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">ขนาดทำความเย็น</p>
+                                <p class="text-base sm:text-lg font-extrabold text-blue-900">${p.btu_text} BTU</p>
+                            </div>
+
+                            <!-- ชื่อแบรนด์และรุ่น -->
+                            <div class="text-center mb-4">
+                                <span class="text-xs font-semibold text-blue-600 block mb-0.5">${p.brand} - ${p.model}</span>
+                                <h3 class="font-bold text-slate-800 text-xs sm:text-sm leading-snug">${p.model2}</h3>
+                            </div>
                         </div>
 
-                        <div class="text-center mb-6">
-                            <span class="text-xs font-semibold text-blue-600 block mb-1">${p.brand} - ${p.model}</span>
-                            <h3 class="font-bold text-slate-800 text-base leading-tight">${p.model2}</h3>
-                        </div>
-
-                        <a href="product-detail.html?model=${encodeURIComponent(p.model2 || p.model)}" class="mt-auto block text-center bg-blue-900 text-white py-3.5 rounded-2xl text-xs font-bold hover:bg-blue-800 transition shadow-lg shadow-blue-100">
-                            เช็คราคา / สอบถามข้อมูลเพิ่มเติม
+                        <!-- ปุ่มเช็คราคา -->
+                        <a href="product-detail.html?model=${encodeURIComponent(p.model2 || p.model)}" class="w-full text-center bg-blue-900 text-white py-2.5 rounded-xl text-xs font-bold hover:bg-blue-800 transition shadow-sm active:scale-95 block">
+                            เช็คราคา / สอบถามข้อมูล
                         </a>
                     </div>
                 `;

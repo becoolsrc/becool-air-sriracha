@@ -1,6 +1,3 @@
-<!-- ========================================== -->
-<!-- 1. index.html                              -->
-<!-- ========================================== -->
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -17,12 +14,12 @@
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #f1f5f9; }
     </style>
 </head>
-<body class="bg-white text-slate-800">
+<body class="bg-white text-slate-800 antialiased">
 
-    <!-- Navigation Bar -->
-    <nav class="flex justify-between items-center px-6 md:px-10 py-3 sticky top-0 glass-nav z-50">
+    <!-- Navigation Bar (ปรับขนาดปุ่มและโลโก้บนมือถือ) -->
+    <nav class="flex justify-between items-center px-4 md:px-10 py-3 sticky top-0 glass-nav z-50">
         <a href="index.html" class="flex items-center py-1">
-            <img src="becool_logo.jpg" alt="BE COOL Logo" class="h-16 md:h-20 w-auto object-contain scale-105 origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
+            <img src="becool_logo.jpg" alt="BE COOL Logo" class="h-12 md:h-20 w-auto object-contain origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
         </a>
 
         <div class="hidden lg:flex space-x-8 text-sm font-normal text-slate-500 uppercase tracking-wide items-center">
@@ -47,61 +44,61 @@
             <a href="contact.html" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
         </div>
 
-        <div class="flex items-center space-x-2 md:space-x-3">
-            <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-4 py-2 rounded-full shadow-md font-medium text-xs">
-                <i class="fab fa-line text-base mr-1.5"></i> แอดไลน์
+        <div class="flex items-center space-x-2">
+            <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-md font-medium text-xs">
+                <i class="fab fa-line text-sm md:text-base mr-1"></i> แอดไลน์
             </a>
-            <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-2 pr-4 py-1.5 rounded-full shadow-lg">
-                <img src="tel_logo.jpg" alt="Call" class="w-6 h-6 rounded-full mr-2 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
+            <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-1.5 pr-3 py-1 md:pl-2 md:pr-4 md:py-1.5 rounded-full shadow-lg">
+                <img src="tel_logo.jpg" alt="Call" class="w-5 h-5 md:w-6 md:h-6 rounded-full mr-1.5 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
                 <span class="text-[10px] md:text-xs font-medium whitespace-nowrap">โทรเลย</span>
             </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-b from-white to-blue-50 pt-16 pb-20 px-6 md:px-10 text-center">
+    <section class="bg-gradient-to-b from-white to-blue-50 pt-10 pb-16 md:pt-16 md:pb-20 px-4 md:px-10 text-center">
         <div class="max-w-6xl mx-auto relative">
-            <h1 class="text-4xl md:text-6xl font-semibold text-blue-900 mb-6 leading-tight">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-semibold text-blue-900 mb-4 md:mb-6 leading-tight">
                 BE COOL AIR <span class="font-extralight text-blue-500">ศรีราชา</span><br>
-                <span class="text-2xl md:text-4xl block mt-2 font-normal">ศูนย์บริการและจำหน่ายแอร์บ้านครบวงจร</span>
+                <span class="text-xl sm:text-2xl md:text-4xl block mt-2 font-normal">ศูนย์บริการและจำหน่ายแอร์บ้านครบวงจร</span>
             </h1>
-            <p class="text-slate-500 max-w-2xl mx-auto text-base md:text-lg font-light mb-8">
+            <p class="text-slate-500 max-w-2xl mx-auto text-sm md:text-lg font-light mb-6 md:mb-8 leading-relaxed">
                 ขาย ล้าง ติดตั้ง ย้าย ซ่อมแอร์ ในพื้นที่ศรีราชา แหลมฉบัง อ่าวอุดม <br class="hidden md:block">
                 ดูแลโดยทีมช่างผู้เชี่ยวชาญ พร้อมรับประกันงานบริการ
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="shop.html" class="bg-blue-600 text-white px-8 py-3.5 rounded-2xl font-medium hover:bg-blue-700 transition shadow-lg">เลือกซื้อแอร์พร้อมติดตั้ง</a>
-                <a href="https://line.me/ti/p/~becoolair" target="_blank" class="bg-white text-blue-900 border border-blue-200 px-8 py-3.5 rounded-2xl font-medium hover:bg-blue-50 transition shadow-sm">ประเมินราคา / ปรึกษาช่าง</a>
+            <div class="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 max-w-md mx-auto sm:max-w-none">
+                <a href="shop.html" class="bg-blue-600 text-white px-6 py-3 md:px-8 md:py-3.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-medium hover:bg-blue-700 transition shadow-md">เลือกซื้อแอร์พร้อมติดตั้ง</a>
+                <a href="https://line.me/ti/p/~becoolair" target="_blank" class="bg-white text-blue-900 border border-blue-200 px-6 py-3 md:px-8 md:py-3.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-medium hover:bg-blue-50 transition shadow-sm">ประเมินราคา / ปรึกษาช่าง</a>
             </div>
         </div>
     </section>
 
     <!-- BTU Calculator Section -->
-    <section class="max-w-6xl mx-auto px-6 py-12">
-        <div class="bg-white rounded-[2.5rem] border border-blue-100 p-6 md:p-10 shadow-sm">
-            <div class="text-center mb-8">
-                <span class="bg-blue-100 text-blue-800 text-xs md:text-sm px-4 py-1.5 rounded-full font-bold uppercase tracking-wider mb-2 inline-block shadow-sm">
+    <section class="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12">
+        <div class="bg-white rounded-2xl md:rounded-[2.5rem] border border-blue-100 p-4 sm:p-6 md:p-10 shadow-sm">
+            <div class="text-center mb-6 md:mb-8">
+                <span class="bg-blue-100 text-blue-800 text-[10px] md:text-sm px-3 py-1 md:px-4 md:py-1.5 rounded-full font-bold uppercase tracking-wider mb-2 inline-block shadow-sm">
                     <i class="fas fa-calculator mr-1"></i> BTU Calculator
                 </span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900">คำนวณขนาดแอร์ (BTU) ที่เหมาะสมกับห้องของคุณ</h2>
-                <div class="w-16 h-1 bg-blue-500 mx-auto my-3 rounded-full"></div>
-                <p class="text-slate-500 text-sm md:text-base">กรอกขนาดห้องและเลือกลักษณะการใช้งานเพื่อคำนวณขนาด BTU ที่แม่นยำ</p>
+                <h2 class="text-2xl md:text-4xl font-extrabold text-blue-900">คำนวณขนาดแอร์ (BTU) ที่เหมาะสมกับห้องของคุณ</h2>
+                <div class="w-12 md:w-16 h-1 bg-blue-500 mx-auto my-2 md:my-3 rounded-full"></div>
+                <p class="text-slate-500 text-xs md:text-base">กรอกขนาดห้องและเลือกลักษณะการใช้งานเพื่อคำนวณขนาด BTU ที่แม่นยำ</p>
             </div>
 
-            <div class="bg-slate-50 p-6 md:p-8 rounded-3xl border border-blue-50 mb-10">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-slate-50 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-blue-50 mb-6 md:mb-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 md:mb-6">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-2">ขนาดห้อง (เมตร)</label>
                         <div class="flex gap-2 items-center">
-                            <input type="number" id="roomWidth" placeholder="กว้าง" step="0.1" class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-500">
+                            <input type="number" id="roomWidth" placeholder="กว้าง" step="0.1" class="w-full px-3 py-2 md:px-3.5 md:py-2.5 bg-white border border-slate-200 rounded-xl text-xs md:text-sm focus:outline-none focus:border-blue-500">
                             <span class="text-slate-400 font-bold">x</span>
-                            <input type="number" id="roomLength" placeholder="ยาว" step="0.1" class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-500">
+                            <input type="number" id="roomLength" placeholder="ยาว" step="0.1" class="w-full px-3 py-2 md:px-3.5 md:py-2.5 bg-white border border-slate-200 rounded-xl text-xs md:text-sm focus:outline-none focus:border-blue-500">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-2">ลักษณะห้องและการโดนแดด</label>
-                        <select id="roomFactor" class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-500 text-slate-700">
+                        <select id="roomFactor" class="w-full px-3 py-2 md:px-3.5 md:py-2.5 bg-white border border-slate-200 rounded-xl text-xs md:text-sm focus:outline-none focus:border-blue-500 text-slate-700">
                             <option value="750">ห้องนอน / ห้องทำงาน (ไม่โดนแดด)</option>
                             <option value="800">ห้องนอน / ห้องทำงาน (โดนแดด)</option>
                             <option value="800">ห้องรับแขก / นั่งเล่น (ไม่โดนแดด)</option>
@@ -113,102 +110,103 @@
                     </div>
 
                     <div class="flex items-end">
-                        <button onclick="calculateBTU()" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+                        <button onclick="calculateBTU()" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs md:text-sm">
                             <i class="fas fa-calculator"></i> คำนวณขนาดแอร์
                         </button>
                     </div>
                 </div>
 
-                <div id="btuResult" class="hidden bg-white p-6 rounded-2xl border-2 border-blue-500 text-center shadow-lg transition-all">
-                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">ผลการคำนวณขนาดพื้นที่ห้อง <span id="areaText" class="text-blue-600 font-extrabold">0</span> ตร.ม.</p>
-                    <h3 class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-2">
+                <div id="btuResult" class="hidden bg-white p-5 md:p-6 rounded-2xl border-2 border-blue-500 text-center shadow-lg transition-all">
+                    <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">ผลการคำนวณขนาดพื้นที่ห้อง <span id="areaText" class="text-blue-600 font-extrabold">0</span> ตร.ม.</p>
+                    <h3 class="text-xl md:text-3xl font-extrabold text-blue-900 mb-2">
                         กำลังแอร์รวมที่ต้องการ: <span id="btuValue" class="text-orange-600">0</span> BTU
                     </h3>
-                    <p id="btuAdvice" class="text-sm md:text-base text-slate-700 font-medium mb-4 leading-relaxed"></p>
-                    <a id="shopBtuLink" href="shop.html" class="inline-flex items-center gap-2 bg-blue-600 text-white text-xs font-bold px-6 py-2.5 rounded-full hover:bg-blue-700 transition">
+                    <p id="btuAdvice" class="text-xs md:text-base text-slate-700 font-medium mb-4 leading-relaxed"></p>
+                    <a id="shopBtuLink" href="shop.html" class="inline-flex items-center gap-2 bg-blue-600 text-white text-xs font-bold px-5 py-2 md:px-6 md:py-2.5 rounded-full hover:bg-blue-700 transition">
                         เลือกดูแอร์ในแคตตาล็อก <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <a href="shop.html?search=9000" class="bg-blue-50/50 p-5 rounded-2xl border border-blue-50 hover:bg-blue-100/50 transition">
-                    <p class="text-blue-600 font-bold text-lg">9,000 BTU</p>
-                    <p class="text-slate-700 text-sm font-medium mt-1">ห้องขนาด 9 - 14 ตร.ม.</p>
-                    <p class="text-slate-400 text-xs mt-1">ห้องนอนทั่วไป / ห้องทำงาน</p>
+            <!-- การ์ด BTU มาตรฐาน -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-4 text-center">
+                <a href="shop.html?search=9000" class="bg-blue-50/50 p-3.5 md:p-5 rounded-xl md:rounded-2xl border border-blue-50 hover:bg-blue-100/50 transition">
+                    <p class="text-blue-600 font-bold text-base md:text-lg">9,000 BTU</p>
+                    <p class="text-slate-700 text-xs font-medium mt-1">9 - 14 ตร.ม.</p>
+                    <p class="text-slate-400 text-[10px] md:text-xs mt-0.5">ห้องนอน / ทำงาน</p>
                 </a>
-                <a href="shop.html?search=12000" class="bg-blue-50/50 p-5 rounded-2xl border border-blue-50 hover:bg-blue-100/50 transition">
-                    <p class="text-blue-600 font-bold text-lg">12,000 BTU</p>
-                    <p class="text-slate-700 text-sm font-medium mt-1">ห้องขนาด 14 - 20 ตร.ม.</p>
-                    <p class="text-slate-400 text-xs mt-1">ห้องนอนใหญ่ / ห้องรับแขก</p>
+                <a href="shop.html?search=12000" class="bg-blue-50/50 p-3.5 md:p-5 rounded-xl md:rounded-2xl border border-blue-50 hover:bg-blue-100/50 transition">
+                    <p class="text-blue-600 font-bold text-base md:text-lg">12,000 BTU</p>
+                    <p class="text-slate-700 text-xs font-medium mt-1">14 - 20 ตร.ม.</p>
+                    <p class="text-slate-400 text-[10px] md:text-xs mt-0.5">ห้องนอนใหญ่ / นั่งเล่น</p>
                 </a>
-                <a href="shop.html?search=18000" class="bg-blue-50/50 p-5 rounded-2xl border border-blue-50 hover:bg-blue-100/50 transition">
-                    <p class="text-blue-600 font-bold text-lg">18,000 BTU</p>
-                    <p class="text-slate-700 text-sm font-medium mt-1">ห้องขนาด 20 - 28 ตร.ม.</p>
-                    <p class="text-slate-400 text-xs mt-1">ห้องโถง / ร้านค้าขนาดเล็ก</p>
+                <a href="shop.html?search=18000" class="bg-blue-50/50 p-3.5 md:p-5 rounded-xl md:rounded-2xl border border-blue-50 hover:bg-blue-100/50 transition">
+                    <p class="text-blue-600 font-bold text-base md:text-lg">18,000 BTU</p>
+                    <p class="text-slate-700 text-xs font-medium mt-1">20 - 28 ตร.ม.</p>
+                    <p class="text-slate-400 text-[10px] md:text-xs mt-0.5">ห้องโถง / ร้านค้าเล็ก</p>
                 </a>
-                <a href="shop.html?search=24000" class="bg-blue-50/50 p-5 rounded-2xl border border-blue-50 hover:bg-blue-100/50 transition">
-                    <p class="text-blue-600 font-bold text-lg">24,000 BTU</p>
-                    <p class="text-slate-700 text-sm font-medium mt-1">ห้องขนาด 28 - 36 ตร.ม.</p>
-                    <p class="text-slate-400 text-xs mt-1">ห้องรับแขกใหญ่ / สำนักงาน</p>
+                <a href="shop.html?search=24000" class="bg-blue-50/50 p-3.5 md:p-5 rounded-xl md:rounded-2xl border border-blue-50 hover:bg-blue-100/50 transition">
+                    <p class="text-blue-600 font-bold text-base md:text-lg">24,000 BTU</p>
+                    <p class="text-slate-700 text-xs font-medium mt-1">28 - 36 ตร.ม.</p>
+                    <p class="text-slate-400 text-[10px] md:text-xs mt-0.5">ห้องรับแขกใหญ่ / ออฟฟิศ</p>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Brands Section -->
-    <section class="py-12 bg-white border-y border-blue-50">
+    <section class="py-8 md:py-12 bg-white border-y border-blue-50">
         <div class="max-w-5xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <span class="bg-blue-50 text-blue-600 text-xs md:text-sm px-4 py-1.5 rounded-full font-bold uppercase tracking-wider mb-2 inline-block">Authorized Dealer</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900">แบรนด์เครื่องปรับอากาศชั้นนำที่เราจำหน่าย</h2>
-                <div class="w-16 h-1 bg-blue-500 mx-auto my-3 rounded-full"></div>
-                <p class="text-slate-400 text-sm">คัดสรรแอร์คุณภาพมาตรฐานสากล พร้อมการรับประกันศูนย์แท้ 100%</p>
+            <div class="text-center mb-6 md:mb-10">
+                <span class="bg-blue-50 text-blue-600 text-[10px] md:text-sm px-3 py-1 md:px-4 md:py-1.5 rounded-full font-bold uppercase tracking-wider mb-2 inline-block">Authorized Dealer</span>
+                <h2 class="text-2xl md:text-4xl font-extrabold text-blue-900">แบรนด์เครื่องปรับอากาศชั้นนำที่เราจำหน่าย</h2>
+                <div class="w-12 md:w-16 h-1 bg-blue-500 mx-auto my-2 md:my-3 rounded-full"></div>
+                <p class="text-slate-400 text-xs md:text-sm">คัดสรรแอร์คุณภาพมาตรฐานสากล พร้อมการรับประกันศูนย์แท้ 100%</p>
             </div>
             
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 md:gap-3 items-center justify-items-center">
-                <a href="shop.html?search=Daikin" class="brand-item w-full flex justify-center items-center h-20 p-1">
-                    <img src="daikin.png" class="h-14 md:h-16 max-w-[180px] object-contain scale-110" alt="Daikin" onerror="this.src='https://placehold.co/180x60?text=DAIKIN'">
+                <a href="shop.html?search=Daikin" class="brand-item w-full flex justify-center items-center h-16 md:h-20 p-1">
+                    <img src="daikin.png" class="h-10 md:h-16 max-w-[140px] md:max-w-[180px] object-contain scale-110" alt="Daikin" onerror="this.src='https://placehold.co/180x60?text=DAIKIN'">
                 </a>
-                <a href="shop.html?search=Mitsubishi" class="brand-item w-full flex justify-center items-center h-20 p-1">
-                    <img src="mitsubishi.png" class="max-h-12 md:max-h-14 max-w-[150px] object-contain" alt="Mitsubishi" onerror="this.src='https://placehold.co/160x60?text=MITSUBISHI'">
+                <a href="shop.html?search=Mitsubishi" class="brand-item w-full flex justify-center items-center h-16 md:h-20 p-1">
+                    <img src="mitsubishi.png" class="max-h-10 md:max-h-14 max-w-[120px] md:max-w-[150px] object-contain" alt="Mitsubishi" onerror="this.src='https://placehold.co/160x60?text=MITSUBISHI'">
                 </a>
-                <a href="shop.html?search=Carrier" class="brand-item w-full flex justify-center items-center h-20 p-1">
-                    <img src="carrier.png" class="max-h-12 md:max-h-14 max-w-[150px] object-contain" alt="Carrier" onerror="this.src='https://placehold.co/160x60?text=CARRIER'">
+                <a href="shop.html?search=Carrier" class="brand-item w-full flex justify-center items-center h-16 md:h-20 p-1">
+                    <img src="carrier.png" class="max-h-10 md:max-h-14 max-w-[120px] md:max-w-[150px] object-contain" alt="Carrier" onerror="this.src='https://placehold.co/160x60?text=CARRIER'">
                 </a>
-                <a href="shop.html?search=Gree" class="brand-item w-full flex justify-center items-center h-20 p-1">
-                    <img src="gree.png" class="h-14 md:h-16 max-w-[180px] object-contain scale-115" alt="GREE" onerror="this.src='https://placehold.co/180x60?text=GREE'">
+                <a href="shop.html?search=Gree" class="brand-item w-full flex justify-center items-center h-16 md:h-20 p-1">
+                    <img src="gree.png" class="h-10 md:h-16 max-w-[140px] md:max-w-[180px] object-contain scale-115" alt="GREE" onerror="this.src='https://placehold.co/180x60?text=GREE'">
                 </a>
-                <a href="shop.html?search=Haier" class="brand-item w-full flex justify-center items-center h-20 p-1">
-                    <img src="haier.png" class="max-h-12 md:max-h-14 max-w-[150px] object-contain" alt="Haier" onerror="this.src='https://placehold.co/160x60?text=HAIER'">
+                <a href="shop.html?search=Haier" class="brand-item w-full flex justify-center items-center h-16 md:h-20 p-1">
+                    <img src="haier.png" class="max-h-10 md:max-h-14 max-w-[120px] md:max-w-[150px] object-contain" alt="Haier" onerror="this.src='https://placehold.co/160x60?text=HAIER'">
                 </a>
-                <a href="shop.html?search=Hisense" class="brand-item w-full flex justify-center items-center h-20 p-1">
-                    <img src="hisense.png" class="max-h-14 md:max-h-16 max-w-[150px] object-contain" alt="Hisense" onerror="this.src='https://placehold.co/160x60?text=HISENSE'">
+                <a href="shop.html?search=Hisense" class="brand-item w-full flex justify-center items-center h-16 md:h-20 p-1">
+                    <img src="hisense.png" class="max-h-10 md:max-h-16 max-w-[120px] md:max-w-[150px] object-contain" alt="Hisense" onerror="this.src='https://placehold.co/160x60?text=HISENSE'">
                 </a>
-                <a href="shop.html?search=Central" class="brand-item w-full flex justify-center items-center h-20 p-1">
-                    <img src="central_air.png" class="max-h-14 md:max-h-16 max-w-[150px] object-contain" alt="Central Air" onerror="this.src='https://placehold.co/160x60?text=CENTRAL+AIR'">
+                <a href="shop.html?search=Central" class="brand-item w-full flex justify-center items-center h-16 md:h-20 p-1">
+                    <img src="central_air.png" class="max-h-10 md:max-h-16 max-w-[120px] md:max-w-[150px] object-contain" alt="Central Air" onerror="this.src='https://placehold.co/160x60?text=CENTRAL+AIR'">
                 </a>
-                <a href="shop.html?search=TCL" class="brand-item w-full flex justify-center items-center h-20 p-1">
-                    <img src="tcl.png" class="h-12 md:h-14 max-w-[180px] object-contain scale-125" alt="TCL" onerror="this.src='https://placehold.co/180x60?text=TCL'">
+                <a href="shop.html?search=TCL" class="brand-item w-full flex justify-center items-center h-16 md:h-20 p-1">
+                    <img src="tcl.png" class="h-9 md:h-14 max-w-[140px] md:max-w-[180px] object-contain scale-125" alt="TCL" onerror="this.src='https://placehold.co/180x60?text=TCL'">
                 </a>
-                <a href="shop.html?search=Midea" class="brand-item w-full flex justify-center items-center h-20 p-1">
-                    <img src="midea.png" class="max-h-14 md:max-h-16 max-w-[150px] object-contain" alt="Midea" onerror="this.src='https://placehold.co/160x60?text=MIDEA'">
+                <a href="shop.html?search=Midea" class="brand-item w-full flex justify-center items-center h-16 md:h-20 p-1">
+                    <img src="midea.png" class="max-h-10 md:max-h-16 max-w-[120px] md:max-w-[150px] object-contain" alt="Midea" onerror="this.src='https://placehold.co/160x60?text=MIDEA'">
                 </a>
-                <a href="shop.html?search=AUX" class="brand-item w-full flex justify-center items-center h-20 p-1">
-                    <img src="aux.png" class="h-12 md:h-14 max-w-[160px] object-contain scale-110" alt="AUX" onerror="this.src='https://placehold.co/160x60?text=AUX'">
+                <a href="shop.html?search=AUX" class="brand-item w-full flex justify-center items-center h-16 md:h-20 p-1">
+                    <img src="aux.png" class="h-9 md:h-14 max-w-[130px] md:max-w-[160px] object-contain scale-110" alt="AUX" onerror="this.src='https://placehold.co/160x60?text=AUX'">
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-10 text-center border-t border-slate-100">
-        <p class="text-slate-400 text-xs tracking-widest uppercase">© 2026 BE COOL SUPPLY & SERVICE SRIRACHA. ALL RIGHTS RESERVED.</p>
+    <footer class="py-8 text-center border-t border-slate-100 bg-white">
+        <p class="text-slate-400 text-[10px] tracking-widest uppercase">© 2026 BE COOL SUPPLY & SERVICE SRIRACHA. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <!-- Fixed Line Floating Button -->
-    <a href="https://line.me/ti/p/~becoolair" target="_blank" class="fixed bottom-6 right-6 z-[100] hover:scale-110 transition duration-300 drop-shadow-2xl">
-        <img src="line_logo.jpg" alt="Line Support" class="w-14 h-14 rounded-full border-4 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
+    <a href="https://line.me/ti/p/~becoolair" target="_blank" class="fixed bottom-5 right-5 z-[100] hover:scale-110 transition duration-300 drop-shadow-2xl">
+        <img src="line_logo.jpg" alt="Line Support" class="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
     </a>
 
     <script>
