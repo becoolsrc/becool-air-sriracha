@@ -21,6 +21,8 @@
     <!-- Navigation Bar -->
     <nav class="sticky top-0 glass-nav z-50">
         <div class="flex justify-between items-center px-4 md:px-10 py-3">
+            
+            <!-- โลโก้ และ ปุ่มเมนูสามขีดบนมือถือ -->
             <div class="flex items-center gap-2">
                 <button id="mobileMenuBtn" class="lg:hidden text-slate-700 hover:text-blue-600 focus:outline-none p-1">
                     <i class="fas fa-bars text-xl"></i>
@@ -30,6 +32,7 @@
                 </a>
             </div>
 
+            <!-- เมนูหน้าจอคอมพิวเตอร์ (Desktop Menu) -->
             <div class="hidden lg:flex space-x-8 text-sm font-normal text-slate-500 uppercase tracking-wide items-center">
                 <a href="index.html" class="hover:text-blue-500 transition py-2">หน้าหลัก</a>
                 <a href="shop.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 py-2">เลือกซื้อแอร์</a>
@@ -52,6 +55,7 @@
                 <a href="contact.html" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
             </div>
 
+            <!-- ปุ่มขวาสุด -->
             <div class="flex items-center space-x-1.5 sm:space-x-2">
                 <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-md font-medium text-[10px] sm:text-xs">
                     <i class="fab fa-line text-xs sm:text-base mr-1"></i> แอดไลน์
@@ -63,6 +67,7 @@
             </div>
         </div>
 
+        <!-- เมนูบนมือถือ (Mobile Dropdown Menu) -->
         <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-2 text-sm text-slate-700 shadow-lg">
             <a href="index.html" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">หน้าหลัก</a>
             <a href="shop.html" class="block px-3 py-2 rounded-xl bg-blue-50 text-blue-600 font-semibold">เลือกซื้อแอร์</a>
@@ -86,12 +91,14 @@
             <p class="text-slate-500 text-xs md:text-sm italic">"เย็นสบาย มั่นใจ ในราคามาตรฐาน Be Cool Air ศรีราชา"</p>
         </div>
         
+        <!-- ช่องค้นหา -->
         <div class="relative max-w-2xl mx-auto mb-6 md:mb-10">
             <input type="text" id="searchInput" placeholder="ค้นหาแบรนด์ หรือ รุ่นแอร์..." class="w-full pl-12 pr-4 py-3 md:py-4 bg-white border border-blue-100 rounded-2xl md:rounded-full shadow-md text-sm focus:outline-none focus:border-blue-500 transition-all">
             <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-sm"></i>
         </div>
 
         <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
+            <!-- Sidebar ตัวกรอง -->
             <aside class="w-full lg:w-64 shrink-0">
                 <div class="bg-white p-5 rounded-2xl md:rounded-[2rem] border border-slate-100 shadow-sm lg:sticky lg:top-28 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto sidebar-scroll space-y-5">
                     <div class="flex justify-between items-center pb-2 border-b border-slate-100">
@@ -132,6 +139,7 @@
                 </div>
             </aside>
 
+            <!-- สินค้า Grid -->
             <main class="flex-1">
                 <div id="loading" class="text-center py-16 bg-white rounded-2xl md:rounded-[2rem] border border-slate-100 mb-6">
                     <i class="fas fa-circle-notch fa-spin text-blue-900 text-3xl mb-3"></i>
@@ -159,10 +167,12 @@
         <img src="line_logo.jpg" alt="Line Support" class="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
     </a>
 
+    <!-- Scripts -->
     <script>
         const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQH83bBx3g_BQMsG6NFdYShhGyGDh1EjxXzVCLN0KWyFY42KiOZoQsCzc0g8vBsId-aotZfmwjld_w5/pub?gid=0&single=true&output=csv';
         let allProducts = [];
 
+        // ควบคุมปุ่มเมนูสามขีดมือถือ
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         if (btn && menu) {
