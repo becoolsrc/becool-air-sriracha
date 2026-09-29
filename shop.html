@@ -11,7 +11,6 @@
         body { font-family: 'Kanit', sans-serif; scroll-behavior: smooth; }
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #f1f5f9; }
         .filter-check { accent-color: #1e3a8a; width: 1rem; height: 1rem; }
-        
         .sidebar-scroll::-webkit-scrollbar { width: 4px; }
         .sidebar-scroll::-webkit-scrollbar-track { background: #f8fafc; }
         .sidebar-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
@@ -20,41 +19,63 @@
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
     <!-- Navigation Bar -->
-    <nav class="flex justify-between items-center px-4 md:px-10 py-3 sticky top-0 glass-nav z-50">
-        <a href="index.html" class="flex items-center py-1">
-            <img src="becool_logo.jpg" alt="BE COOL Logo" class="h-12 md:h-20 w-auto object-contain origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
-        </a>
-
-        <div class="hidden lg:flex space-x-8 text-sm font-normal text-slate-500 uppercase tracking-wide items-center">
-            <a href="index.html" class="hover:text-blue-500 transition py-2">หน้าหลัก</a>
-            <a href="shop.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 py-2">เลือกซื้อแอร์</a>
-            
-            <div class="relative group">
-                <button class="flex items-center hover:text-blue-500 transition py-2 focus:outline-none">
-                    บริการ
-                    <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+    <nav class="sticky top-0 glass-nav z-50">
+        <div class="flex justify-between items-center px-4 md:px-10 py-3">
+            <div class="flex items-center gap-2">
+                <button id="mobileMenuBtn" class="lg:hidden text-slate-700 hover:text-blue-600 focus:outline-none p-1">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
-                <div class="absolute left-0 mt-0 w-64 bg-white border border-blue-50 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden p-2 text-slate-600">
-                    <a href="cleaning.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm">ล้างแอร์มาตรฐาน 499.-</a>
-                    <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm">ติดตั้ง/ย้ายแอร์มาตรฐานศูนย์</a>
-                    <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm">ซ่อมบำรุง/แก้ไขแอร์ไม่เย็น</a>
-                </div>
+                <a href="index.html" class="flex items-center py-1">
+                    <img src="becool_logo.jpg" alt="BE COOL Logo" class="h-10 sm:h-12 md:h-20 w-auto object-contain origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
+                </a>
             </div>
 
-            <a href="https://www.facebook.com/profile.php?id=61583101650416" target="_blank" class="hover:text-blue-500 transition py-2">ผลงานที่ผ่านมา</a>
-            <a href="contact.html" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
+            <div class="hidden lg:flex space-x-8 text-sm font-normal text-slate-500 uppercase tracking-wide items-center">
+                <a href="index.html" class="hover:text-blue-500 transition py-2">หน้าหลัก</a>
+                <a href="shop.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 py-2">เลือกซื้อแอร์</a>
+                
+                <div class="relative group">
+                    <button class="flex items-center hover:text-blue-500 transition py-2 focus:outline-none">
+                        บริการ
+                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="absolute left-0 mt-0 w-64 bg-white border border-blue-50 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden p-2 text-slate-600">
+                        <a href="cleaning.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm">ล้างแอร์มาตรฐาน 499.-</a>
+                        <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm">ติดตั้ง/ย้ายแอร์มาตรฐานศูนย์</a>
+                        <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm">ซ่อมบำรุง/แก้ไขแอร์ไม่เย็น</a>
+                    </div>
+                </div>
+
+                <a href="https://www.facebook.com/profile.php?id=61583101650416" target="_blank" class="hover:text-blue-500 transition py-2">ผลงานที่ผ่านมา</a>
+                <a href="contact.html" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
+            </div>
+
+            <div class="flex items-center space-x-1.5 sm:space-x-2">
+                <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-md font-medium text-[10px] sm:text-xs">
+                    <i class="fab fa-line text-xs sm:text-base mr-1"></i> แอดไลน์
+                </a>
+                <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-1.5 pr-2.5 py-1 sm:pl-2 sm:pr-4 sm:py-1.5 rounded-full shadow-lg">
+                    <img src="tel_logo.jpg" alt="Call" class="w-4 h-4 sm:w-6 sm:h-6 rounded-full mr-1 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
+                    <span class="text-[9px] sm:text-xs font-medium whitespace-nowrap">โทรเลย</span>
+                </a>
+            </div>
         </div>
 
-        <div class="flex items-center space-x-2">
-            <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-md font-medium text-xs">
-                <i class="fab fa-line text-sm md:text-base mr-1"></i> แอดไลน์
-            </a>
-            <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-1.5 pr-3 py-1 md:pl-2 md:pr-4 md:py-1.5 rounded-full shadow-lg">
-                <img src="tel_logo.jpg" alt="Call" class="w-5 h-5 md:w-6 md:h-6 rounded-full mr-1.5 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
-                <span class="text-[10px] md:text-xs font-medium whitespace-nowrap">โทรเลย</span>
-            </a>
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-2 text-sm text-slate-700 shadow-lg">
+            <a href="index.html" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">หน้าหลัก</a>
+            <a href="shop.html" class="block px-3 py-2 rounded-xl bg-blue-50 text-blue-600 font-semibold">เลือกซื้อแอร์</a>
+            
+            <div class="space-y-1 pl-3 border-l-2 border-blue-100 my-1">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block px-1 py-1">บริการของเรา</span>
+                <a href="cleaning.html" class="block px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50">ล้างแอร์มาตรฐาน 499.-</a>
+                <a href="contact.html" class="block px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50">ติดตั้ง/ย้ายแอร์มาตรฐานศูนย์</a>
+                <a href="contact.html" class="block px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50">ซ่อมบำรุง/แก้ไขแอร์ไม่เย็น</a>
+            </div>
+
+            <a href="https://www.facebook.com/profile.php?id=61583101650416" target="_blank" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">ผลงานที่ผ่านมา</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">ติดต่อเรา</a>
         </div>
     </nav>
 
@@ -65,14 +86,12 @@
             <p class="text-slate-500 text-xs md:text-sm italic">"เย็นสบาย มั่นใจ ในราคามาตรฐาน Be Cool Air ศรีราชา"</p>
         </div>
         
-        <!-- ช่องค้นหา -->
         <div class="relative max-w-2xl mx-auto mb-6 md:mb-10">
             <input type="text" id="searchInput" placeholder="ค้นหาแบรนด์ หรือ รุ่นแอร์..." class="w-full pl-12 pr-4 py-3 md:py-4 bg-white border border-blue-100 rounded-2xl md:rounded-full shadow-md text-sm focus:outline-none focus:border-blue-500 transition-all">
             <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-sm"></i>
         </div>
 
         <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
-            <!-- Sidebar ตัวกรอง -->
             <aside class="w-full lg:w-64 shrink-0">
                 <div class="bg-white p-5 rounded-2xl md:rounded-[2rem] border border-slate-100 shadow-sm lg:sticky lg:top-28 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto sidebar-scroll space-y-5">
                     <div class="flex justify-between items-center pb-2 border-b border-slate-100">
@@ -113,7 +132,6 @@
                 </div>
             </aside>
 
-            <!-- สินค้า Grid -->
             <main class="flex-1">
                 <div id="loading" class="text-center py-16 bg-white rounded-2xl md:rounded-[2rem] border border-slate-100 mb-6">
                     <i class="fas fa-circle-notch fa-spin text-blue-900 text-3xl mb-3"></i>
@@ -144,6 +162,12 @@
     <script>
         const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQH83bBx3g_BQMsG6NFdYShhGyGDh1EjxXzVCLN0KWyFY42KiOZoQsCzc0g8vBsId-aotZfmwjld_w5/pub?gid=0&single=true&output=csv';
         let allProducts = [];
+
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        }
 
         function parseCSVLine(text) {
             let p = '', c = '', r = [];
@@ -253,33 +277,28 @@
                 return `
                     <div class="p-4 flex flex-col justify-between h-full bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition duration-300">
                         <div>
-                            <!-- Badges -->
                             <div class="flex justify-between items-center mb-3">
                                 <span class="text-[9px] ${p.system.toLowerCase().includes('inverter') ? 'bg-blue-600' : 'bg-red-600'} text-white px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">${p.system}</span>
                                 <span class="text-[9px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md font-bold">${p.type}</span>
                             </div>
                             
-                            <!-- รูปภาพแอร์ (ความสูงคงที่) -->
                             <div class="h-32 sm:h-36 w-full flex items-center justify-center p-2 mb-3 bg-slate-50/50 rounded-xl">
                                 <img src="img/${nameWithUnderscore}.jpg" 
                                      class="max-h-full max-w-full object-contain" 
                                      onerror="this.onerror=null; this.src='img/${nameWithHyphen}.jpg'; this.onerror=function(){ this.onerror=null; this.src='img/${nameRaw}.jpg'; this.onerror=function(){ this.src='https://placehold.co/300x200?text=${encodeURIComponent(p.brand)}'; }; };">
                             </div>
                             
-                            <!-- BTU -->
                             <div class="mb-3 bg-blue-50/40 border border-blue-100/50 rounded-xl p-2 text-center">
                                 <p class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">ขนาดทำความเย็น</p>
                                 <p class="text-base sm:text-lg font-extrabold text-blue-900">${p.btu_text} BTU</p>
                             </div>
 
-                            <!-- ชื่อแบรนด์และรุ่น -->
                             <div class="text-center mb-4">
                                 <span class="text-xs font-semibold text-blue-600 block mb-0.5">${p.brand} - ${p.model}</span>
                                 <h3 class="font-bold text-slate-800 text-xs sm:text-sm leading-snug">${p.model2}</h3>
                             </div>
                         </div>
 
-                        <!-- ปุ่มเช็คราคา -->
                         <a href="product-detail.html?model=${encodeURIComponent(p.model2 || p.model)}" class="w-full text-center bg-blue-900 text-white py-2.5 rounded-xl text-xs font-bold hover:bg-blue-800 transition shadow-sm active:scale-95 block">
                             เช็คราคา / สอบถามข้อมูล
                         </a>

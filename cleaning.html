@@ -1,6 +1,3 @@
-<!-- ========================================== -->
-<!-- 2. cleaning.html                           -->
-<!-- ========================================== -->
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -16,133 +13,131 @@
         .service-step:hover .step-number { transform: scale(1.2); color: #1e3a8a; }
     </style>
 </head>
-<body class="bg-white text-slate-800">
+<body class="bg-white text-slate-800 antialiased">
 
     <!-- Navigation Bar -->
-    <nav class="flex justify-between items-center px-6 md:px-10 py-3 sticky top-0 glass-nav z-50">
-        <a href="index.html" class="flex items-center py-1">
-            <img src="becool_logo.jpg" alt="BE COOL Logo" class="h-16 md:h-20 w-auto object-contain scale-105 origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
-        </a>
-
-        <div class="hidden lg:flex space-x-8 text-sm font-normal text-slate-500 uppercase tracking-wide items-center">
-            <a href="index.html" class="hover:text-blue-500 transition py-2">หน้าหลัก</a>
-            <a href="shop.html" class="hover:text-blue-500 transition py-2">เลือกซื้อแอร์</a>
-            
-            <div class="relative group">
-                <button class="flex items-center text-blue-600 font-semibold border-b-2 border-blue-600 py-2 focus:outline-none">
-                    บริการ
-                    <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+    <nav class="sticky top-0 glass-nav z-50">
+        <div class="flex justify-between items-center px-4 md:px-10 py-3">
+            <div class="flex items-center gap-2">
+                <button id="mobileMenuBtn" class="lg:hidden text-slate-700 hover:text-blue-600 focus:outline-none p-1">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
-                <div class="absolute left-0 mt-0 w-64 bg-white border border-blue-50 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden p-2 text-slate-600">
-                    <a href="cleaning.html" class="block px-4 py-3 rounded-xl bg-blue-50 text-blue-600 transition text-sm text-left font-medium">ล้างแอร์มาตรฐาน 499.-</a>
-                    <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm text-left font-medium">ติดตั้ง/ย้ายแอร์มาตรฐานศูนย์</a>
-                    <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm text-left">ซ่อมบำรุง/แก้ไขแอร์ไม่เย็น</a>
-                </div>
+                <a href="index.html" class="flex items-center py-1">
+                    <img src="becool_logo.jpg" alt="BE COOL Logo" class="h-10 sm:h-12 md:h-20 w-auto object-contain origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
+                </a>
             </div>
 
-            <a href="https://www.facebook.com/profile.php?id=61583101650416" target="_blank" class="hover:text-blue-500 transition py-2">ผลงานที่ผ่านมา</a>
-            <a href="contact.html" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
+            <div class="hidden lg:flex space-x-8 text-sm font-normal text-slate-500 uppercase tracking-wide items-center">
+                <a href="index.html" class="hover:text-blue-500 transition py-2">หน้าหลัก</a>
+                <a href="shop.html" class="hover:text-blue-500 transition py-2">เลือกซื้อแอร์</a>
+                
+                <div class="relative group">
+                    <button class="flex items-center text-blue-600 font-semibold border-b-2 border-blue-600 py-2 focus:outline-none">
+                        บริการ
+                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="absolute left-0 mt-0 w-64 bg-white border border-blue-50 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden p-2 text-slate-600">
+                        <a href="cleaning.html" class="block px-4 py-3 rounded-xl bg-blue-50 text-blue-600 font-medium transition text-sm">ล้างแอร์มาตรฐาน 499.-</a>
+                        <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm">ติดตั้ง/ย้ายแอร์มาตรฐานศูนย์</a>
+                        <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm">ซ่อมบำรุง/แก้ไขแอร์ไม่เย็น</a>
+                    </div>
+                </div>
+
+                <a href="https://www.facebook.com/profile.php?id=61583101650416" target="_blank" class="hover:text-blue-500 transition py-2">ผลงานที่ผ่านมา</a>
+                <a href="contact.html" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
+            </div>
+
+            <div class="flex items-center space-x-1.5 sm:space-x-2">
+                <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-md font-medium text-[10px] sm:text-xs">
+                    <i class="fab fa-line text-xs sm:text-base mr-1"></i> แอดไลน์
+                </a>
+                <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-1.5 pr-2.5 py-1 sm:pl-2 sm:pr-4 sm:py-1.5 rounded-full shadow-lg">
+                    <img src="tel_logo.jpg" alt="Call" class="w-4 h-4 sm:w-6 sm:h-6 rounded-full mr-1 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
+                    <span class="text-[9px] sm:text-xs font-medium whitespace-nowrap">โทรเลย</span>
+                </a>
+            </div>
         </div>
 
-        <div class="flex items-center space-x-2 md:space-x-3">
-            <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-4 py-2 rounded-full shadow-md font-medium text-xs">
-                <i class="fab fa-line text-base mr-1.5"></i> แอดไลน์
-            </a>
-            <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-2 pr-4 py-1.5 rounded-full shadow-lg">
-                <img src="tel_logo.jpg" alt="Call" class="w-6 h-6 rounded-full mr-2 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
-                <span class="text-[10px] md:text-xs font-medium whitespace-nowrap">โทรเลย</span>
-            </a>
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-2 text-sm text-slate-700 shadow-lg">
+            <a href="index.html" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">หน้าหลัก</a>
+            <a href="shop.html" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">เลือกซื้อแอร์</a>
+            
+            <div class="space-y-1 pl-3 border-l-2 border-blue-100 my-1">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block px-1 py-1">บริการของเรา</span>
+                <a href="cleaning.html" class="block px-3 py-1.5 rounded-lg text-xs bg-blue-50 text-blue-600 font-semibold">ล้างแอร์มาตรฐาน 499.-</a>
+                <a href="contact.html" class="block px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50">ติดตั้ง/ย้ายแอร์มาตรฐานศูนย์</a>
+                <a href="contact.html" class="block px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50">ซ่อมบำรุง/แก้ไขแอร์ไม่เย็น</a>
+            </div>
+
+            <a href="https://www.facebook.com/profile.php?id=61583101650416" target="_blank" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">ผลงานที่ผ่านมา</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">ติดต่อเรา</a>
         </div>
     </nav>
 
-    <section class="bg-gradient-to-b from-white to-blue-50 pt-16 pb-20 px-6 md:px-10 text-center">
+    <!-- Main Content -->
+    <section class="bg-gradient-to-b from-white to-blue-50 pt-8 pb-14 md:pt-16 md:pb-20 px-4 md:px-10 text-center">
         <div class="max-w-6xl mx-auto relative">
-            <span class="bg-blue-100 text-blue-600 text-xs px-4 py-1.5 rounded-full font-bold uppercase tracking-[0.2em] mb-4 inline-block">Best Value Service</span>
-            <h1 class="text-4xl md:text-6xl font-semibold text-blue-900 mb-6 leading-tight relative">
+            <span class="bg-blue-100 text-blue-600 text-[10px] md:text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-3 inline-block">Best Value Service</span>
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-semibold text-blue-900 mb-4 leading-tight">
                 ล้างแอร์ เริ่มต้น 499.-
             </h1>
-            <p class="text-slate-500 max-w-2xl mx-auto text-base md:text-lg font-light mb-8">
+            <p class="text-slate-500 max-w-2xl mx-auto text-xs sm:text-sm md:text-lg font-light mb-6 leading-relaxed">
                 สะอาด ลึก มั่นใจ ไร้ปัญหาน้ำหยดกวนใจ ทีมช่างมืออาชีพพร้อมดูแลบ้านคุณในพื้นที่ศรีราชาและใกล้เคียง
             </p>
-            <div class="inline-flex items-center bg-green-50 text-green-700 px-6 py-3 rounded-2xl border border-green-100">
-                <span class="flex h-3 w-3 rounded-full bg-green-500 mr-3 animate-pulse"></span>
-                <span class="text-sm font-medium">รับประกันงานล้างนาน 60 วัน</span>
+            <div class="inline-flex items-center bg-green-50 text-green-700 px-4 py-2 md:px-6 md:py-3 rounded-xl md:rounded-2xl border border-green-100">
+                <span class="flex h-2.5 w-2.5 rounded-full bg-green-500 mr-2.5 animate-pulse"></span>
+                <span class="text-xs md:text-sm font-medium">รับประกันงานล้างนาน 60 วัน</span>
             </div>
         </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-6 pb-20">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-3xl font-semibold text-blue-900">ขั้นตอนการดูแลแอร์ของคุณ</h2>
-            <p class="text-slate-400 font-light mt-2">ทำความสะอาด ทุกซอกทุกมุม เพื่อสุขภาพที่ดีของคุณ</p>
+    <section class="max-w-6xl mx-auto px-4 md:px-6 pb-14 md:pb-20">
+        <div class="text-center mb-8 md:mb-12">
+            <h2 class="text-xl md:text-3xl font-semibold text-blue-900">ขั้นตอนการดูแลแอร์ของคุณ</h2>
+            <p class="text-slate-400 text-xs md:text-sm font-light mt-1">ทำความสะอาด ทุกซอกทุกมุม เพื่อสุขภาพที่ดีของคุณ</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="service-step p-8 bg-white border border-blue-50 rounded-[2.5rem] shadow-xl shadow-blue-900/5 hover:-translate-y-2 transition duration-300">
-                <div class="step-number text-blue-600 text-3xl font-bold mb-4 transition-all duration-300">01</div>
-                <h4 class="font-semibold text-slate-800 mb-2">เช็คระบบเบื้องต้น</h4>
-                <p class="text-sm text-slate-400 font-light leading-relaxed">ตรวจสอบการทำงานของคอมเพรสเซอร์และกระแสไฟ</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <div class="service-step p-6 bg-white border border-blue-50 rounded-2xl md:rounded-[2.5rem] shadow-sm hover:shadow-md transition">
+                <div class="step-number text-blue-600 text-2xl font-bold mb-2">01</div>
+                <h4 class="font-semibold text-slate-800 text-sm md:text-base mb-1">เช็คระบบเบื้องต้น</h4>
+                <p class="text-xs text-slate-400 font-light leading-relaxed">ตรวจสอบการทำงานของคอมเพรสเซอร์และกระแสไฟ</p>
             </div>
-            <div class="service-step p-8 bg-white border border-blue-50 rounded-[2.5rem] shadow-xl shadow-blue-900/5 hover:-translate-y-2 transition duration-300">
-                <div class="step-number text-blue-600 text-3xl font-bold mb-4 transition-all duration-300">02</div>
-                <h4 class="font-semibold text-slate-800 mb-2">ถอดล้างหน้ากาก</h4>
-                <p class="text-sm text-slate-400 font-light leading-relaxed">ฉีดล้างฟิลเตอร์และเคสภายนอกให้ขาวสะอาด</p>
+            <div class="service-step p-6 bg-white border border-blue-50 rounded-2xl md:rounded-[2.5rem] shadow-sm hover:shadow-md transition">
+                <div class="step-number text-blue-600 text-2xl font-bold mb-2">02</div>
+                <h4 class="font-semibold text-slate-800 text-sm md:text-base mb-1">ถอดล้างหน้ากาก</h4>
+                <p class="text-xs text-slate-400 font-light leading-relaxed">ฉีดล้างฟิลเตอร์และเคสภายนอกให้ขาวสะอาด</p>
             </div>
-            <div class="service-step p-8 bg-white border border-blue-50 rounded-[2.5rem] shadow-xl shadow-blue-900/5 hover:-translate-y-2 transition duration-300">
-                <div class="step-number text-blue-600 text-3xl font-bold mb-4 transition-all duration-300">03</div>
-                <h4 class="font-semibold text-slate-800 mb-2">ฉีดล้างคอยล์</h4>
-                <p class="text-sm text-slate-400 font-light leading-relaxed">ใช้ปืนฉีดน้ำแรงดันสูงขจัดฝุ่นที่แผงรังผึ้ง</p>
+            <div class="service-step p-6 bg-white border border-blue-50 rounded-2xl md:rounded-[2.5rem] shadow-sm hover:shadow-md transition">
+                <div class="step-number text-blue-600 text-2xl font-bold mb-2">03</div>
+                <h4 class="font-semibold text-slate-800 text-sm md:text-base mb-1">ฉีดล้างคอยล์</h4>
+                <p class="text-xs text-slate-400 font-light leading-relaxed">ใช้ปืนฉีดน้ำแรงดันสูงขจัดฝุ่นที่แผงรังผึ้ง</p>
             </div>
-            <div class="service-step p-8 bg-white border border-blue-50 rounded-[2.5rem] shadow-xl shadow-blue-900/5 hover:-translate-y-2 transition duration-300">
-                <div class="step-number text-blue-600 text-3xl font-bold mb-4 transition-all duration-300">04</div>
-                <h4 class="font-semibold text-slate-800 mb-2">เป่าไล่ท่อ</h4>
-                <p class="text-sm text-slate-400 font-light leading-relaxed">เป่าไล่สิ่งอุดตันในท่อน้ำทิ้ง ป้องกันน้ำล้นน้ำหยด</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-slate-50 py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-semibold text-blue-900">เปรียบเทียบความคุ้มค่า</h2>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-10 rounded-[3rem] border border-blue-100 shadow-xl relative overflow-hidden group">
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">ล้างมาตรฐาน</h3>
-                    <div class="text-5xl font-bold text-blue-900 mb-8">499.- <span class="text-lg font-normal text-slate-400">/ชุด</span></div>
-                    <ul class="space-y-4 mb-10">
-                        <li class="flex items-center text-sm text-slate-600"><i class="fas fa-check text-blue-500 mr-3"></i> ล้างคอยล์ร้อน + คอยล์เย็น</li>
-                        <li class="flex items-center text-sm text-slate-600"><i class="fas fa-check text-blue-500 mr-3"></i> เช็คระบบไฟฟ้าและน้ำยา</li>
-                        <li class="flex items-center text-sm text-slate-600"><i class="fas fa-check text-blue-500 mr-3"></i> เป่าทำความสะอาดท่อน้ำทิ้ง</li>
-                        <li class="flex items-center text-sm text-slate-300"><i class="fas fa-times mr-3"></i> ถอดถาดน้ำทิ้งหลังมาล้าง</li>
-                        <li class="flex items-center text-sm text-slate-300"><i class="fas fa-times mr-3"></i> ฉีดน้ำยาฆ่าเชื้อโรคโอโซน</li>
-                    </ul>
-                    <a href="https://line.me/ti/p/~becoolair" target="_blank" class="block text-center py-4 bg-blue-900 text-white rounded-2xl font-semibold hover:bg-blue-800 transition">จองล้างมาตรฐาน</a>
-                </div>
-
-                <div class="bg-slate-200 p-10 rounded-[3rem] shadow-inner relative overflow-hidden text-slate-500">
-                    <div class="absolute top-0 right-0 bg-slate-400 text-white text-[10px] font-bold px-6 py-2 rounded-bl-3xl uppercase tracking-widest">COMING SOON</div>
-                    <h3 class="text-xl font-semibold mb-2">ล้างพรีเมียม (ถอดถาด)</h3>
-                    <div class="text-5xl font-bold mb-8">1,090.- <span class="text-lg font-normal">/ชุด</span></div>
-                    <ul class="space-y-4 mb-10 opacity-60">
-                        <li class="flex items-center text-sm"><i class="fas fa-check mr-3"></i> รวมทุกขั้นตอนของแพ็กเกจมาตรฐาน</li>
-                        <li class="flex items-center text-sm"><i class="fas fa-check mr-3"></i> ถอดถาดน้ำทิ้งออกมาขัด (สะอาดที่สุด)</li>
-                        <li class="flex items-center text-sm"><i class="fas fa-check mr-3"></i> อบโอโซนฆ่าเชื้อโรค แบคทีเรีย 99%</li>
-                        <li class="flex items-center text-sm"><i class="fas fa-check mr-3"></i> ตรวจเช็คละเอียด 15 รายการ</li>
-                    </ul>
-                    <button disabled class="w-full text-center py-4 bg-slate-300 text-slate-500 rounded-2xl font-bold cursor-not-allowed">ยังไม่เปิดให้บริการ</button>
-                </div>
+            <div class="service-step p-6 bg-white border border-blue-50 rounded-2xl md:rounded-[2.5rem] shadow-sm hover:shadow-md transition">
+                <div class="step-number text-blue-600 text-2xl font-bold mb-2">04</div>
+                <h4 class="font-semibold text-slate-800 text-sm md:text-base mb-1">เป่าไล่ท่อ</h4>
+                <p class="text-xs text-slate-400 font-light leading-relaxed">เป่าไล่สิ่งอุดตันในท่อน้ำทิ้ง ป้องกันน้ำล้นน้ำหยด</p>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center border-t border-slate-100">
-        <p class="text-slate-400 text-xs tracking-widest uppercase">© 2026 BE COOL SUPPLY & SERVICE SRIRACHA. ALL RIGHTS RESERVED.</p>
+    <!-- Footer -->
+    <footer class="py-8 text-center border-t border-slate-100 bg-white">
+        <p class="text-slate-400 text-[10px] tracking-widest uppercase">© 2026 BE COOL SUPPLY & SERVICE SRIRACHA. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <a href="https://line.me/ti/p/~becoolair" target="_blank" class="fixed bottom-6 right-6 z-[100] hover:scale-110 transition duration-300 drop-shadow-2xl">
-        <img src="line_logo.jpg" alt="Line Support" class="w-14 h-14 rounded-full border-4 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
+    <!-- Fixed Line Floating Button -->
+    <a href="https://line.me/ti/p/~becoolair" target="_blank" class="fixed bottom-5 right-5 z-[100] hover:scale-110 transition duration-300 drop-shadow-2xl">
+        <img src="line_logo.jpg" alt="Line Support" class="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
     </a>
+
+    <script>
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        }
+    </script>
 </body>
 </html>
