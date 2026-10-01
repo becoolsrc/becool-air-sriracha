@@ -17,29 +17,29 @@
 </head>
 <body class="bg-white text-slate-800 antialiased">
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 glass-nav z-50">
+    <!-- Navigation Bar (ขยายขนาดขึ้น 1 ระดับตามสั่ง) -->
+    <nav class="sticky top-0 glass-nav z-50 py-1">
         <div class="flex justify-between items-center px-4 md:px-10 py-3">
             
-            <!-- โลโก้ และ ปุ่มเมนูสามขีดบนมือถือ -->
-            <div class="flex items-center gap-2">
+            <!-- โลโก้ และ ปุ่มเมนูสามขีดบนมือถือ (ปรับขยายขนาดโลโก้) -->
+            <div class="flex items-center gap-3">
                 <button id="mobileMenuBtn" class="lg:hidden text-slate-700 hover:text-blue-600 focus:outline-none p-1">
-                    <i class="fas fa-bars text-xl"></i>
+                    <i class="fas fa-bars text-2xl"></i>
                 </button>
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/index.html" target="_top" class="flex items-center py-1">
-                    <img src="https://becoolsrc.github.io/becool-air-sriracha/becool_logo.jpg" alt="BE COOL Logo" class="h-10 sm:h-12 md:h-20 w-auto object-contain origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
+                    <img src="https://becoolsrc.github.io/becool-air-sriracha/becool_logo.jpg" alt="BE COOL Logo" class="h-12 sm:h-16 md:h-24 w-auto object-contain origin-left scale-105" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
                 </a>
             </div>
 
-            <!-- เมนูหน้าจอคอมพิวเตอร์ (Desktop Menu) -->
-            <div class="hidden lg:flex space-x-8 text-sm font-normal text-slate-500 uppercase tracking-wide items-center">
+            <!-- เมนูหน้าจอคอมพิวเตอร์ (ขยายขนาดฟอนต์เมนูขึ้นเป็น text-base) -->
+            <div class="hidden lg:flex space-x-10 text-base font-normal text-slate-600 uppercase tracking-wide items-center">
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/index.html" target="_top" class="text-blue-600 font-semibold border-b-2 border-blue-600 py-2">หน้าหลัก</a>
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html" target="_top" class="hover:text-blue-500 transition py-2">เลือกซื้อแอร์</a>
                 
                 <div class="relative group">
                     <button class="flex items-center hover:text-blue-500 transition py-2 focus:outline-none">
                         บริการ
-                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
@@ -54,28 +54,28 @@
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/contact.html" target="_top" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
             </div>
 
-            <!-- ปุ่มขวาสุด -->
-            <div class="flex items-center space-x-1.5 sm:space-x-2">
-                <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-md font-medium text-[10px] sm:text-xs">
-                    <i class="fab fa-line text-xs sm:text-base mr-1"></i> แอดไลน์
+            <!-- ปุ่มขวาสุด (ขยายขนาดปุ่มและตัวอักษร) -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-3 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-md font-medium text-xs sm:text-sm">
+                    <i class="fab fa-line text-sm sm:text-lg mr-1.5"></i> แอดไลน์
                 </a>
-                <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-1.5 pr-2.5 py-1 sm:pl-2 sm:pr-4 sm:py-1.5 rounded-full shadow-lg">
-                    <img src="https://becoolsrc.github.io/becool-air-sriracha/tel_logo.jpg" alt="Call" class="w-4 h-4 sm:w-6 sm:h-6 rounded-full mr-1 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
-                    <span class="text-[9px] sm:text-xs font-medium whitespace-nowrap">โทรเลย</span>
+                <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-2 pr-3 py-1.5 sm:pl-3 sm:pr-5 sm:py-2 rounded-full shadow-lg">
+                    <img src="https://becoolsrc.github.io/becool-air-sriracha/tel_logo.jpg" alt="Call" class="w-5 h-5 sm:w-7 sm:h-7 rounded-full mr-1.5 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
+                    <span class="text-xs sm:text-sm font-medium whitespace-nowrap">โทรเลย</span>
                 </a>
             </div>
         </div>
 
         <!-- เมนูบนมือถือ (Mobile Dropdown Menu) -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-2 text-sm text-slate-700 shadow-lg">
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-2 text-base text-slate-700 shadow-lg">
             <a href="https://becoolsrc.github.io/becool-air-sriracha/index.html" target="_top" class="block px-3 py-2 rounded-xl bg-blue-50 text-blue-600 font-semibold">หน้าหลัก</a>
             <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html" target="_top" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">เลือกซื้อแอร์</a>
             
             <div class="space-y-1 pl-3 border-l-2 border-blue-100 my-1">
                 <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block px-1 py-1">บริการของเรา</span>
-                <a href="https://becoolsrc.github.io/becool-air-sriracha/cleaning.html" target="_top" class="block px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50 text-blue-900">ล้างแอร์มาตรฐาน 499.-</a>
-                <a href="https://becoolsrc.github.io/becool-air-sriracha/contact.html" target="_top" class="block px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50">ติดตั้ง/ย้ายแอร์มาตรฐานศูนย์</a>
-                <a href="https://becoolsrc.github.io/becool-air-sriracha/contact.html" target="_top" class="block px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50">ซ่อมบำรุง/แก้ไขแอร์ไม่เย็น</a>
+                <a href="https://becoolsrc.github.io/becool-air-sriracha/cleaning.html" target="_top" class="block px-3 py-1.5 rounded-lg text-sm hover:bg-blue-50 text-blue-900">ล้างแอร์มาตรฐาน 499.-</a>
+                <a href="https://becoolsrc.github.io/becool-air-sriracha/contact.html" target="_top" class="block px-3 py-1.5 rounded-lg text-sm hover:bg-blue-50">ติดตั้ง/ย้ายแอร์มาตรฐานศูนย์</a>
+                <a href="https://becoolsrc.github.io/becool-air-sriracha/contact.html" target="_top" class="block px-3 py-1.5 rounded-lg text-sm hover:bg-blue-50">ซ่อมบำรุง/แก้ไขแอร์ไม่เย็น</a>
             </div>
 
             <a href="https://www.facebook.com/profile.php?id=61583101650416" target="_blank" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">ผลงานที่ผ่านมา</a>
@@ -265,14 +265,12 @@
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html?search=Central" target="_top" class="brand-item w-full flex justify-center items-center h-14 md:h-20 p-1">
                     <img src="https://becoolsrc.github.io/becool-air-sriracha/central_air.png" class="max-h-11 md:max-h-20 max-w-[130px] md:max-w-[170px] object-contain scale-110" alt="Central Air" onerror="this.src='https://placehold.co/160x60?text=CENTRAL+AIR'">
                 </a>
-                <!-- TCL: ปรับเพิ่มขนาดขึ้น 1 ระดับ -->
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html?search=TCL" target="_top" class="brand-item w-full flex justify-center items-center h-14 md:h-20 p-1">
                     <img src="https://becoolsrc.github.io/becool-air-sriracha/tcl.png" class="h-8 md:h-12 max-w-[110px] md:max-w-[160px] object-contain scale-110" alt="TCL" onerror="this.src='https://placehold.co/180x60?text=TCL'">
                 </a>
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html?search=Midea" target="_top" class="brand-item w-full flex justify-center items-center h-14 md:h-20 p-1">
                     <img src="https://becoolsrc.github.io/becool-air-sriracha/midea.png" class="max-h-9 md:max-h-16 max-w-[110px] md:max-w-[150px] object-contain" alt="Midea" onerror="this.src='https://placehold.co/160x60?text=MIDEA'">
                 </a>
-                <!-- AUX: ปรับลดขนาดลง 1 ระดับ -->
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html?search=AUX" target="_top" class="brand-item w-full flex justify-center items-center h-14 md:h-20 p-1">
                     <img src="https://becoolsrc.github.io/becool-air-sriracha/aux_logo.png" class="h-7 md:h-11 max-w-[95px] md:max-w-[140px] object-contain scale-95" alt="AUX" onerror="this.src='https://placehold.co/160x60?text=AUX'">
                 </a>
