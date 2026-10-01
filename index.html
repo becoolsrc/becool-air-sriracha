@@ -12,6 +12,9 @@
         .brand-item { transition: all 0.5s ease; opacity: 0.7; filter: grayscale(100%); }
         .brand-item:hover { opacity: 1; filter: grayscale(0%) contrast(1.25); transform: scale(1.1); }
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #f1f5f9; }
+        
+        /* สไตล์สำหรับ Image Slider */
+        .carousel-item { transition: opacity 0.6s ease-in-out; }
     </style>
 </head>
 <body class="bg-white text-slate-800 antialiased">
@@ -82,20 +85,77 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-b from-white to-blue-50 pt-8 pb-14 md:pt-16 md:pb-20 px-4 md:px-10 text-center">
+    <!-- 1. ส่วนแบนเนอร์สไลด์รูปภาพ (Image Slider Section) -->
+    <section class="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 pt-4 pb-2">
+        <div class="relative w-full overflow-hidden rounded-2xl md:rounded-3xl shadow-lg group bg-slate-100">
+            
+            <div id="carouselSlides" class="relative h-[200px] sm:h-[320px] md:h-[420px] lg:h-[480px] w-full">
+                <!-- Slide 1 -->
+                <div class="carousel-item absolute inset-0 opacity-100 duration-700 ease-in-out">
+                    <img src="img/banner1.jpg" class="w-full h-full object-cover" alt="โปรโมชั่นแอร์ 1" onerror="this.src='https://placehold.co/1200x500/1e3a8a/ffffff?text=BE+COOL+AIR+BANNER+1'">
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item absolute inset-0 opacity-0 duration-700 ease-in-out">
+                    <img src="img/banner2.jpg" class="w-full h-full object-cover" alt="โปรโมชั่นแอร์ 2" onerror="this.src='https://placehold.co/1200x500/0284c7/ffffff?text=BE+COOL+AIR+BANNER+2'">
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-item absolute inset-0 opacity-0 duration-700 ease-in-out">
+                    <img src="img/banner3.jpg" class="w-full h-full object-cover" alt="โปรโมชั่นแอร์ 3" onerror="this.src='https://placehold.co/1200x500/06b6d4/ffffff?text=BE+COOL+AIR+BANNER+3'">
+                </div>
+                <!-- Slide 4 -->
+                <div class="carousel-item absolute inset-0 opacity-0 duration-700 ease-in-out">
+                    <img src="img/banner4.jpg" class="w-full h-full object-cover" alt="โปรโมชั่นแอร์ 4" onerror="this.src='https://placehold.co/1200x500/0f172a/ffffff?text=BE+COOL+AIR+BANNER+4'">
+                </div>
+                <!-- Slide 5 -->
+                <div class="carousel-item absolute inset-0 opacity-0 duration-700 ease-in-out">
+                    <img src="img/banner5.jpg" class="w-full h-full object-cover" alt="โปรโมชั่นแอร์ 5" onerror="this.src='https://placehold.co/1200x500/2563eb/ffffff?text=BE+COOL+AIR+BANNER+5'">
+                </div>
+            </div>
+
+            <!-- ปุ่มกดเลื่อน ซ้าย - ขวา -->
+            <button id="prevBtn" class="absolute top-1/2 left-2 md:left-4 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition backdrop-blur-sm">
+                <i class="fas fa-chevron-left text-xs sm:text-base"></i>
+            </button>
+            <button id="nextBtn" class="absolute top-1/2 right-2 md:right-4 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition backdrop-blur-sm">
+                <i class="fas fa-chevron-right text-xs sm:text-base"></i>
+            </button>
+
+            <!-- จุดวงกลม Indicator -->
+            <div id="carouselDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2 bg-black/20 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                <button class="dot-btn w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-white transition-all"></button>
+                <button class="dot-btn w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-white/50 transition-all"></button>
+                <button class="dot-btn w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-white/50 transition-all"></button>
+                <button class="dot-btn w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-white/50 transition-all"></button>
+                <button class="dot-btn w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-white/50 transition-all"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ส่วนข้อความต้อนรับและปุ่มบริการ (อัปเดตข้อความและปุ่มใหม่) -->
+    <section class="bg-gradient-to-b from-white to-blue-50 pt-8 pb-12 md:pt-12 md:pb-16 px-4 md:px-10 text-center">
         <div class="max-w-6xl mx-auto relative">
             <h1 class="text-2xl sm:text-4xl md:text-6xl font-semibold text-blue-900 mb-3 md:mb-6 leading-tight">
                 BE COOL AIR <span class="font-extralight text-blue-500">ศรีราชา</span><br>
                 <span class="text-lg sm:text-2xl md:text-4xl block mt-1 md:mt-2 font-normal">ศูนย์บริการและจำหน่ายแอร์บ้านครบวงจร</span>
             </h1>
+            
+            <!-- ข้อความปรับแก้ใหม่ตามสั่ง -->
             <p class="text-slate-500 max-w-2xl mx-auto text-xs sm:text-sm md:text-lg font-light mb-6 md:mb-8 leading-relaxed">
-                ขาย ล้าง ติดตั้ง ย้าย ซ่อมแอร์ ในพื้นที่ศรีราชา แหลมฉบัง อ่าวอุดม <br class="hidden md:block">
+                จำหน่าย บริการล้าง ติดตั้ง ย้าย ซ่อมแอร์ ในพื้นที่ศรีราชา - ชลบุรี <br class="hidden md:block">
                 ดูแลโดยทีมช่างผู้เชี่ยวชาญ พร้อมรับประกันงานบริการ
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-2.5 md:gap-4 max-w-xs sm:max-w-none mx-auto">
-                <a href="shop.html" class="bg-blue-600 text-white px-6 py-3 md:px-8 md:py-3.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-medium hover:bg-blue-700 transition shadow-md">เลือกซื้อแอร์พร้อมติดตั้ง</a>
-                <a href="https://line.me/ti/p/~becoolair" target="_blank" class="bg-white text-blue-900 border border-blue-200 px-6 py-3 md:px-8 md:py-3.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-medium hover:bg-blue-50 transition shadow-sm">ประเมินราคา / ปรึกษาช่าง</a>
+            
+            <!-- ปุ่มกดเลือกบริการใหม่ 3 ปุ่ม -->
+            <div class="flex flex-col sm:flex-row justify-center gap-2.5 md:gap-4 max-w-sm sm:max-w-none mx-auto">
+                <a href="shop.html" class="bg-blue-600 text-white px-5 py-3 md:px-7 md:py-3.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-medium hover:bg-blue-700 transition shadow-md flex items-center justify-center gap-1.5">
+                    <i class="fas fa-shopping-cart text-xs"></i> เลือกซื้อแอร์พร้อมติดตั้ง
+                </a>
+                <a href="cleaning.html" class="bg-teal-600 text-white px-5 py-3 md:px-7 md:py-3.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-medium hover:bg-teal-700 transition shadow-md flex items-center justify-center gap-1.5">
+                    <i class="fas fa-broom text-xs"></i> จองคิวล้างแอร์ 499.-
+                </a>
+                <a href="https://line.me/ti/p/~becoolair" target="_blank" class="bg-white text-blue-900 border border-blue-200 px-5 py-3 md:px-7 md:py-3.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-medium hover:bg-blue-50 transition shadow-sm flex items-center justify-center gap-1.5">
+                    <i class="fas fa-tools text-xs text-blue-600"></i> แจ้งซ่อมและประเมินราคา
+                </a>
             </div>
         </div>
     </section>
@@ -105,7 +165,7 @@
         <div class="bg-white rounded-2xl md:rounded-[2.5rem] border border-blue-100 p-4 sm:p-6 md:p-10 shadow-sm">
             <div class="text-center mb-6 md:mb-8">
                 <span class="bg-blue-100 text-blue-800 text-[10px] md:text-sm px-3 py-1 md:px-4 md:py-1.5 rounded-full font-bold uppercase tracking-wider mb-2 inline-block shadow-sm">
-                    <i class="fas fa-calculator mr-1"></i> BTU Calculator
+                    <i class="fas fa-calculator mr-1"></i> BTU CALCULATOR
                 </span>
                 <h2 class="text-xl md:text-4xl font-extrabold text-blue-900">คำนวณขนาดแอร์ (BTU) ที่เหมาะสม</h2>
                 <div class="w-12 md:w-16 h-1 bg-blue-500 mx-auto my-2 md:my-3 rounded-full"></div>
@@ -216,7 +276,7 @@
                     <img src="midea.png" class="max-h-9 md:max-h-16 max-w-[110px] md:max-w-[150px] object-contain" alt="Midea" onerror="this.src='https://placehold.co/160x60?text=MIDEA'">
                 </a>
                 <a href="shop.html?search=AUX" class="brand-item w-full flex justify-center items-center h-14 md:h-20 p-1">
-                    <img src="aux_logo.png" class="h-8 md:h-14 max-w-[110px] md:max-w-[160px] object-contain scale-110" alt="AUX" onerror="this.src='https://placehold.co/160x60?text=AUX'">
+                    <img src="aux-brand.png" class="h-8 md:h-14 max-w-[110px] md:max-w-[160px] object-contain scale-110" alt="AUX" onerror="this.src='https://placehold.co/160x60?text=AUX'">
                 </a>
             </div>
         </div>
@@ -232,18 +292,87 @@
         <img src="line_logo.jpg" alt="Line Support" class="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
     </a>
 
-    <!-- Script ควบคุมระบบคำนวณและปุ่มเมนูมือถือ -->
+    <!-- Scripts -->
     <script>
-        // ระบบเปิด-ปิด เมนูบนมือถือ
+        // 1. ระบบเปิด-ปิด เมนูมือถือ
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         if (btn && menu) {
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
+            btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        }
+
+        // 2. ระบบสไลด์รูปภาพแบนเนอร์ (Carousel)
+        const slides = document.querySelectorAll('.carousel-item');
+        const dots = document.querySelectorAll('.dot-btn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
+            
+            currentIndex = index;
+
+            slides.forEach((slide, i) => {
+                if (i === currentIndex) {
+                    slide.classList.remove('opacity-0');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0');
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === currentIndex) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-white', 'w-5');
+                } else {
+                    dot.classList.remove('bg-white', 'w-5');
+                    dot.classList.add('bg-white/50', 'w-2.5');
+                }
             });
         }
 
-        // ระบบคำนวณ BTU
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                showSlide(currentIndex + 1);
+            }, 4000); // เปลี่ยนรูปอัตโนมัติทุกๆ 4 วินาที
+        }
+
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                showSlide(currentIndex - 1);
+                startAutoSlide();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                showSlide(currentIndex + 1);
+                startAutoSlide();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    stopAutoSlide();
+                    showSlide(index);
+                    startAutoSlide();
+                });
+            });
+
+            // เริ่มทำงานสไลด์
+            showSlide(0);
+            startAutoSlide();
+        }
+
+        // 3. ระบบคำนวณ BTU
         function calculateBTU() {
             const width = parseFloat(document.getElementById('roomWidth').value);
             const length = parseFloat(document.getElementById('roomLength').value);
