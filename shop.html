@@ -3,360 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รายการแอร์พร้อมติดตั้ง | BE COOL AIR ศรีราชา</title>
+    <title>เลือกซื้อแอร์พร้อมติดตั้ง | BE COOL AIR ศรีราชา</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style> 
         body { font-family: 'Kanit', sans-serif; scroll-behavior: smooth; }
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #f1f5f9; }
-        .filter-check { accent-color: #1e3a8a; width: 1rem; height: 1rem; }
-        .sidebar-scroll::-webkit-scrollbar { width: 4px; }
-        .sidebar-scroll::-webkit-scrollbar-track { background: #f8fafc; }
-        .sidebar-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover { transform: translateY(-4px); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 glass-nav z-50">
-        <div class="flex justify-between items-center px-4 md:px-10 py-3">
+    <!-- Header / Navigation Bar -->
+    <nav class="sticky top-0 glass-nav z-50 py-1">
+        <div class="flex justify-between items-center px-4 md:px-10 py-3 max-w-7xl mx-auto">
             
-            <!-- โลโก้ และ ปุ่มเมนูสามขีดบนมือถือ -->
-            <div class="flex items-center gap-2">
+            <!-- โลโก้ และ ปุ่มเมนูมือถือ -->
+            <div class="flex items-center gap-3">
                 <button id="mobileMenuBtn" class="lg:hidden text-slate-700 hover:text-blue-600 focus:outline-none p-1">
-                    <i class="fas fa-bars text-xl"></i>
+                    <i class="fas fa-bars text-2xl"></i>
                 </button>
-                <a href="index.html" class="flex items-center py-1">
-                    <img src="becool_logo.jpg" alt="BE COOL Logo" class="h-10 sm:h-12 md:h-20 w-auto object-contain origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
+                <a href="https://sites.google.com/view/becoolair-sriracha" target="_top" class="flex items-center py-1">
+                    <img src="https://becoolsrc.github.io/becool-air-sriracha/becool_logo.jpg" alt="BE COOL Logo" class="h-12 sm:h-16 md:h-20 w-auto object-contain origin-left" onerror="this.src='https://placehold.co/220x80?text=BE+COOL+AIR'">
                 </a>
             </div>
 
-            <!-- เมนูหน้าจอคอมพิวเตอร์ (Desktop Menu) -->
-            <div class="hidden lg:flex space-x-8 text-sm font-normal text-slate-500 uppercase tracking-wide items-center">
-                <a href="index.html" class="hover:text-blue-500 transition py-2">หน้าหลัก</a>
-                <a href="shop.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 py-2">เลือกซื้อแอร์</a>
-                
-                <div class="relative group">
-                    <button class="flex items-center hover:text-blue-500 transition py-2 focus:outline-none">
-                        บริการ
-                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="absolute left-0 mt-0 w-64 bg-white border border-blue-50 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden p-2 text-slate-600">
-                        <a href="cleaning.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm">ล้างแอร์มาตรฐาน 499.-</a>
-                        <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm">ติดตั้ง/ย้ายแอร์มาตรฐานศูนย์</a>
-                        <a href="contact.html" class="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition text-sm">ซ่อมบำรุง/แก้ไขแอร์ไม่เย็น</a>
-                    </div>
-                </div>
-
+            <!-- เมนูคอมพิวเตอร์ -->
+            <div class="hidden lg:flex space-x-10 text-base font-normal text-slate-600 uppercase tracking-wide items-center">
+                <a href="https://sites.google.com/view/becoolair-sriracha" target="_top" class="hover:text-blue-500 transition py-2">หน้าหลัก</a>
+                <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html" target="_top" class="text-blue-600 font-semibold border-b-2 border-blue-600 py-2">เลือกซื้อแอร์</a>
+                <a href="https://becoolsrc.github.io/becool-air-sriracha/cleaning.html" target="_top" class="hover:text-blue-500 transition py-2">ล้างแอร์ 499.-</a>
                 <a href="https://www.facebook.com/profile.php?id=61583101650416" target="_blank" class="hover:text-blue-500 transition py-2">ผลงานที่ผ่านมา</a>
-                <a href="contact.html" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
+                <a href="https://becoolsrc.github.io/becool-air-sriracha/contact.html" target="_top" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
             </div>
 
             <!-- ปุ่มขวาสุด -->
-            <div class="flex items-center space-x-1.5 sm:space-x-2">
-                <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-md font-medium text-[10px] sm:text-xs">
-                    <i class="fab fa-line text-xs sm:text-base mr-1"></i> แอดไลน์
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-3 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-md font-medium text-xs sm:text-sm">
+                    <i class="fab fa-line text-sm sm:text-lg mr-1.5"></i> แอดไลน์
                 </a>
-                <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-1.5 pr-2.5 py-1 sm:pl-2 sm:pr-4 sm:py-1.5 rounded-full shadow-lg">
-                    <img src="tel_logo.jpg" alt="Call" class="w-4 h-4 sm:w-6 sm:h-6 rounded-full mr-1 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
-                    <span class="text-[9px] sm:text-xs font-medium whitespace-nowrap">โทรเลย</span>
+                <a href="tel:0815251916" class="hover:scale-105 transition duration-300 flex items-center bg-blue-900 text-white pl-2 pr-3 py-1.5 sm:pl-3 sm:pr-5 sm:py-2 rounded-full shadow-lg">
+                    <img src="https://becoolsrc.github.io/becool-air-sriracha/tel_logo.jpg" alt="Call" class="w-5 h-5 sm:w-7 sm:h-7 rounded-full mr-1.5 object-cover" onerror="this.src='https://placehold.co/300x200?text=TEL'">
+                    <span class="text-xs sm:text-sm font-medium whitespace-nowrap">โทรเลย</span>
                 </a>
             </div>
         </div>
 
-        <!-- เมนูบนมือถือ (Mobile Dropdown Menu) -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-2 text-sm text-slate-700 shadow-lg">
-            <a href="index.html" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">หน้าหลัก</a>
-            <a href="shop.html" class="block px-3 py-2 rounded-xl bg-blue-50 text-blue-600 font-semibold">เลือกซื้อแอร์</a>
-            
-            <div class="space-y-1 pl-3 border-l-2 border-blue-100 my-1">
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block px-1 py-1">บริการของเรา</span>
-                <a href="cleaning.html" class="block px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50">ล้างแอร์มาตรฐาน 499.-</a>
-                <a href="contact.html" class="block px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50">ติดตั้ง/ย้ายแอร์มาตรฐานศูนย์</a>
-                <a href="contact.html" class="block px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50">ซ่อมบำรุง/แก้ไขแอร์ไม่เย็น</a>
-            </div>
-
+        <!-- เมนูมือถือ -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-2 text-base text-slate-700 shadow-lg">
+            <a href="https://sites.google.com/view/becoolair-sriracha" target="_top" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">หน้าหลัก</a>
+            <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html" target="_top" class="block px-3 py-2 rounded-xl bg-blue-50 text-blue-600 font-semibold">เลือกซื้อแอร์</a>
+            <a href="https://becoolsrc.github.io/becool-air-sriracha/cleaning.html" target="_top" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">ล้างแอร์ 499.-</a>
             <a href="https://www.facebook.com/profile.php?id=61583101650416" target="_blank" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">ผลงานที่ผ่านมา</a>
-            <a href="contact.html" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">ติดต่อเรา</a>
+            <a href="https://becoolsrc.github.io/becool-air-sriracha/contact.html" target="_top" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">ติดต่อเรา</a>
         </div>
     </nav>
 
-    <!-- Main Content Area -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-6 md:mt-12 mb-10 flex-grow w-full">
-        <div class="text-center mb-6 md:mb-10">
-            <h1 class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-1 uppercase tracking-tight">Air Conditioning Catalog</h1>
-            <p class="text-slate-500 text-xs md:text-sm italic">"เย็นสบาย มั่นใจ ในราคามาตรฐาน Be Cool Air ศรีราชา"</p>
+    <!-- Header Section -->
+    <section class="bg-gradient-to-b from-blue-900 to-blue-800 text-white py-10 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="bg-blue-500/30 text-blue-200 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2 inline-block">AIR CONDITIONER CATALOG</span>
+            <h1 class="text-2xl sm:text-4xl font-extrabold mb-2">แคตตาล็อกเครื่องปรับอากาศ</h1>
+            <p class="text-blue-100 text-xs sm:text-base font-light">จำหน่ายพร้อมบริการติดตั้งมาตรฐาน รับประกันงานติดตั้ง ศรีราชา-ชลบุรี</p>
         </div>
-        
-        <!-- ช่องค้นหา -->
-        <div class="relative max-w-2xl mx-auto mb-6 md:mb-10">
-            <input type="text" id="searchInput" placeholder="ค้นหาแบรนด์ หรือ รุ่นแอร์..." class="w-full pl-12 pr-4 py-3 md:py-4 bg-white border border-blue-100 rounded-2xl md:rounded-full shadow-md text-sm focus:outline-none focus:border-blue-500 transition-all">
-            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-sm"></i>
-        </div>
+    </section>
 
-        <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
-            <!-- Sidebar ตัวกรอง -->
-            <aside class="w-full lg:w-64 shrink-0">
-                <div class="bg-white p-5 rounded-2xl md:rounded-[2rem] border border-slate-100 shadow-sm lg:sticky lg:top-28 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto sidebar-scroll space-y-5">
-                    <div class="flex justify-between items-center pb-2 border-b border-slate-100">
-                        <h2 class="font-bold text-blue-900 text-sm md:text-base"><i class="fas fa-filter text-blue-600 mr-1"></i> ตัวกรองสินค้า</h2>
-                        <button id="resetFilters" class="text-xs text-blue-500 font-medium hover:underline">ล้างทั้งหมด</button>
-                    </div>
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8 flex-grow w-full">
 
-                    <div>
-                        <h3 class="font-bold text-slate-700 mb-2 text-xs md:text-sm flex items-center gap-2"><i class="fas fa-tag text-blue-500 text-xs"></i> ยี่ห้อ (Brand)</h3>
-                        <div id="brandFilter" class="space-y-1.5 text-xs md:text-sm"></div>
-                    </div>
-
-                    <hr class="border-slate-100">
-
-                    <div>
-                        <h3 class="font-bold text-slate-700 mb-2 text-xs md:text-sm flex items-center gap-2"><i class="fas fa-layer-group text-blue-500 text-xs"></i> ประเภทแอร์</h3>
-                        <div id="typeFilter" class="space-y-1.5 text-xs md:text-sm"></div>
-                    </div>
-
-                    <hr class="border-slate-100">
-
-                    <div>
-                        <h3 class="font-bold text-slate-700 mb-2 text-xs md:text-sm flex items-center gap-2"><i class="fas fa-microchip text-blue-500 text-xs"></i> ระบบการทำงาน</h3>
-                        <div id="systemFilter" class="space-y-1.5 text-xs md:text-sm"></div>
-                    </div>
-
-                    <hr class="border-slate-100">
-
-                    <div>
-                        <h3 class="font-bold text-slate-700 mb-2 text-xs md:text-sm flex items-center gap-2"><i class="fas fa-expand-arrows-alt text-blue-500 text-xs"></i> ขนาด BTU</h3>
-                        <div id="btuFilter" class="space-y-1.5 text-xs md:text-sm">
-                            <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="0-10000" class="filter-check"> 9,000 - 10,000</label>
-                            <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="11000-14000" class="filter-check"> 12,000 - 14,000</label>
-                            <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="15000-20000" class="filter-check"> 15,000 - 20,000</label>
-                            <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition"><input type="checkbox" value="21000-99999" class="filter-check"> 24,000 ขึ้นไป</label>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- สินค้า Grid -->
-            <main class="flex-1">
-                <div id="loading" class="text-center py-16 bg-white rounded-2xl md:rounded-[2rem] border border-slate-100 mb-6">
-                    <i class="fas fa-circle-notch fa-spin text-blue-900 text-3xl mb-3"></i>
-                    <p class="text-slate-400 text-xs md:text-sm animate-pulse">กำลังดึงข้อมูลสินค้าจาก Google Sheets...</p>
-                </div>
+        <!-- Search & Filter Bar -->
+        <div class="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4">
                 
-                <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6"></div>
-
-                <div id="noResults" class="hidden text-center py-20 bg-white rounded-2xl border-2 border-dashed border-slate-100">
-                    <i class="fas fa-search text-slate-200 text-4xl mb-3"></i>
-                    <h3 class="text-lg font-bold text-blue-900">ไม่พบรุ่นที่ต้องการ</h3>
-                    <p class="text-slate-400 text-xs mt-1">กรุณาลองเปลี่ยนคำค้นหา หรือล้างตัวกรอง</p>
+                <!-- ค้นหาชื่อรุ่น -->
+                <div class="md:col-span-2">
+                    <label class="block text-xs font-bold text-slate-600 mb-1">ค้นหารุ่น / คีย์เวิร์ด</label>
+                    <div class="relative">
+                        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="พิมพ์ชื่อแบรนด์ หรือขนาด BTU..." class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+                        <i class="fas fa-search absolute left-3 top-3 text-slate-400 text-xs"></i>
+                    </div>
                 </div>
-            </main>
+
+                <!-- กรองแบรนด์ -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">เลือกตามแบรนด์</label>
+                    <select id="brandFilter" onchange="filterProducts()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500 text-slate-700">
+                        <option value="all">ทุกแบรนด์</option>
+                        <option value="Daikin">Daikin (ไดกิ้น)</option>
+                        <option value="Carrier">Carrier (แคเรียร์)</option>
+                        <option value="Mitsubishi">Mitsubishi (มิตซูบิชิ)</option>
+                        <option value="Gree">Gree (กรี)</option>
+                        <option value="Haier">Haier (ไฮเออร์)</option>
+                        <option value="Hisense">Hisense (ไฮเซ่นส์)</option>
+                        <option value="Central">Central Air (เซ็นทรัลแอร์)</option>
+                        <option value="TCL">TCL</option>
+                        <option value="Midea">Midea (ไมเดีย)</option>
+                        <option value="AUX">AUX</option>
+                    </select>
+                </div>
+
+                <!-- กรอง BTU -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">เลือกขนาด BTU</label>
+                    <select id="btuFilter" onchange="filterProducts()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500 text-slate-700">
+                        <option value="all">ทุกขนาด BTU</option>
+                        <option value="9000">9,000 BTU</option>
+                        <option value="12000">12,000 BTU</option>
+                        <option value="15000">15,000 BTU</option>
+                        <option value="18000">18,000 BTU</option>
+                        <option value="24000">24,000 BTU</option>
+                        <option value="30000">30,000 BTU ขึ้นไป</option>
+                    </select>
+                </div>
+
+            </div>
+            
+            <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500">
+                <span>แสดงผล: <strong id="productCount" class="text-blue-600">0</strong> รายการ</span>
+                <button onclick="resetFilters()" class="text-blue-600 hover:underline font-medium">
+                    <i class="fas fa-undo mr-1"></i> ล้างการค้นหา
+                </button>
+            </div>
         </div>
-    </div>
+
+        <!-- Product Grid -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <!-- สินค้าจะสร้างขึ้นอัตโนมัติผ่าน JS -->
+        </div>
+
+        <!-- เมื่อไม่พบสินค้า -->
+        <div id="noProduct" class="hidden text-center py-16">
+            <i class="fas fa-search-minus text-4xl text-slate-300 mb-3"></i>
+            <p class="text-slate-500 text-base font-medium">ไม่พบแอร์ที่ตรงกับเงื่อนไขการค้นหา</p>
+            <p class="text-slate-400 text-xs mt-1">ลองเปลี่ยนคำค้นหา หรือสอบถามเจ้าหน้าที่ทาง LINE ได้ครับ</p>
+            <a href="https://line.me/ti/p/~becoolair" target="_blank" class="inline-flex items-center gap-2 mt-4 bg-[#06C755] text-white text-xs font-bold px-5 py-2.5 rounded-full shadow hover:bg-green-600 transition">
+                <i class="fab fa-line text-base"></i> สอบถามแอร์รุ่นอื่นๆ เพิ่มเติม
+            </a>
+        </div>
+
+    </main>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 text-center border-t border-slate-100 mt-auto bg-white">
-        <p class="text-slate-400 text-[10px] tracking-widest uppercase">© 2026 BE COOL SUPPLY & SERVICE SRIRACHA. ALL RIGHTS RESERVED.</p>
+    <footer class="py-6 text-center border-t border-slate-200 bg-white text-xs text-slate-400 mt-auto">
+        <p>© 2026 BE COOL SUPPLY & SERVICE SRIRACHA. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <!-- Fixed Line Floating Button -->
     <a href="https://line.me/ti/p/~becoolair" target="_blank" class="fixed bottom-5 right-5 z-[100] hover:scale-110 transition duration-300 drop-shadow-2xl">
-        <img src="line_logo.jpg" alt="Line Support" class="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
+        <img src="https://becoolsrc.github.io/becool-air-sriracha/line_logo.jpg" alt="Line Support" class="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white shadow-lg" onerror="this.src='https://placehold.co/300x200?text=LINE'">
     </a>
 
     <!-- Scripts -->
     <script>
-        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQH83bBx3g_BQMsG6NFdYShhGyGDh1EjxXzVCLN0KWyFY42KiOZoQsCzc0g8vBsId-aotZfmwjld_w5/pub?gid=0&single=true&output=csv';
-        let allProducts = [];
-
-        // ควบคุมปุ่มเมนูสามขีดมือถือ
-        const btn = document.getElementById('mobileMenuBtn');
-        const menu = document.getElementById('mobileMenu');
-        if (btn && menu) {
-            btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        // 1. ระบบเปิด-ปิด เมนูมือถือ
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         }
 
-        function parseCSVLine(text) {
-            let p = '', c = '', r = [];
-            let q = false;
-            for (let i = 0; i < text.length; i++) {
-                c = text[i];
-                if (c === '"') {
-                    if (q && text[i+1] === '"') { p += '"'; i++; }
-                    else { q = !q; }
-                } else if (c === ',' && !q) {
-                    r.push(p.trim());
-                    p = '';
-                } else {
-                    p += c;
-                }
-            }
-            r.push(p.trim());
-            return r;
-        }
+        // 2. ข้อมูลรายการสินค้าตัวอย่างในแคตตาล็อก
+        const products = [
+            { id: 1, brand: 'Daikin', name: 'Daikin Inverter FTKF Series', btu: '9000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว', logo: 'daikin.png' },
+            { id: 2, brand: 'Daikin', name: 'Daikin Inverter FTKF Series', btu: '12000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว', logo: 'daikin.png' },
+            { id: 3, brand: 'Daikin', name: 'Daikin Inverter FTKF Series', btu: '18000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว', logo: 'daikin.png' },
+            { id: 4, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '9000', tag: 'Inverter คอยล์ทองแดง', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป / ประหยัดไฟ', logo: 'carrier.png' },
+            { id: 5, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '12000', tag: 'Inverter คอยล์ทองแดง', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป / ประหยัดไฟ', logo: 'carrier.png' },
+            { id: 6, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '18000', tag: 'Inverter คอยล์ทองแดง', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป / ประหยัดไฟ', logo: 'carrier.png' },
+            { id: 7, brand: 'Mitsubishi', name: 'Mitsubishi Heavy Duty Inverter', btu: '9000', tag: 'Inverter เย็นเร็ว', desc: 'กระจายลมไกล 12 เมตร / ทำงานเงียบ / ทนทาน', logo: 'mitsubishi.png' },
+            { id: 8, brand: 'Mitsubishi', name: 'Mitsubishi Heavy Duty Inverter', btu: '12000', tag: 'Inverter เย็นเร็ว', desc: 'กระจายลมไกล 12 เมตร / ทำงานเงียบ / ทนทาน', logo: 'mitsubishi.png' },
+            { id: 9, brand: 'Haier', name: 'Haier Inverter VNS Series', btu: '9000', tag: 'คุ้มราคา Inverter', desc: 'ระบบทำความสะอาดตัวเอง Self-Cleaning / เย็นเร็ว', logo: 'haier.png' },
+            { id: 10, brand: 'Haier', name: 'Haier Inverter VNS Series', btu: '12000', tag: 'คุ้มราคา Inverter', desc: 'ระบบทำความสะอาดตัวเอง Self-Cleaning / เย็นเร็ว', logo: 'haier.png' },
+            { id: 11, brand: 'Hisense', name: 'Hisense Inverter KB Series', btu: '9000', tag: 'ราคาสุดคุ้ม', desc: 'แผ่นกรอง 4 in 1 / ทำความเย็นสม่ำเสมอ / R32', logo: 'hisense.png' },
+            { id: 12, brand: 'Hisense', name: 'Hisense Inverter KB Series', btu: '18000', tag: 'ราคาสุดคุ้ม', desc: 'แผ่นกรอง 4 in 1 / ทำความเย็นสม่ำเสมอ / R32', logo: 'hisense.png' },
+            { id: 13, brand: 'Gree', name: 'Gree Inverter Pular Series', btu: '12000', tag: 'Inverter เย็นฉ่ำ', desc: 'ทนทาน ประหยัดไฟ / แผ่นกรองยับยั้งแบคทีเรีย', logo: 'gree.png' },
+            { id: 14, brand: 'Central', name: 'Central Air Inverter JSFE', btu: '9000', tag: 'ยอดนิยม', desc: 'คอยล์ทองแดงแท้ / ระบบทำงานเงียบ / R32', logo: 'central_air.png' },
+            { id: 15, brand: 'TCL', name: 'TCL Inverter T-Pro Series', btu: '12000', tag: 'Inverter WiFi', desc: 'ควบคุมผ่านสมาร์ตโฟน / ล้างตัวเองได้ / เย็นเร็ว', logo: 'tcl.png' }
+        ];
 
-        async function init() {
-            const loading = document.getElementById('loading');
-            try {
-                const response = await fetch(sheetUrl);
-                if (!response.ok) throw new Error('HTTP Status: ' + response.status);
-                const data = await response.text();
-                
-                const rows = data.split(/\r?\n/).filter(row => row.trim() !== '');
-                allProducts = rows.slice(1).map(row => {
-                    const cols = parseCSVLine(row);
-                    return {
-                        brand: cols[0] || '',
-                        type: cols[1] || '',
-                        system: cols[2] || '',
-                        model: cols[3] || '',
-                        model2: cols[4] || '',
-                        spec_btu: parseInt((cols[5] || '').replace(/[^0-9]/g, '')) || 0,
-                        btu_text: cols[5] || ''
-                    };
-                }).filter(p => p.brand && p.brand !== 'X' && (p.model || p.model2));
-
-                if (allProducts.length === 0) {
-                    loading.innerHTML = '<p class="text-red-500 p-4 text-xs">ไม่พบข้อมูลสินค้าที่ถูกต้องใน Google Sheets</p>';
-                    return;
-                }
-
-                generateDynamicFilters();
-                
-                const urlParams = new URLSearchParams(window.location.search);
-                const searchQuery = urlParams.get('search');
-                if (searchQuery) {
-                    document.getElementById('searchInput').value = searchQuery;
-                }
-
-                loading.classList.add('hidden');
-                filter();
-            } catch (e) {
-                console.error("Debug Error:", e);
-                loading.innerHTML = `<div class="text-red-500 p-6 text-xs"><p class="font-bold">โหลดข้อมูลไม่สำเร็จ!</p></div>`;
-            }
-        }
-
-        function generateDynamicFilters() {
-            const invalidValues = ['X', 'x', '-', ''];
-            const brands = [...new Set(allProducts.map(p => p.brand))].filter(b => !invalidValues.includes(b)).sort();
-            const types = [...new Set(allProducts.map(p => p.type))].filter(t => !invalidValues.includes(t)).sort();
-            const systems = [...new Set(allProducts.map(p => p.system))].filter(s => !invalidValues.includes(s)).sort();
-
-            document.getElementById('brandFilter').innerHTML = brands.map(b => `
-                <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition">
-                    <input type="checkbox" value="${b}" class="brand-check filter-check"> ${b}
-                </label>
-            `).join('');
-
-            document.getElementById('typeFilter').innerHTML = types.map(t => `
-                <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition">
-                    <input type="checkbox" value="${t}" class="type-check filter-check"> ${t}
-                </label>
-            `).join('');
-
-            document.getElementById('systemFilter').innerHTML = systems.map(s => `
-                <label class="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition">
-                    <input type="checkbox" value="${s}" class="system-check filter-check"> ${s}
-                </label>
-            `).join('');
-
-            document.querySelectorAll('.filter-check').forEach(c => c.addEventListener('change', filter));
-        }
-
-        function render(list) {
+        // 3. แสดงผลการ์ดสินค้า
+        function renderProducts(items) {
             const grid = document.getElementById('productGrid');
-            const noResults = document.getElementById('noResults');
+            const noProd = document.getElementById('noProduct');
+            const countText = document.getElementById('productCount');
             
-            if (list.length === 0) {
-                grid.innerHTML = '';
-                noResults.classList.remove('hidden');
+            grid.innerHTML = '';
+            countText.innerText = items.length;
+
+            if (items.length === 0) {
+                noProd.classList.remove('hidden');
                 return;
+            } else {
+                noProd.classList.add('hidden');
             }
-            
-            noResults.classList.add('hidden');
-            grid.innerHTML = list.map(p => {
-                const rawModel = p.model || p.model2;
-                const nameWithUnderscore = rawModel.trim().replace(/[\s\-\.]+/g, '_');
-                const nameWithHyphen = rawModel.trim().replace(/[\s_]+/g, '-');
-                const nameRaw = rawModel.trim();
 
-                return `
-                    <div class="p-4 flex flex-col justify-between h-full bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition duration-300">
+            items.forEach(p => {
+                const btuFormatted = parseInt(p.btu).toLocaleString();
+                const lineUrl = `https://line.me/ti/p/~becoolair?text=${encodeURIComponent('สนใจสอบถามราคาแอร์ ' + p.brand + ' ' + btuFormatted + ' BTU พร้อมติดตั้งครับ')}`;
+                
+                const card = `
+                    <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
                         <div>
-                            <div class="flex justify-between items-center mb-3">
-                                <span class="text-[9px] ${p.system.toLowerCase().includes('inverter') ? 'bg-blue-600' : 'bg-red-600'} text-white px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">${p.system}</span>
-                                <span class="text-[9px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md font-bold">${p.type}</span>
+                            <div class="p-4 bg-slate-50 relative flex items-center justify-center h-44 border-b border-slate-100">
+                                <span class="absolute top-3 left-3 bg-blue-100 text-blue-800 text-[10px] font-bold px-2.5 py-1 rounded-full">
+                                    ${p.tag}
+                                </span>
+                                <img src="https://becoolsrc.github.io/becool-air-sriracha/${p.logo}" alt="${p.brand}" class="max-h-20 max-w-[140px] object-contain" onerror="this.src='https://placehold.co/180x60?text=${p.brand}'">
                             </div>
-                            
-                            <div class="h-32 sm:h-36 w-full flex items-center justify-center p-2 mb-3 bg-slate-50/50 rounded-xl">
-                                <img src="img/${nameWithUnderscore}.jpg" 
-                                     class="max-h-full max-w-full object-contain" 
-                                     onerror="this.onerror=null; this.src='img/${nameWithHyphen}.jpg'; this.onerror=function(){ this.onerror=null; this.src='img/${nameRaw}.jpg'; this.onerror=function(){ this.src='https://placehold.co/300x200?text=${encodeURIComponent(p.brand)}'; }; };">
-                            </div>
-                            
-                            <div class="mb-3 bg-blue-50/40 border border-blue-100/50 rounded-xl p-2 text-center">
-                                <p class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">ขนาดทำความเย็น</p>
-                                <p class="text-base sm:text-lg font-extrabold text-blue-900">${p.btu_text} BTU</p>
-                            </div>
-
-                            <div class="text-center mb-4">
-                                <span class="text-xs font-semibold text-blue-600 block mb-0.5">${p.brand} - ${p.model}</span>
-                                <h3 class="font-bold text-slate-800 text-xs sm:text-sm leading-snug">${p.model2}</h3>
+                            <div class="p-4">
+                                <div class="text-[11px] font-bold text-blue-600 uppercase tracking-wider mb-1">${p.brand}</div>
+                                <h3 class="font-bold text-slate-800 text-sm sm:text-base leading-snug mb-1">${p.name}</h3>
+                                <p class="text-orange-600 font-extrabold text-lg mb-2">${btuFormatted} <span class="text-xs text-slate-500 font-normal">BTU</span></p>
+                                <p class="text-slate-500 text-xs leading-relaxed mb-4 line-clamp-2">${p.desc}</p>
                             </div>
                         </div>
-
-                        <a href="product-detail.html?model=${encodeURIComponent(p.model2 || p.model)}" class="w-full text-center bg-blue-900 text-white py-2.5 rounded-xl text-xs font-bold hover:bg-blue-800 transition shadow-sm active:scale-95 block">
-                            เช็คราคา / สอบถามข้อมูล
-                        </a>
+                        <div class="p-4 pt-0">
+                            <a href="${lineUrl}" target="_blank" class="block w-full text-center bg-blue-900 hover:bg-blue-800 text-white font-medium py-2.5 rounded-xl text-xs sm:text-sm transition shadow-sm">
+                                <i class="fab fa-line mr-1 text-green-400 text-base"></i> เช็กราคาพร้อมติดตั้ง
+                            </a>
+                        </div>
                     </div>
                 `;
-            }).join('');
+                grid.innerHTML += card;
+            });
         }
 
-        function filter() {
-            const term = document.getElementById('searchInput').value.toLowerCase();
-            const checkedBrands = Array.from(document.querySelectorAll('.brand-check:checked')).map(i => i.value);
-            const checkedTypes = Array.from(document.querySelectorAll('.type-check:checked')).map(i => i.value);
-            const checkedSystems = Array.from(document.querySelectorAll('.system-check:checked')).map(i => i.value);
-            const checkedBtu = Array.from(document.querySelectorAll('#btuFilter input:checked')).map(i => i.value);
+        // 4. ระบบกรองและการค้นหา
+        function filterProducts() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const brand = document.getElementById('brandFilter').value;
+            const btu = document.getElementById('btuFilter').value;
 
-            const filtered = allProducts.filter(p => {
-                const matchSearch = p.brand.toLowerCase().includes(term) || 
-                                    p.model.toLowerCase().includes(term) || 
-                                    p.model2.toLowerCase().includes(term) ||
-                                    p.type.toLowerCase().includes(term) ||
-                                    p.btu_text.toLowerCase().includes(term);
+            const filtered = products.filter(p => {
+                const matchSearch = p.name.toLowerCase().includes(search) || p.brand.toLowerCase().includes(search) || p.btu.includes(search);
+                const matchBrand = (brand === 'all') || (p.brand.toLowerCase() === brand.toLowerCase());
                 
-                const matchBrand = checkedBrands.length === 0 || checkedBrands.includes(p.brand);
-                const matchType = checkedTypes.length === 0 || checkedTypes.includes(p.type);
-                const matchSystem = checkedSystems.length === 0 || checkedSystems.includes(p.system);
-
                 let matchBtu = true;
-                if (checkedBtu.length > 0) {
-                    matchBtu = checkedBtu.some(range => {
-                        const [min, max] = range.split('-').map(Number);
-                        return p.spec_btu >= min && p.spec_btu <= max;
-                    });
+                if (btu === '30000') {
+                    matchBtu = parseInt(p.btu) >= 30000;
+                } else if (btu !== 'all') {
+                    matchBtu = p.btu === btu;
                 }
 
-                return matchSearch && matchBrand && matchType && matchSystem && matchBtu;
+                return matchSearch && matchBrand && matchBtu;
             });
 
-            render(filtered);
+            renderProducts(filtered);
         }
 
-        document.getElementById('searchInput').addEventListener('input', filter);
-        document.getElementById('resetFilters').addEventListener('click', () => {
-            document.querySelectorAll('.filter-check').forEach(c => c.checked = false);
+        function resetFilters() {
             document.getElementById('searchInput').value = '';
-            render(allProducts);
-        });
+            document.getElementById('brandFilter').value = 'all';
+            document.getElementById('btuFilter').value = 'all';
+            renderProducts(products);
+        }
 
-        init();
+        // 5. อ่านพารามิเตอร์ URL เมื่อเปิดมาจากหน้าหลัก (เช่น shop.html?search=Daikin หรือ shop.html?search=9000)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchParam = urlParams.get('search');
+
+            if (searchParam) {
+                document.getElementById('searchInput').value = searchParam;
+                
+                // ถ้าระบุตรงกับแบรนด์ ให้เลือกที่ Dropdown ด้วย
+                const brandOptions = Array.from(document.getElementById('brandFilter').options).map(o => o.value.toLowerCase());
+                if (brandOptions.includes(searchParam.toLowerCase())) {
+                    document.getElementById('brandFilter').value = searchParam;
+                }
+
+                // ถ้าระบุตรงกับ BTU ให้เลือกที่ Dropdown ด้วย
+                const btuOptions = Array.from(document.getElementById('btuFilter').options).map(o => o.value);
+                if (btuOptions.includes(searchParam)) {
+                    document.getElementById('btuFilter').value = searchParam;
+                }
+            }
+
+            filterProducts();
+        });
     </script>
 </body>
 </html>
