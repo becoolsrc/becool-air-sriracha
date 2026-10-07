@@ -130,7 +130,7 @@
 
         <!-- Product Grid -->
         <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            <!-- สินค้าจะสร้างขึ้นอัตโนมัติผ่าน JS -->
+            <!-- รายการสินค้าจะสร้างขึ้นอัตโนมัติผ่าน JS -->
         </div>
 
         <!-- เมื่อไม่พบสินค้า -->
@@ -164,23 +164,48 @@
             mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         }
 
-        // 2. ข้อมูลรายการสินค้าตัวอย่างในแคตตาล็อก
+        // 2. ข้อมูลรายการสินค้าจริงของทางร้าน BE COOL AIR (แก้ไขแก้ไขตรงนี้ได้ตามต้องการ)
         const products = [
-            { id: 1, brand: 'Daikin', name: 'Daikin Inverter FTKF Series', btu: '9000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว', logo: 'daikin.png' },
-            { id: 2, brand: 'Daikin', name: 'Daikin Inverter FTKF Series', btu: '12000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว', logo: 'daikin.png' },
-            { id: 3, brand: 'Daikin', name: 'Daikin Inverter FTKF Series', btu: '18000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว', logo: 'daikin.png' },
-            { id: 4, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '9000', tag: 'Inverter คอยล์ทองแดง', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป / ประหยัดไฟ', logo: 'carrier.png' },
-            { id: 5, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '12000', tag: 'Inverter คอยล์ทองแดง', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป / ประหยัดไฟ', logo: 'carrier.png' },
-            { id: 6, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '18000', tag: 'Inverter คอยล์ทองแดง', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป / ประหยัดไฟ', logo: 'carrier.png' },
-            { id: 7, brand: 'Mitsubishi', name: 'Mitsubishi Heavy Duty Inverter', btu: '9000', tag: 'Inverter เย็นเร็ว', desc: 'กระจายลมไกล 12 เมตร / ทำงานเงียบ / ทนทาน', logo: 'mitsubishi.png' },
-            { id: 8, brand: 'Mitsubishi', name: 'Mitsubishi Heavy Duty Inverter', btu: '12000', tag: 'Inverter เย็นเร็ว', desc: 'กระจายลมไกล 12 เมตร / ทำงานเงียบ / ทนทาน', logo: 'mitsubishi.png' },
-            { id: 9, brand: 'Haier', name: 'Haier Inverter VNS Series', btu: '9000', tag: 'คุ้มราคา Inverter', desc: 'ระบบทำความสะอาดตัวเอง Self-Cleaning / เย็นเร็ว', logo: 'haier.png' },
-            { id: 10, brand: 'Haier', name: 'Haier Inverter VNS Series', btu: '12000', tag: 'คุ้มราคา Inverter', desc: 'ระบบทำความสะอาดตัวเอง Self-Cleaning / เย็นเร็ว', logo: 'haier.png' },
-            { id: 11, brand: 'Hisense', name: 'Hisense Inverter KB Series', btu: '9000', tag: 'ราคาสุดคุ้ม', desc: 'แผ่นกรอง 4 in 1 / ทำความเย็นสม่ำเสมอ / R32', logo: 'hisense.png' },
-            { id: 12, brand: 'Hisense', name: 'Hisense Inverter KB Series', btu: '18000', tag: 'ราคาสุดคุ้ม', desc: 'แผ่นกรอง 4 in 1 / ทำความเย็นสม่ำเสมอ / R32', logo: 'hisense.png' },
-            { id: 13, brand: 'Gree', name: 'Gree Inverter Pular Series', btu: '12000', tag: 'Inverter เย็นฉ่ำ', desc: 'ทนทาน ประหยัดไฟ / แผ่นกรองยับยั้งแบคทีเรีย', logo: 'gree.png' },
-            { id: 14, brand: 'Central', name: 'Central Air Inverter JSFE', btu: '9000', tag: 'ยอดนิยม', desc: 'คอยล์ทองแดงแท้ / ระบบทำงานเงียบ / R32', logo: 'central_air.png' },
-            { id: 15, brand: 'TCL', name: 'TCL Inverter T-Pro Series', btu: '12000', tag: 'Inverter WiFi', desc: 'ควบคุมผ่านสมาร์ตโฟน / ล้างตัวเองได้ / เย็นเร็ว', logo: 'tcl.png' }
+            // Daikin
+            { id: 1, brand: 'Daikin', name: 'Daikin Max Inverter (FTKQ Series)', btu: '9000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว ประหยัดไฟ', logo: 'daikin.png' },
+            { id: 2, brand: 'Daikin', name: 'Daikin Max Inverter (FTKQ Series)', btu: '12000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว ประหยัดไฟ', logo: 'daikin.png' },
+            { id: 3, brand: 'Daikin', name: 'Daikin Max Inverter (FTKQ Series)', btu: '18000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว ประหยัดไฟ', logo: 'daikin.png' },
+            { id: 4, brand: 'Daikin', name: 'Daikin Max Inverter (FTKQ Series)', btu: '24000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว ประหยัดไฟ', logo: 'daikin.png' },
+
+            // Carrier
+            { id: 5, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '9000', tag: 'คอยล์ทองแดง แท้', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป Wi-Fi / ประหยัดไฟสูง', logo: 'carrier.png' },
+            { id: 6, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '12000', tag: 'คอยล์ทองแดง แท้', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป Wi-Fi / ประหยัดไฟสูง', logo: 'carrier.png' },
+            { id: 7, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '18000', tag: 'คอยล์ทองแดง แท้', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป Wi-Fi / ประหยัดไฟสูง', logo: 'carrier.png' },
+            { id: 8, brand: 'Carrier', name: 'Carrier XInverter Plus', btu: '12000', tag: 'ประหยัดไฟ 3 ดาว', desc: 'ดีไซน์หรู เลือกสีได้ / ฟอกอากาศด้วยไอออน / ประหยัดไฟขั้นสุด', logo: 'carrier.png' },
+
+            // Mitsubishi
+            { id: 9, brand: 'Mitsubishi', name: 'Mitsubishi Heavy Duty Inverter (Haru Series)', btu: '9000', tag: 'Inverter ทนทาน', desc: 'กระจายลมไกล 12 เมตร / ทำงานเงียบ / คอยล์ทองแดง', logo: 'mitsubishi.png' },
+            { id: 10, brand: 'Mitsubishi', name: 'Mitsubishi Heavy Duty Inverter (Haru Series)', btu: '12000', tag: 'Inverter ทนทาน', desc: 'กระจายลมไกล 12 เมตร / ทำงานเงียบ / คอยล์ทองแดง', logo: 'mitsubishi.png' },
+            { id: 11, brand: 'Mitsubishi', name: 'Mitsubishi Heavy Duty Inverter (Haru Series)', btu: '18000', tag: 'Inverter ทนทาน', desc: 'กระจายลมไกล 12 เมตร / ทำงานเงียบ / คอยล์ทองแดง', logo: 'mitsubishi.png' },
+
+            // Haier
+            { id: 12, brand: 'Haier', name: 'Haier Inverter (VNS Series)', btu: '9000', tag: 'ล้างตัวเองอัตโนมัติ', desc: 'ระบบ Self-Cleaning ล้างตัวเองได้ใน 13 นาที / เย็นเร็ว', logo: 'haier.png' },
+            { id: 13, brand: 'Haier', name: 'Haier Inverter (VNS Series)', btu: '12000', tag: 'ล้างตัวเองอัตโนมัติ', desc: 'ระบบ Self-Cleaning ล้างตัวเองได้ใน 13 นาที / เย็นเร็ว', logo: 'haier.png' },
+            { id: 14, brand: 'Haier', name: 'Haier Inverter (VNS Series)', btu: '18000', tag: 'ล้างตัวเองอัตโนมัติ', desc: 'ระบบ Self-Cleaning ล้างตัวเองได้ใน 13 นาที / เย็นเร็ว', logo: 'haier.png' },
+
+            // Hisense
+            { id: 15, brand: 'Hisense', name: 'Hisense Inverter (KB Series)', btu: '9000', tag: 'ราคาสุดคุ้ม', desc: 'แผ่นกรอง 4 in 1 / ทำความเย็นสม่ำเสมอ / สารทำความเย็น R32', logo: 'hisense.png' },
+            { id: 16, brand: 'Hisense', name: 'Hisense Inverter (KB Series)', btu: '12000', tag: 'ราคาสุดคุ้ม', desc: 'แผ่นกรอง 4 in 1 / ทำความเย็นสม่ำเสมอ / สารทำความเย็น R32', logo: 'hisense.png' },
+            { id: 17, brand: 'Hisense', name: 'Hisense Inverter (KB Series)', btu: '18000', tag: 'ราคาสุดคุ้ม', desc: 'แผ่นกรอง 4 in 1 / ทำความเย็นสม่ำเสมอ / สารทำความเย็น R32', logo: 'hisense.png' },
+
+            // Gree
+            { id: 18, brand: 'Gree', name: 'Gree Inverter (Pular Series)', btu: '9000', tag: 'Inverter เย็นฉ่ำ', desc: 'ทนทาน ประหยัดไฟ / แผ่นกรองยับยั้งเชื้อโรค / R32', logo: 'gree.png' },
+            { id: 19, brand: 'Gree', name: 'Gree Inverter (Pular Series)', btu: '12000', tag: 'Inverter เย็นฉ่ำ', desc: 'ทนทาน ประหยัดไฟ / แผ่นกรองยับยั้งเชื้อโรค / R32', logo: 'gree.png' },
+
+            // Central Air
+            { id: 20, brand: 'Central', name: 'Central Air Inverter (JSFE Series)', btu: '9000', tag: 'แบรนด์ไทยยอดนิยม', desc: 'คอยล์ทองแดงแท้ทุกรุ่น / ระบบทำงานเงียบ / R32', logo: 'central_air.png' },
+            { id: 21, brand: 'Central', name: 'Central Air Inverter (JSFE Series)', btu: '12000', tag: 'แบรนด์ไทยยอดนิยม', desc: 'คอยล์ทองแดงแท้ทุกรุ่น / ระบบทำงานเงียบ / R32', logo: 'central_air.png' },
+
+            // TCL
+            { id: 22, brand: 'TCL', name: 'TCL Inverter (T-Pro Series)', btu: '12000', tag: 'รองรับ Smart Wi-Fi', desc: 'สั่งงานผ่านแอป / ล้างตัวเองได้ในตัว / กระจายลม 3D', logo: 'tcl.png' },
+
+            // AUX
+            { id: 23, brand: 'AUX', name: 'AUX Inverter (Q-Series)', btu: '9000', tag: 'ราคาประหยัด', desc: 'เย็นเร็วทันใจ / คอยล์ทองแดงเคลือบสารป้องกันการกัดกร่อน', logo: 'aux_logo.png' }
         ];
 
         // 3. แสดงผลการ์ดสินค้า
@@ -201,7 +226,7 @@
 
             items.forEach(p => {
                 const btuFormatted = parseInt(p.btu).toLocaleString();
-                const lineUrl = `https://line.me/ti/p/~becoolair?text=${encodeURIComponent('สนใจสอบถามราคาแอร์ ' + p.brand + ' ' + btuFormatted + ' BTU พร้อมติดตั้งครับ')}`;
+                const lineUrl = `https://line.me/ti/p/~becoolair?text=${encodeURIComponent('สนใจสอบถามราคาแอร์ ' + p.brand + ' ' + p.name + ' (' + btuFormatted + ' BTU) พร้อมติดตั้งครับ')}`;
                 
                 const card = `
                     <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
@@ -260,7 +285,7 @@
             renderProducts(products);
         }
 
-        // 5. อ่านพารามิเตอร์ URL เมื่อเปิดมาจากหน้าหลัก (เช่น shop.html?search=Daikin หรือ shop.html?search=9000)
+        // 5. อ่านพารามิเตอร์ URL เมื่อเปิดมาจากหน้าหลัก (เช่น shop.html?search=Daikin)
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const searchParam = urlParams.get('search');
