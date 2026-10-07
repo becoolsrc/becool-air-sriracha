@@ -81,7 +81,7 @@
                 <div class="md:col-span-2">
                     <label class="block text-xs font-bold text-slate-600 mb-1">ค้นหารุ่น / คีย์เวิร์ด</label>
                     <div class="relative">
-                        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="พิมพ์ชื่อแบรนด์ หรือขนาด BTU..." class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+                        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="พิมพ์ชื่อแบรนด์ หรือรหัสรุ่นเช่น FTM, FTKB, AS-10..." class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:border-blue-500">
                         <i class="fas fa-search absolute left-3 top-3 text-slate-400 text-xs"></i>
                     </div>
                 </div>
@@ -91,16 +91,11 @@
                     <label class="block text-xs font-bold text-slate-600 mb-1">เลือกตามแบรนด์</label>
                     <select id="brandFilter" onchange="filterProducts()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500 text-slate-700">
                         <option value="all">ทุกแบรนด์</option>
-                        <option value="Daikin">Daikin (ไดกิ้น)</option>
-                        <option value="Carrier">Carrier (แคเรียร์)</option>
-                        <option value="Mitsubishi">Mitsubishi (มิตซูบิชิ)</option>
-                        <option value="Gree">Gree (กรี)</option>
-                        <option value="Haier">Haier (ไฮเออร์)</option>
-                        <option value="Hisense">Hisense (ไฮเซ่นส์)</option>
-                        <option value="Central">Central Air (เซ็นทรัลแอร์)</option>
-                        <option value="TCL">TCL</option>
-                        <option value="Midea">Midea (ไมเดีย)</option>
-                        <option value="AUX">AUX</option>
+                        <option value="DAIKIN">Daikin (ไดกิ้น)</option>
+                        <option value="HISENSE">Hisense (ไฮเซ่นส์)</option>
+                        <option value="MITSUBISHI">Mitsubishi (มิตซูบิชิ)</option>
+                        <option value="CARRIER">Carrier (แคเรียร์)</option>
+                        <option value="HAIER">Haier (ไฮเออร์)</option>
                     </select>
                 </div>
 
@@ -109,12 +104,11 @@
                     <label class="block text-xs font-bold text-slate-600 mb-1">เลือกขนาด BTU</label>
                     <select id="btuFilter" onchange="filterProducts()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500 text-slate-700">
                         <option value="all">ทุกขนาด BTU</option>
-                        <option value="9000">9,000 BTU</option>
-                        <option value="12000">12,000 BTU</option>
-                        <option value="15000">15,000 BTU</option>
-                        <option value="18000">18,000 BTU</option>
-                        <option value="24000">24,000 BTU</option>
-                        <option value="30000">30,000 BTU ขึ้นไป</option>
+                        <option value="9000">9,000 - 10,000 BTU</option>
+                        <option value="12000">12,000 - 14,000 BTU</option>
+                        <option value="15000">15,000 - 16,500 BTU</option>
+                        <option value="18000">18,000 - 20,000 BTU</option>
+                        <option value="24000">20,000 BTU ขึ้นไป</option>
                     </select>
                 </div>
 
@@ -164,51 +158,70 @@
             mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         }
 
-        // 2. ข้อมูลรายการสินค้าจริงของทางร้าน BE COOL AIR (แก้ไขแก้ไขตรงนี้ได้ตามต้องการ)
+        // 2. ข้อมูลสินค้าตรงจากตาราง Google Sheets (Data) - ไม่แสดงราคา
         const products = [
-            // Daikin
-            { id: 1, brand: 'Daikin', name: 'Daikin Max Inverter (FTKQ Series)', btu: '9000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว ประหยัดไฟ', logo: 'daikin.png' },
-            { id: 2, brand: 'Daikin', name: 'Daikin Max Inverter (FTKQ Series)', btu: '12000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว ประหยัดไฟ', logo: 'daikin.png' },
-            { id: 3, brand: 'Daikin', name: 'Daikin Max Inverter (FTKQ Series)', btu: '18000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว ประหยัดไฟ', logo: 'daikin.png' },
-            { id: 4, brand: 'Daikin', name: 'Daikin Max Inverter (FTKQ Series)', btu: '24000', tag: 'Inverter เบอร์ 5', desc: 'น้ำยา R32 / แผ่นกรอง PM2.5 / ทำความเย็นเร็ว ประหยัดไฟ', logo: 'daikin.png' },
+            // DAIKIN - FTM SERIES
+            { id: 1, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM09PV2S', btu: 9200, logo: 'daikin.png' },
+            { id: 2, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM13PV2S', btu: 13000, logo: 'daikin.png' },
+            { id: 3, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM15PV2S', btu: 14400, logo: 'daikin.png' },
+            { id: 4, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM18PV2S', btu: 18090, logo: 'daikin.png' },
+            { id: 5, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM28PV2S', btu: 24500, logo: 'daikin.png' },
 
-            // Carrier
-            { id: 5, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '9000', tag: 'คอยล์ทองแดง แท้', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป Wi-Fi / ประหยัดไฟสูง', logo: 'carrier.png' },
-            { id: 6, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '12000', tag: 'คอยล์ทองแดง แท้', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป Wi-Fi / ประหยัดไฟสูง', logo: 'carrier.png' },
-            { id: 7, brand: 'Carrier', name: 'Carrier Copper 11 Inverter', btu: '18000', tag: 'คอยล์ทองแดง แท้', desc: 'ทนทาน คอยล์ทองแดง / สั่งงานผ่านแอป Wi-Fi / ประหยัดไฟสูง', logo: 'carrier.png' },
-            { id: 8, brand: 'Carrier', name: 'Carrier XInverter Plus', btu: '12000', tag: 'ประหยัดไฟ 3 ดาว', desc: 'ดีไซน์หรู เลือกสีได้ / ฟอกอากาศด้วยไอออน / ประหยัดไฟขั้นสุด', logo: 'carrier.png' },
+            // DAIKIN - MAX INVERTER SABAI SERIES
+            { id: 6, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB09AV ใหม่', btu: 9200, logo: 'daikin.png' },
+            { id: 7, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB12AV ใหม่', btu: 12300, logo: 'daikin.png' },
+            { id: 8, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB15ZV', btu: 15000, logo: 'daikin.png' },
+            { id: 9, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB18ZV', btu: 18100, logo: 'daikin.png' },
+            { id: 10, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB24ZV', btu: 20500, logo: 'daikin.png' },
 
-            // Mitsubishi
-            { id: 9, brand: 'Mitsubishi', name: 'Mitsubishi Heavy Duty Inverter (Haru Series)', btu: '9000', tag: 'Inverter ทนทาน', desc: 'กระจายลมไกล 12 เมตร / ทำงานเงียบ / คอยล์ทองแดง', logo: 'mitsubishi.png' },
-            { id: 10, brand: 'Mitsubishi', name: 'Mitsubishi Heavy Duty Inverter (Haru Series)', btu: '12000', tag: 'Inverter ทนทาน', desc: 'กระจายลมไกล 12 เมตร / ทำงานเงียบ / คอยล์ทองแดง', logo: 'mitsubishi.png' },
-            { id: 11, brand: 'Mitsubishi', name: 'Mitsubishi Heavy Duty Inverter (Haru Series)', btu: '18000', tag: 'Inverter ทนทาน', desc: 'กระจายลมไกล 12 เมตร / ทำงานเงียบ / คอยล์ทองแดง', logo: 'mitsubishi.png' },
+            // DAIKIN - MAX INVERTER STAR KQ SERIES
+            { id: 11, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ09YV', btu: 9200, logo: 'daikin.png' },
+            { id: 12, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ12YV', btu: 12300, logo: 'daikin.png' },
+            { id: 13, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ15YV', btu: 15000, logo: 'daikin.png' },
+            { id: 14, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ18YV', btu: 18100, logo: 'daikin.png' },
+            { id: 15, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ24YV', btu: 20500, logo: 'daikin.png' },
+            { id: 16, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF09YV', btu: 9200, logo: 'daikin.png' },
+            { id: 17, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF12YV', btu: 12300, logo: 'daikin.png' },
+            { id: 18, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF15YV', btu: 15000, logo: 'daikin.png' },
+            { id: 19, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF18YV', btu: 18100, logo: 'daikin.png' },
+            { id: 20, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF24YV', btu: 24200, logo: 'daikin.png' },
 
-            // Haier
-            { id: 12, brand: 'Haier', name: 'Haier Inverter (VNS Series)', btu: '9000', tag: 'ล้างตัวเองอัตโนมัติ', desc: 'ระบบ Self-Cleaning ล้างตัวเองได้ใน 13 นาที / เย็นเร็ว', logo: 'haier.png' },
-            { id: 13, brand: 'Haier', name: 'Haier Inverter (VNS Series)', btu: '12000', tag: 'ล้างตัวเองอัตโนมัติ', desc: 'ระบบ Self-Cleaning ล้างตัวเองได้ใน 13 นาที / เย็นเร็ว', logo: 'haier.png' },
-            { id: 14, brand: 'Haier', name: 'Haier Inverter (VNS Series)', btu: '18000', tag: 'ล้างตัวเองอัตโนมัติ', desc: 'ระบบ Self-Cleaning ล้างตัวเองได้ใน 13 นาที / เย็นเร็ว', logo: 'haier.png' },
+            // DAIKIN - KC / KM / KZ / FAVF / SKY AIR
+            { id: 21, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KC SERIES', code: 'FTKC09YV', btu: 9200, logo: 'daikin.png' },
+            { id: 22, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KC SERIES', code: 'FTKC15YV', btu: 15000, logo: 'daikin.png' },
+            { id: 23, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM09YV', btu: 9200, logo: 'daikin.png' },
+            { id: 24, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM12YV', btu: 12300, logo: 'daikin.png' },
+            { id: 25, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM15YV', btu: 15000, logo: 'daikin.png' },
+            { id: 26, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM18YV', btu: 18100, logo: 'daikin.png' },
+            { id: 27, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM24YV', btu: 24200, logo: 'daikin.png' },
+            { id: 28, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ09YV', btu: 9200, logo: 'daikin.png' },
+            { id: 29, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ12YV', btu: 12300, logo: 'daikin.png' },
+            { id: 30, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ15YV', btu: 15000, logo: 'daikin.png' },
+            { id: 31, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ18YV', btu: 18100, logo: 'daikin.png' },
+            { id: 32, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ24YV', btu: 24200, logo: 'daikin.png' },
+            { id: 33, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR FAVF SERIES', code: 'FAVF30XV', btu: 30000, logo: 'daikin.png' },
+            { id: 34, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR FAVF SERIES', code: 'FAVF36XV', btu: 36200, logo: 'daikin.png' },
+            { id: 35, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC13', btu: 13600, logo: 'daikin.png' },
+            { id: 36, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC18', btu: 18000, logo: 'daikin.png' },
+            { id: 37, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC24', btu: 24000, logo: 'daikin.png' },
 
-            // Hisense
-            { id: 15, brand: 'Hisense', name: 'Hisense Inverter (KB Series)', btu: '9000', tag: 'ราคาสุดคุ้ม', desc: 'แผ่นกรอง 4 in 1 / ทำความเย็นสม่ำเสมอ / สารทำความเย็น R32', logo: 'hisense.png' },
-            { id: 16, brand: 'Hisense', name: 'Hisense Inverter (KB Series)', btu: '12000', tag: 'ราคาสุดคุ้ม', desc: 'แผ่นกรอง 4 in 1 / ทำความเย็นสม่ำเสมอ / สารทำความเย็น R32', logo: 'hisense.png' },
-            { id: 17, brand: 'Hisense', name: 'Hisense Inverter (KB Series)', btu: '18000', tag: 'ราคาสุดคุ้ม', desc: 'แผ่นกรอง 4 in 1 / ทำความเย็นสม่ำเสมอ / สารทำความเย็น R32', logo: 'hisense.png' },
-
-            // Gree
-            { id: 18, brand: 'Gree', name: 'Gree Inverter (Pular Series)', btu: '9000', tag: 'Inverter เย็นฉ่ำ', desc: 'ทนทาน ประหยัดไฟ / แผ่นกรองยับยั้งเชื้อโรค / R32', logo: 'gree.png' },
-            { id: 19, brand: 'Gree', name: 'Gree Inverter (Pular Series)', btu: '12000', tag: 'Inverter เย็นฉ่ำ', desc: 'ทนทาน ประหยัดไฟ / แผ่นกรองยับยั้งเชื้อโรค / R32', logo: 'gree.png' },
-
-            // Central Air
-            { id: 20, brand: 'Central', name: 'Central Air Inverter (JSFE Series)', btu: '9000', tag: 'แบรนด์ไทยยอดนิยม', desc: 'คอยล์ทองแดงแท้ทุกรุ่น / ระบบทำงานเงียบ / R32', logo: 'central_air.png' },
-            { id: 21, brand: 'Central', name: 'Central Air Inverter (JSFE Series)', btu: '12000', tag: 'แบรนด์ไทยยอดนิยม', desc: 'คอยล์ทองแดงแท้ทุกรุ่น / ระบบทำงานเงียบ / R32', logo: 'central_air.png' },
-
-            // TCL
-            { id: 22, brand: 'TCL', name: 'TCL Inverter (T-Pro Series)', btu: '12000', tag: 'รองรับ Smart Wi-Fi', desc: 'สั่งงานผ่านแอป / ล้างตัวเองได้ในตัว / กระจายลม 3D', logo: 'tcl.png' },
-
-            // AUX
-            { id: 23, brand: 'AUX', name: 'AUX Inverter (Q-Series)', btu: '9000', tag: 'ราคาประหยัด', desc: 'เย็นเร็วทันใจ / คอยล์ทองแดงเคลือบสารป้องกันการกัดกร่อน', logo: 'aux_logo.png' }
+            // HISENSE
+            { id: 38, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-10TRKD2T', btu: 9500, logo: 'hisense.png' },
+            { id: 39, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-13TRKD2T', btu: 12000, logo: 'hisense.png' },
+            { id: 40, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-18TRKD2T', btu: 18000, logo: 'hisense.png' },
+            { id: 41, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-24TRKD2T', btu: 23500, logo: 'hisense.png' },
+            { id: 42, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'TG_wifi', code: 'AS-13(TG)WI-FI', btu: 12000, logo: 'hisense.png' },
+            { id: 43, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'TG_wifi', code: 'AS-18(TG)WI-FI', btu: 18500, logo: 'hisense.png' },
+            { id: 44, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'VA', code: 'AS-13TRVA2T', btu: 12000, logo: 'hisense.png' },
+            { id: 45, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-10X6HBA', btu: 9200, logo: 'hisense.png' },
+            { id: 46, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-13X6HBA', btu: 12500, logo: 'hisense.png' },
+            { id: 47, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-18X6HBA', btu: 18000, logo: 'hisense.png' },
+            { id: 48, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-24X6HBA', btu: 23200, logo: 'hisense.png' },
+            { id: 49, brand: 'HISENSE', type: '4 ทิศทาง', system: 'Inverter', model: 'AUC SERIES', code: 'AUC-18TRJA2T', btu: 18000, logo: 'hisense.png' },
+            { id: 50, brand: 'HISENSE', type: '4 ทิศทาง', system: 'Inverter', model: 'AUC SERIES', code: 'AUC-24TRJA2T', btu: 24000, logo: 'hisense.png' }
         ];
 
-        // 3. แสดงผลการ์ดสินค้า
+        // 3. แสดงผลการ์ดสินค้า (ไม่แสดงราคา)
         function renderProducts(items) {
             const grid = document.getElementById('productGrid');
             const noProd = document.getElementById('noProduct');
@@ -225,28 +238,35 @@
             }
 
             items.forEach(p => {
-                const btuFormatted = parseInt(p.btu).toLocaleString();
-                const lineUrl = `https://line.me/ti/p/~becoolair?text=${encodeURIComponent('สนใจสอบถามราคาแอร์ ' + p.brand + ' ' + p.name + ' (' + btuFormatted + ' BTU) พร้อมติดตั้งครับ')}`;
+                const btuFormatted = p.btu.toLocaleString();
+                const lineUrl = `https://line.me/ti/p/~becoolair?text=${encodeURIComponent('สนใจสอบถามราคาแอร์ ' + p.brand + ' รุ่น ' + p.code + ' (' + btuFormatted + ' BTU) พร้อมติดตั้งครับ')}`;
                 
                 const card = `
                     <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
                         <div>
-                            <div class="p-4 bg-slate-50 relative flex items-center justify-center h-44 border-b border-slate-100">
-                                <span class="absolute top-3 left-3 bg-blue-100 text-blue-800 text-[10px] font-bold px-2.5 py-1 rounded-full">
-                                    ${p.tag}
+                            <div class="p-4 bg-slate-50 relative flex items-center justify-center h-40 border-b border-slate-100">
+                                <span class="absolute top-3 left-3 ${p.system === 'Inverter' ? 'bg-blue-100 text-blue-800' : 'bg-rose-100 text-rose-800'} text-[10px] font-bold px-2.5 py-1 rounded-full">
+                                    ${p.system}
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded-md">
+                                    ${p.type}
                                 </span>
                                 <img src="https://becoolsrc.github.io/becool-air-sriracha/${p.logo}" alt="${p.brand}" class="max-h-20 max-w-[140px] object-contain" onerror="this.src='https://placehold.co/180x60?text=${p.brand}'">
                             </div>
                             <div class="p-4">
-                                <div class="text-[11px] font-bold text-blue-600 uppercase tracking-wider mb-1">${p.brand}</div>
-                                <h3 class="font-bold text-slate-800 text-sm sm:text-base leading-snug mb-1">${p.name}</h3>
-                                <p class="text-orange-600 font-extrabold text-lg mb-2">${btuFormatted} <span class="text-xs text-slate-500 font-normal">BTU</span></p>
-                                <p class="text-slate-500 text-xs leading-relaxed mb-4 line-clamp-2">${p.desc}</p>
+                                <div class="text-[11px] font-bold text-blue-600 uppercase tracking-wider mb-0.5">${p.brand}</div>
+                                <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${p.code}</h3>
+                                <p class="text-xs font-medium text-slate-500 mb-3">${p.model}</p>
+                                
+                                <div class="bg-blue-50/60 p-2.5 rounded-xl border border-blue-100/80 mb-2">
+                                    <span class="text-[10px] text-slate-400 block uppercase font-bold">ขนาดความเย็น</span>
+                                    <span class="text-base font-extrabold text-blue-900">${btuFormatted} BTU</span>
+                                </div>
                             </div>
                         </div>
                         <div class="p-4 pt-0">
                             <a href="${lineUrl}" target="_blank" class="block w-full text-center bg-blue-900 hover:bg-blue-800 text-white font-medium py-2.5 rounded-xl text-xs sm:text-sm transition shadow-sm">
-                                <i class="fab fa-line mr-1 text-green-400 text-base"></i> เช็กราคาพร้อมติดตั้ง
+                                <i class="fab fa-line mr-1 text-green-400 text-base"></i> สอบถามราคาพร้อมติดตั้ง
                             </a>
                         </div>
                     </div>
@@ -262,15 +282,15 @@
             const btu = document.getElementById('btuFilter').value;
 
             const filtered = products.filter(p => {
-                const matchSearch = p.name.toLowerCase().includes(search) || p.brand.toLowerCase().includes(search) || p.btu.includes(search);
-                const matchBrand = (brand === 'all') || (p.brand.toLowerCase() === brand.toLowerCase());
+                const matchSearch = p.model.toLowerCase().includes(search) || p.code.toLowerCase().includes(search) || p.brand.toLowerCase().includes(search) || p.btu.toString().includes(search);
+                const matchBrand = (brand === 'all') || (p.brand.toUpperCase() === brand.toUpperCase());
                 
                 let matchBtu = true;
-                if (btu === '30000') {
-                    matchBtu = parseInt(p.btu) >= 30000;
-                } else if (btu !== 'all') {
-                    matchBtu = p.btu === btu;
-                }
+                if (btu === '9000') matchBtu = p.btu <= 10000;
+                else if (btu === '12000') matchBtu = p.btu > 10000 && p.btu <= 14000;
+                else if (btu === '15000') matchBtu = p.btu > 14000 && p.btu <= 16500;
+                else if (btu === '18000') matchBtu = p.btu > 16500 && p.btu <= 20000;
+                else if (btu === '24000') matchBtu = p.btu > 20000;
 
                 return matchSearch && matchBrand && matchBtu;
             });
@@ -285,25 +305,13 @@
             renderProducts(products);
         }
 
-        // 5. อ่านพารามิเตอร์ URL เมื่อเปิดมาจากหน้าหลัก (เช่น shop.html?search=Daikin)
+        // 5. อ่านพารามิเตอร์ URL เมื่อเปิดมาจากหน้าหลัก
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const searchParam = urlParams.get('search');
 
             if (searchParam) {
                 document.getElementById('searchInput').value = searchParam;
-                
-                // ถ้าระบุตรงกับแบรนด์ ให้เลือกที่ Dropdown ด้วย
-                const brandOptions = Array.from(document.getElementById('brandFilter').options).map(o => o.value.toLowerCase());
-                if (brandOptions.includes(searchParam.toLowerCase())) {
-                    document.getElementById('brandFilter').value = searchParam;
-                }
-
-                // ถ้าระบุตรงกับ BTU ให้เลือกที่ Dropdown ด้วย
-                const btuOptions = Array.from(document.getElementById('btuFilter').options).map(o => o.value);
-                if (btuOptions.includes(searchParam)) {
-                    document.getElementById('btuFilter').value = searchParam;
-                }
             }
 
             filterProducts();
