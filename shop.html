@@ -60,9 +60,9 @@
     <!-- Header Section -->
     <section class="bg-gradient-to-b from-blue-900 to-blue-800 text-white py-10 px-4 text-center">
         <div class="max-w-4xl mx-auto">
-            <span class="bg-blue-500/30 text-blue-200 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2 inline-block">AIR CONDITIONER CATALOG</span>
+            <span class="bg-blue-500/30 text-blue-200 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2 inline-block">LIVE CATALOG (GOOGLE SHEETS)</span>
             <h1 class="text-2xl sm:text-4xl font-extrabold mb-2">แคตตาล็อกเครื่องปรับอากาศ</h1>
-            <p class="text-blue-100 text-xs sm:text-base font-light">จำหน่ายพร้อมบริการติดตั้งมาตรฐาน รับประกันงานติดตั้ง ศรีราชา-ชลบุรี</p>
+            <p class="text-blue-100 text-xs sm:text-base font-light">ข้อมูลอัปเดตตรงจากระบบคลังสินค้า ศรีราชา-ชลบุรี</p>
         </div>
     </section>
 
@@ -76,7 +76,7 @@
                 <div class="md:col-span-2">
                     <label class="block text-xs font-bold text-slate-600 mb-1">ค้นหารุ่น / คีย์เวิร์ด</label>
                     <div class="relative">
-                        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="พิมพ์ชื่อแบรนด์ หรือรหัสรุ่นเช่น FTM, COPPER, HARU..." class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+                        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="พิมพ์ชื่อแบรนด์ หรือรหัสรุ่น..." class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-sm focus:outline-none focus:border-blue-500">
                         <i class="fas fa-search absolute left-3 top-3 text-slate-400 text-xs"></i>
                     </div>
                 </div>
@@ -85,13 +85,6 @@
                     <label class="block text-xs font-bold text-slate-600 mb-1">เลือกตามแบรนด์</label>
                     <select id="brandFilter" onchange="filterProducts()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500 text-slate-700">
                         <option value="all">ทุกแบรนด์</option>
-                        <option value="DAIKIN">Daikin (ไดกิ้น)</option>
-                        <option value="CARRIER">Carrier (แคเรียร์)</option>
-                        <option value="MITSUBISHI">Mitsubishi (มิตซูบิชิ)</option>
-                        <option value="HAIER">Haier (ไฮเออร์)</option>
-                        <option value="HISENSE">Hisense (ไฮเซ่นส์)</option>
-                        <option value="GREE">Gree (กรี)</option>
-                        <option value="CENTRAL AIR">Central Air (เซ็นทรัลแอร์)</option>
                     </select>
                 </div>
 
@@ -117,7 +110,13 @@
             </div>
         </div>
 
-        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
+        <!-- Loading State -->
+        <div id="loading" class="text-center py-20">
+            <i class="fas fa-spinner fa-spin text-4xl text-blue-600 mb-3"></i>
+            <p class="text-slate-600 font-medium text-sm">กำลังโหลดข้อมูลสินค้า 276 รายการจาก Google Sheets...</p>
+        </div>
+
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 hidden"></div>
 
         <div id="noProduct" class="hidden text-center py-16">
             <i class="fas fa-search-minus text-4xl text-slate-300 mb-3"></i>
@@ -148,50 +147,105 @@
             mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         }
 
-        // ดึงข้อมูลสินค้าครอบคลุมทุกแบรนด์ที่มีไฟล์รูปในโฟลเดอร์ img/
-        const products = [
-            // DAIKIN
-            { id: 1, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM09PV2S', btu: 9200, img: 'FTM SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 2, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM13PV2S', btu: 13000, img: 'FTM SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 3, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB09AV', btu: 9200, img: 'MAX_INVERTER_SABAI_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 4, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB12AV', btu: 12300, img: 'MAX_INVERTER_SABAI_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 5, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KQ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 6, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ12YV', btu: 12300, img: 'MAX_INVERTER_STAR_KQ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 7, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KF SERIES', code: 'FTKF09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KF_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 8, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC13', btu: 13600, img: 'SKY_AIR_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+        // ลิงก์ Google Sheets CSV Export ID: 1d1ljo27zZOgc_UGFTs1aI_dQWN0Va6in6--5KE36EjQ
+        const sheetCsvUrl = 'https://docs.google.com/spreadsheets/d/1d1ljo27zZOgc_UGFTs1aI_dQWN0Va6in6--5KE36EjQ/export?format=csv';
 
-            // CARRIER
-            { id: 9, brand: 'CARRIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'COPPER 7', code: '42TSAA010', btu: 9200, img: 'COPPER 7.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 10, brand: 'CARRIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'COPPER 8', code: '42LAN010', btu: 9200, img: 'COPPER 8.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 11, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COPPER 11', code: '42TVDA010', btu: 9200, img: 'COPPER 11.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 12, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COPPER 11', code: '42TVDA013', btu: 12100, img: 'COPPER 11.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 13, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COPPER ION', code: '42TVBA010', btu: 9200, img: 'COPPER ION.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 14, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COLORSMART', code: '42TVCA010', btu: 9200, img: 'COLORSMART.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 15, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'ION STRIKE', code: '42TVAB010', btu: 9200, img: 'ION_STRIKE.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
+        let products = [];
 
-            // MITSUBISHI
-            { id: 16, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'HARU', code: 'SRK10YYM', btu: 9200, img: 'HARU.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
-            { id: 17, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'HARU', code: 'SRK13YYM', btu: 12300, img: 'HARU.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
-            { id: 18, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'FUYU', code: 'SRK10YXP', btu: 9200, img: 'FUYU.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
-            { id: 19, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'KAZE', code: 'SRK10CXV', btu: 9200, img: 'KAZE.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
+        // แผนที่โลโก้แบรนด์
+        const brandLogos = {
+            'DAIKIN': 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png',
+            'HISENSE': 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png',
+            'CARRIER': 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png',
+            'MITSUBISHI': 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png',
+            'HAIER': 'https://becoolsrc.github.io/becool-air-sriracha/haier.png',
+            'GREE': 'https://becoolsrc.github.io/becool-air-sriracha/gree.png',
+            'CENTRAL AIR': 'https://becoolsrc.github.io/becool-air-sriracha/central_air.png',
+            'TCL': 'https://becoolsrc.github.io/becool-air-sriracha/tcl.png',
+            'MIDEA': 'https://becoolsrc.github.io/becool-air-sriracha/midea.png',
+            'AUX': 'https://becoolsrc.github.io/becool-air-sriracha/aux_logo.png'
+        };
 
-            // HAIER
-            { id: 20, brand: 'HAIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'CLEAN COOL', code: 'HSU-10CTR', btu: 9200, img: 'CLEAN COOL.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/haier.png' },
-            { id: 21, brand: 'HAIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'CLEAN COOL', code: 'HSU-13CTR', btu: 12500, img: 'CLEAN COOL.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/haier.png' },
-            { id: 22, brand: 'HAIER', type: 'ติดผนัง', system: 'Inverter', model: 'CANDY', code: 'CSU-10VNS', btu: 9200, img: 'CANDY.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/haier.png' },
+        // แปลงไฟล์ CSV จาก Google Sheets
+        function parseCSV(text) {
+            const lines = text.split('\n');
+            const result = [];
+            const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
 
-            // HISENSE
-            { id: 23, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-10TRKD2T', btu: 9500, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 24, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-13TRKD2T', btu: 12000, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 25, brand: 'HISENSE', type: '4 ทิศทาง', system: 'Inverter', model: 'AUC SERIES', code: 'AUC-18TRJA2T', btu: 18000, img: 'AUC SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i].trim()) continue;
+                
+                // รองรับเครื่องหมายคอมม่าในวงเล็บและคำศัพท์
+                const row = lines[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || lines[i].split(',');
+                const cleanRow = row.map(cell => cell.replace(/^"|"$/g, '').trim());
 
-            // GREE
-            { id: 26, brand: 'GREE', type: 'ติดผนัง', system: 'Fixed Speed', model: 'Bora SERIES', code: 'GWC09AAA', btu: 9000, img: 'Bora SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/gree.png' },
-            { id: 27, brand: 'GREE', type: 'ติดผนัง', system: 'Inverter', model: 'Pular_SERIES', code: 'GWC09AGB', btu: 9200, img: 'Pular_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/gree.png' },
+                if (cleanRow.length >= 6) {
+                    const brand = cleanRow[0] ? cleanRow[0].toUpperCase() : '';
+                    const type = cleanRow[1] || 'ติดผนัง';
+                    const system = cleanRow[2] || 'Inverter';
+                    const model = cleanRow[3] || '';
+                    const code = cleanRow[4] || '';
+                    const rawBtu = cleanRow[5] ? cleanRow[cleanRow.length - 3] || cleanRow[5] : '0';
+                    const btuNumber = parseInt(rawBtu.replace(/[^0-9]/g, '')) || 0;
 
-            // CENTRAL AIR
-            { id: 28, brand: 'CENTRAL AIR', type: 'ติดผนัง', system: 'Inverter', model: '2JSFE', code: 'CFW-2JSFE09', btu: 9200, img: '2JSFE.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/central_air.png' }
-        ];
+                    // กำหนดรูปภาพเครื่องแอร์ตามชื่อซีรีส์ MODEL
+                    let imgName = `${model}.jpg`;
+
+                    result.push({
+                        id: i,
+                        brand: brand,
+                        type: type,
+                        system: system,
+                        model: model,
+                        code: code,
+                        btu: btuNumber,
+                        img: imgName,
+                        logo: brandLogos[brand] || 'https://placehold.co/180x60?text=' + brand
+                    });
+                }
+            }
+            return result;
+        }
+
+        // ดึงข้อมูลสดจาก Google Sheets
+        async function fetchProductsFromSheets() {
+            try {
+                const response = await fetch(sheetCsvUrl);
+                const csvData = await response.text();
+                products = parseCSV(csvData);
+
+                // เติมรายชื่อแบรนด์ลงในตัวกรอง (Filter)
+                populateBrandFilter(products);
+
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('productGrid').classList.remove('hidden');
+
+                // อ่านพารามิเตอร์ค้นหาจาก URL ถ้ามี
+                const urlParams = new URLSearchParams(window.location.search);
+                const searchParam = urlParams.get('search');
+                if (searchParam) {
+                    document.getElementById('searchInput').value = searchParam;
+                }
+
+                filterProducts();
+            } catch (error) {
+                console.error('Error loading Google Sheets:', error);
+                document.getElementById('loading').innerHTML = `
+                    <p class="text-rose-600 font-bold mb-2">ไม่สามารถดึงข้อมูลสดได้ กรุณาตรวจสอบสิทธิ์การแชร์ไฟล์ Google Sheets (Data)</p>
+                    <p class="text-xs text-slate-500">ต้องตั้งค่าแชร์ไฟล์เป็น "ทุกคนที่มีลิงก์สามารถดูได้"</p>
+                `;
+            }
+        }
+
+        function populateBrandFilter(items) {
+            const brandSelect = document.getElementById('brandFilter');
+            const brands = [...new Set(items.map(p => p.brand))].filter(Boolean).sort();
+            
+            brandSelect.innerHTML = '<option value="all">ทุกแบรนด์</option>';
+            brands.forEach(b => {
+                brandSelect.innerHTML += `<option value="${b}">${b}</option>`;
+            });
+        }
 
         function renderProducts(items) {
             const grid = document.getElementById('productGrid');
@@ -211,15 +265,13 @@
             items.forEach(p => {
                 const btuFormatted = p.btu.toLocaleString();
                 const lineUrl = `https://line.me/ti/p/~becoolair?text=${encodeURIComponent('สนใจสอบถามราคาแอร์ ' + p.brand + ' รุ่น ' + p.code + ' (' + btuFormatted + ' BTU) พร้อมติดตั้งครับ')}`;
-                
-                // แปลงพาธรูปภาพให้รองรับชื่อไฟล์ที่มีการเว้นวรรค
                 const imgUrl = `https://becoolsrc.github.io/becool-air-sriracha/img/${encodeURIComponent(p.img)}`;
 
                 const card = `
                     <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
                         <div>
                             <div class="p-3 bg-slate-50 relative flex items-center justify-center h-48 border-b border-slate-100">
-                                <span class="absolute top-2.5 left-2.5 ${p.system === 'Inverter' ? 'bg-blue-100 text-blue-800' : 'bg-rose-100 text-rose-800'} text-[10px] font-bold px-2 py-0.5 rounded-full z-10">
+                                <span class="absolute top-2.5 left-2.5 ${p.system.toLowerCase().includes('inverter') ? 'bg-blue-100 text-blue-800' : 'bg-rose-100 text-rose-800'} text-[10px] font-bold px-2 py-0.5 rounded-full z-10">
                                     ${p.system}
                                 </span>
                                 <span class="absolute top-2.5 right-2.5 bg-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded-md z-10">
@@ -281,16 +333,7 @@
             renderProducts(products);
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const searchParam = urlParams.get('search');
-
-            if (searchParam) {
-                document.getElementById('searchInput').value = searchParam;
-            }
-
-            filterProducts();
-        });
+        window.addEventListener('DOMContentLoaded', fetchProductsFromSheets);
     </script>
 </body>
 </html>
