@@ -146,67 +146,67 @@
             mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         }
 
-        // ข้อมูลรายการสินค้า (ดึงลิงก์รูปภาพ Absolute URL ป้องกันรูปหลุด)
+        // ดึงรูปภาพเครื่องแอร์จริงจากโฟลเดอร์ img/ ตามชื่อไฟล์ในภาพถ่ายเครื่องของคุณ
         const products = [
             // DAIKIN - FTM SERIES
-            { id: 1, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM09PV2S', btu: 9200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 2, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM13PV2S', btu: 13000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 3, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM15PV2S', btu: 14400, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 4, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM18PV2S', btu: 18090, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 5, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM28PV2S', btu: 24500, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 1, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM09PV2S', btu: 9200, img: 'FTM SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 2, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM13PV2S', btu: 13000, img: 'FTM SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 3, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM15PV2S', btu: 14400, img: 'FTM SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 4, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM18PV2S', btu: 18090, img: 'FTM SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 5, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM28PV2S', btu: 24500, img: 'FTM SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
 
             // DAIKIN - MAX INVERTER SABAI SERIES
-            { id: 6, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB09AV ใหม่', btu: 9200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 7, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB12AV ใหม่', btu: 12300, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 8, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB15ZV', btu: 15000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 9, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB18ZV', btu: 18100, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 10, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB24ZV', btu: 20500, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 6, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB09AV ใหม่', btu: 9200, img: 'MAX_INVERTER_SABAI_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 7, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB12AV ใหม่', btu: 12300, img: 'MAX_INVERTER_SABAI_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 8, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB15ZV', btu: 15000, img: 'MAX_INVERTER_SABAI_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 9, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB18ZV', btu: 18100, img: 'MAX_INVERTER_SABAI_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 10, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB24ZV', btu: 20500, img: 'MAX_INVERTER_SABAI_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
 
             // DAIKIN - MAX INVERTER STAR KQ SERIES
-            { id: 11, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ09YV', btu: 9200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 12, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ12YV', btu: 12300, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 13, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ15YV', btu: 15000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 14, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ18YV', btu: 18100, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 15, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ24YV', btu: 20500, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 16, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF09YV', btu: 9200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 17, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF12YV', btu: 12300, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 18, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF15YV', btu: 15000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 19, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF18YV', btu: 18100, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 20, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF24YV', btu: 24200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 11, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KQ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 12, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ12YV', btu: 12300, img: 'MAX_INVERTER_STAR_KQ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 13, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ15YV', btu: 15000, img: 'MAX_INVERTER_STAR_KQ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 14, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ18YV', btu: 18100, img: 'MAX_INVERTER_STAR_KQ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 15, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ24YV', btu: 20500, img: 'MAX_INVERTER_STAR_KQ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 16, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KF_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 17, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF12YV', btu: 12300, img: 'MAX_INVERTER_STAR_KF_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 18, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF15YV', btu: 15000, img: 'MAX_INVERTER_STAR_KF_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 19, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF18YV', btu: 18100, img: 'MAX_INVERTER_STAR_KF_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 20, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKF24YV', btu: 24200, img: 'MAX_INVERTER_STAR_KF_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
 
             // DAIKIN - KC / KM / KZ / FAVF / SKY AIR
-            { id: 21, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KC SERIES', code: 'FTKC09YV', btu: 9200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 22, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KC SERIES', code: 'FTKC15YV', btu: 15000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 23, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM09YV', btu: 9200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 24, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM12YV', btu: 12300, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 25, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM15YV', btu: 15000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 26, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM18YV', btu: 18100, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 27, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM24YV', btu: 24200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 28, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ09YV', btu: 9200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 29, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ12YV', btu: 12300, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 30, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ15YV', btu: 15000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 31, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ18YV', btu: 18100, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 32, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ24YV', btu: 24200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 33, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR FAVF SERIES', code: 'FAVF30XV', btu: 30000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 34, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR FAVF SERIES', code: 'FAVF36XV', btu: 36200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 35, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC13', btu: 13600, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 36, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC18', btu: 18000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 37, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC24', btu: 24000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 21, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KC SERIES', code: 'FTKC09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KC_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 22, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KC SERIES', code: 'FTKC15YV', btu: 15000, img: 'MAX_INVERTER_STAR_KC_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 23, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KM_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 24, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM12YV', btu: 12300, img: 'MAX_INVERTER_STAR_KM_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 25, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM15YV', btu: 15000, img: 'MAX_INVERTER_STAR_KM_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 26, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM18YV', btu: 18100, img: 'MAX_INVERTER_STAR_KM_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 27, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM24YV', btu: 24200, img: 'MAX_INVERTER_STAR_KM_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 28, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KZ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 29, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ12YV', btu: 12300, img: 'MAX_INVERTER_STAR_KZ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 30, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ15YV', btu: 15000, img: 'MAX_INVERTER_STAR_KZ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 31, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ18YV', btu: 18100, img: 'MAX_INVERTER_STAR_KZ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 32, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ24YV', btu: 24200, img: 'MAX_INVERTER_STAR_KZ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 33, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR FAVF SERIES', code: 'FAVF30XV', btu: 30000, img: 'MAX_INVERTER_STAR_FAVF_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 34, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR FAVF SERIES', code: 'FAVF36XV', btu: 36200, img: 'MAX_INVERTER_STAR_FAVF_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 35, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC13', btu: 13600, img: 'SKY_AIR_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 36, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC18', btu: 18000, img: 'SKY_AIR_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 37, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC24', btu: 24000, img: 'SKY_AIR_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
 
             // HISENSE
-            { id: 38, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-10TRKD2T', btu: 9500, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 39, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-13TRKD2T', btu: 12000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 40, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-18TRKD2T', btu: 18000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 41, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-24TRKD2T', btu: 23500, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 42, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'TG_wifi', code: 'AS-13(TG)WI-FI', btu: 12000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 43, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'TG_wifi', code: 'AS-18(TG)WI-FI', btu: 18500, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 44, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'VA', code: 'AS-13TRVA2T', btu: 12000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 45, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-10X6HBA', btu: 9200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 46, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-13X6HBA', btu: 12500, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 47, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-18X6HBA', btu: 18000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 48, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-24X6HBA', btu: 23200, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 49, brand: 'HISENSE', type: '4 ทิศทาง', system: 'Inverter', model: 'AUC SERIES', code: 'AUC-18TRJA2T', btu: 18000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 50, brand: 'HISENSE', type: '4 ทิศทาง', system: 'Inverter', model: 'AUC SERIES', code: 'AUC-24TRJA2T', btu: 24000, logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' }
+            { id: 38, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-10TRKD2T', btu: 9500, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 39, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-13TRKD2T', btu: 12000, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 40, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-18TRKD2T', btu: 18000, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 41, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-24TRKD2T', btu: 23500, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 42, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'TG_wifi', code: 'AS-13(TG)WI-FI', btu: 12000, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 43, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'TG_wifi', code: 'AS-18(TG)WI-FI', btu: 18500, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 44, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'VA', code: 'AS-13TRVA2T', btu: 12000, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 45, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-10X6HBA', btu: 9200, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 46, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-13X6HBA', btu: 12500, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 47, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-18X6HBA', btu: 18000, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 48, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'X6 ใหม่ 2026', code: 'AS-24X6HBA', btu: 23200, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 49, brand: 'HISENSE', type: '4 ทิศทาง', system: 'Inverter', model: 'AUC SERIES', code: 'AUC-18TRJA2T', btu: 18000, img: 'AUC SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 50, brand: 'HISENSE', type: '4 ทิศทาง', system: 'Inverter', model: 'AUC SERIES', code: 'AUC-24TRJA2T', btu: 24000, img: 'AUC SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' }
         ];
 
         function renderProducts(items) {
@@ -228,24 +228,31 @@
                 const btuFormatted = p.btu.toLocaleString();
                 const lineUrl = `https://line.me/ti/p/~becoolair?text=${encodeURIComponent('สนใจสอบถามราคาแอร์ ' + p.brand + ' รุ่น ' + p.code + ' (' + btuFormatted + ' BTU) พร้อมติดตั้งครับ')}`;
                 
+                // สดรูปภาพจากโฟลเดอร์ img/ ของ GitHub Repository
+                const imgUrl = `https://becoolsrc.github.io/becool-air-sriracha/img/${encodeURIComponent(p.img)}`;
+
                 const card = `
                     <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
                         <div>
-                            <div class="p-4 bg-slate-50 relative flex items-center justify-center h-40 border-b border-slate-100">
-                                <span class="absolute top-3 left-3 ${p.system === 'Inverter' ? 'bg-blue-100 text-blue-800' : 'bg-rose-100 text-rose-800'} text-[10px] font-bold px-2.5 py-1 rounded-full">
+                            <div class="p-3 bg-slate-50 relative flex items-center justify-center h-48 border-b border-slate-100">
+                                <span class="absolute top-2.5 left-2.5 ${p.system === 'Inverter' ? 'bg-blue-100 text-blue-800' : 'bg-rose-100 text-rose-800'} text-[10px] font-bold px-2 py-0.5 rounded-full z-10">
                                     ${p.system}
                                 </span>
-                                <span class="absolute top-3 right-3 bg-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded-md">
+                                <span class="absolute top-2.5 right-2.5 bg-slate-200 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded-md z-10">
                                     ${p.type}
                                 </span>
-                                <img src="${p.logo}" alt="${p.brand}" class="max-h-20 max-w-[140px] object-contain" onerror="this.src='https://placehold.co/180x60?text=${p.brand}'">
+                                <!-- แสดงรูปเครื่องแอร์จริง -->
+                                <img src="${imgUrl}" alt="${p.code}" class="max-h-36 w-auto object-contain transition-transform duration-300 hover:scale-105" onerror="this.src='${p.logo}'">
                             </div>
                             <div class="p-4">
-                                <div class="text-[11px] font-bold text-blue-600 uppercase tracking-wider mb-0.5">${p.brand}</div>
-                                <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${p.code}</h3>
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-[11px] font-bold text-blue-600 uppercase tracking-wider">${p.brand}</span>
+                                    <img src="${p.logo}" alt="${p.brand}" class="h-3.5 w-auto object-contain opacity-60">
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-base leading-snug mb-0.5">${p.code}</h3>
                                 <p class="text-xs font-medium text-slate-500 mb-3">${p.model}</p>
                                 
-                                <div class="bg-blue-50/60 p-2.5 rounded-xl border border-blue-100/80 mb-2">
+                                <div class="bg-blue-50/60 p-2.5 rounded-xl border border-blue-100/80 mb-1">
                                     <span class="text-[10px] text-slate-400 block uppercase font-bold">ขนาดความเย็น</span>
                                     <span class="text-base font-extrabold text-blue-900">${btuFormatted} BTU</span>
                                 </div>
