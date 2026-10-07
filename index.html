@@ -21,7 +21,6 @@
     <nav class="sticky top-0 glass-nav z-50 py-1">
         <div class="flex justify-between items-center px-4 md:px-10 py-3">
             
-            <!-- โลโก้ และ ปุ่มเมนูสามขีดบนมือถือ -->
             <div class="flex items-center gap-3">
                 <button id="mobileMenuBtn" class="lg:hidden text-slate-700 hover:text-blue-600 focus:outline-none p-1">
                     <i class="fas fa-bars text-2xl"></i>
@@ -31,7 +30,6 @@
                 </a>
             </div>
 
-            <!-- เมนูหน้าจอคอมพิวเตอร์ -->
             <div class="hidden lg:flex space-x-10 text-base font-normal text-slate-600 uppercase tracking-wide items-center">
                 <a href="https://sites.google.com/view/becoolair-sriracha" target="_top" class="text-blue-600 font-semibold border-b-2 border-blue-600 py-2">หน้าหลัก</a>
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html" target="_blank" class="hover:text-blue-500 transition py-2">เลือกซื้อแอร์</a>
@@ -54,7 +52,6 @@
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/contact.html" target="_blank" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
             </div>
 
-            <!-- ปุ่มขวาสุด -->
             <div class="flex items-center space-x-2 sm:space-x-3">
                 <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-3 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-md font-medium text-xs sm:text-sm">
                     <i class="fab fa-line text-sm sm:text-lg mr-1.5"></i> แอดไลน์
@@ -66,7 +63,6 @@
             </div>
         </div>
 
-        <!-- เมนูบนมือถือ (Mobile Dropdown Menu) -->
         <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-2 text-base text-slate-700 shadow-lg">
             <a href="https://sites.google.com/view/becoolair-sriracha" target="_top" class="block px-3 py-2 rounded-xl bg-blue-50 text-blue-600 font-semibold">หน้าหลัก</a>
             <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html" target="_blank" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">เลือกซื้อแอร์</a>
@@ -86,31 +82,24 @@
     <!-- 1. ส่วนแบนเนอร์สไลด์รูปภาพ -->
     <section class="max-w-7xl mx-auto px-2 sm:px-4 md:px-8 pt-4 pb-2">
         <div class="relative w-full overflow-hidden rounded-2xl md:rounded-3xl shadow-lg group bg-slate-100">
-            
             <div id="carouselSlides" class="relative h-[200px] sm:h-[320px] md:h-[420px] lg:h-[480px] w-full">
-                <!-- Slide 1 -->
                 <div class="carousel-item absolute inset-0 opacity-100 duration-700 ease-in-out">
                     <img src="https://becoolsrc.github.io/becool-air-sriracha/img/banner1.jpg" class="w-full h-full object-cover" alt="โปรโมชั่นแอร์ 1" onerror="this.src='https://placehold.co/1200x500/1e3a8a/ffffff?text=BE+COOL+AIR+BANNER+1'">
                 </div>
-                <!-- Slide 2 -->
                 <div class="carousel-item absolute inset-0 opacity-0 duration-700 ease-in-out">
                     <img src="https://becoolsrc.github.io/becool-air-sriracha/img/banner2.jpg" class="w-full h-full object-cover" alt="โปรโมชั่นแอร์ 2" onerror="this.src='https://placehold.co/1200x500/0284c7/ffffff?text=BE+COOL+AIR+BANNER+2'">
                 </div>
-                <!-- Slide 3 -->
                 <div class="carousel-item absolute inset-0 opacity-0 duration-700 ease-in-out">
                     <img src="https://becoolsrc.github.io/becool-air-sriracha/img/banner3.jpg" class="w-full h-full object-cover" alt="โปรโมชั่นแอร์ 3" onerror="this.src='https://placehold.co/1200x500/06b6d4/ffffff?text=BE+COOL+AIR+BANNER+3'">
                 </div>
-                <!-- Slide 4 -->
                 <div class="carousel-item absolute inset-0 opacity-0 duration-700 ease-in-out">
                     <img src="https://becoolsrc.github.io/becool-air-sriracha/img/banner4.jpg" class="w-full h-full object-cover" alt="โปรโมชั่นแอร์ 4" onerror="this.src='https://placehold.co/1200x500/0f172a/ffffff?text=BE+COOL+AIR+BANNER+4'">
                 </div>
-                <!-- Slide 5 -->
                 <div class="carousel-item absolute inset-0 opacity-0 duration-700 ease-in-out">
                     <img src="https://becoolsrc.github.io/becool-air-sriracha/img/banner5.jpg" class="w-full h-full object-cover" alt="โปรโมชั่นแอร์ 5" onerror="this.src='https://placehold.co/1200x500/2563eb/ffffff?text=BE+COOL+AIR+BANNER+5'">
                 </div>
             </div>
 
-            <!-- ปุ่มกดเลื่อน ซ้าย - ขวา -->
             <button id="prevBtn" class="absolute top-1/2 left-2 md:left-4 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition backdrop-blur-sm">
                 <i class="fas fa-chevron-left text-xs sm:text-base"></i>
             </button>
@@ -118,7 +107,6 @@
                 <i class="fas fa-chevron-right text-xs sm:text-base"></i>
             </button>
 
-            <!-- จุดวงกลม Indicator -->
             <div id="carouselDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2 bg-black/20 px-3 py-1.5 rounded-full backdrop-blur-sm">
                 <button class="dot-btn w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-white transition-all"></button>
                 <button class="dot-btn w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-white/50 transition-all"></button>
@@ -211,7 +199,6 @@
                 </div>
             </div>
 
-            <!-- การ์ด BTU มาตรฐาน -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 text-center">
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html?search=9000" target="_blank" class="bg-blue-50/50 p-3 md:p-5 rounded-xl md:rounded-2xl border border-blue-50 hover:bg-blue-100/50 transition">
                     <p class="text-blue-600 font-bold text-sm md:text-lg">9,000 BTU</p>
@@ -289,14 +276,12 @@
 
     <!-- Scripts -->
     <script>
-        // 1. ระบบเปิด-ปิด เมนูมือถือ
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         if (btn && menu) {
             btn.addEventListener('click', () => menu.classList.toggle('hidden'));
         }
 
-        // 2. ระบบสไลด์รูปภาพแบนเนอร์ (Carousel)
         const slides = document.querySelectorAll('.carousel-item');
         const dots = document.querySelectorAll('.dot-btn');
         const prevBtn = document.getElementById('prevBtn');
@@ -366,7 +351,6 @@
             startAutoSlide();
         }
 
-        // 3. ระบบคำนวณ BTU
         function calculateBTU() {
             const width = parseFloat(document.getElementById('roomWidth').value);
             const length = parseFloat(document.getElementById('roomLength').value);

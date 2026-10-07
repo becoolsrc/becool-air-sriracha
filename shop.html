@@ -20,7 +20,6 @@
     <nav class="sticky top-0 glass-nav z-50 py-1">
         <div class="flex justify-between items-center px-4 md:px-10 py-3 max-w-7xl mx-auto">
             
-            <!-- โลโก้ และ ปุ่มเมนูมือถือ -->
             <div class="flex items-center gap-3">
                 <button id="mobileMenuBtn" class="lg:hidden text-slate-700 hover:text-blue-600 focus:outline-none p-1">
                     <i class="fas fa-bars text-2xl"></i>
@@ -30,7 +29,6 @@
                 </a>
             </div>
 
-            <!-- เมนูคอมพิวเตอร์ -->
             <div class="hidden lg:flex space-x-10 text-base font-normal text-slate-600 uppercase tracking-wide items-center">
                 <a href="https://sites.google.com/view/becoolair-sriracha" target="_top" class="hover:text-blue-500 transition py-2">หน้าหลัก</a>
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html" target="_top" class="text-blue-600 font-semibold border-b-2 border-blue-600 py-2">เลือกซื้อแอร์</a>
@@ -39,7 +37,6 @@
                 <a href="https://becoolsrc.github.io/becool-air-sriracha/contact.html" target="_top" class="hover:text-blue-500 transition py-2">ติดต่อเรา</a>
             </div>
 
-            <!-- ปุ่มขวาสุด -->
             <div class="flex items-center space-x-2 sm:space-x-3">
                 <a href="https://line.me/ti/p/~becoolair" target="_blank" class="hover:scale-105 transition duration-300 flex items-center bg-[#06C755] text-white px-3 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-md font-medium text-xs sm:text-sm">
                     <i class="fab fa-line text-sm sm:text-lg mr-1.5"></i> แอดไลน์
@@ -51,7 +48,6 @@
             </div>
         </div>
 
-        <!-- เมนูมือถือ -->
         <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-2 text-base text-slate-700 shadow-lg">
             <a href="https://sites.google.com/view/becoolair-sriracha" target="_top" class="block px-3 py-2 rounded-xl hover:bg-slate-50 transition">หน้าหลัก</a>
             <a href="https://becoolsrc.github.io/becool-air-sriracha/shop.html" target="_top" class="block px-3 py-2 rounded-xl bg-blue-50 text-blue-600 font-semibold">เลือกซื้อแอร์</a>
@@ -73,11 +69,9 @@
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 py-8 flex-grow w-full">
 
-        <!-- Search & Filter Bar -->
         <div class="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm mb-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4">
                 
-                <!-- ค้นหาชื่อรุ่น -->
                 <div class="md:col-span-2">
                     <label class="block text-xs font-bold text-slate-600 mb-1">ค้นหารุ่น / คีย์เวิร์ด</label>
                     <div class="relative">
@@ -86,7 +80,6 @@
                     </div>
                 </div>
 
-                <!-- กรองแบรนด์ -->
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">เลือกตามแบรนด์</label>
                     <select id="brandFilter" onchange="filterProducts()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500 text-slate-700">
@@ -99,7 +92,6 @@
                     </select>
                 </div>
 
-                <!-- กรอง BTU -->
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">เลือกขนาด BTU</label>
                     <select id="btuFilter" onchange="filterProducts()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500 text-slate-700">
@@ -122,12 +114,8 @@
             </div>
         </div>
 
-        <!-- Product Grid -->
-        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            <!-- รายการสินค้าจะสร้างขึ้นอัตโนมัติผ่าน JS -->
-        </div>
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
 
-        <!-- เมื่อไม่พบสินค้า -->
         <div id="noProduct" class="hidden text-center py-16">
             <i class="fas fa-search-minus text-4xl text-slate-300 mb-3"></i>
             <p class="text-slate-500 text-base font-medium">ไม่พบแอร์ที่ตรงกับเงื่อนไขการค้นหา</p>
@@ -151,14 +139,12 @@
 
     <!-- Scripts -->
     <script>
-        // 1. ระบบเปิด-ปิด เมนูมือถือ
         const mobileBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         if (mobileBtn && mobileMenu) {
             mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         }
 
-        // 2. ข้อมูลสินค้าตรงจากตาราง Google Sheets (Data) - ไม่แสดงราคา
         const products = [
             // DAIKIN - FTM SERIES
             { id: 1, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM09PV2S', btu: 9200, logo: 'daikin.png' },
@@ -221,7 +207,6 @@
             { id: 50, brand: 'HISENSE', type: '4 ทิศทาง', system: 'Inverter', model: 'AUC SERIES', code: 'AUC-24TRJA2T', btu: 24000, logo: 'hisense.png' }
         ];
 
-        // 3. แสดงผลการ์ดสินค้า (ไม่แสดงราคา)
         function renderProducts(items) {
             const grid = document.getElementById('productGrid');
             const noProd = document.getElementById('noProduct');
@@ -275,7 +260,6 @@
             });
         }
 
-        // 4. ระบบกรองและการค้นหา
         function filterProducts() {
             const search = document.getElementById('searchInput').value.toLowerCase();
             const brand = document.getElementById('brandFilter').value;
@@ -305,7 +289,6 @@
             renderProducts(products);
         }
 
-        // 5. อ่านพารามิเตอร์ URL เมื่อเปิดมาจากหน้าหลัก
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const searchParam = urlParams.get('search');
