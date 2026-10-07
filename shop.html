@@ -92,7 +92,6 @@
                         <option value="HISENSE">Hisense (ไฮเซ่นส์)</option>
                         <option value="GREE">Gree (กรี)</option>
                         <option value="CENTRAL AIR">Central Air (เซ็นทรัลแอร์)</option>
-                        <option value="TCL">TCL</option>
                     </select>
                 </div>
 
@@ -149,9 +148,9 @@
             mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         }
 
-        // ดึงรูปแอร์โดยตรงจากไฟล์ที่มีอยู่ในโฟลเดอร์ img/ ตรงกับภาพถ่าย Explorer ของคุณ 100%
+        // ดึงข้อมูลสินค้าครอบคลุมทุกแบรนด์ที่มีไฟล์รูปในโฟลเดอร์ img/
         const products = [
-            // 1. DAIKIN
+            // DAIKIN
             { id: 1, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM09PV2S', btu: 9200, img: 'FTM SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
             { id: 2, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Fixed Speed', model: 'FTM SERIES', code: 'FTM13PV2S', btu: 13000, img: 'FTM SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
             { id: 3, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER SABAI SERIES', code: 'FTKB09AV', btu: 9200, img: 'MAX_INVERTER_SABAI_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
@@ -159,45 +158,39 @@
             { id: 5, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KQ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
             { id: 6, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KQ SERIES', code: 'FTKQ12YV', btu: 12300, img: 'MAX_INVERTER_STAR_KQ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
             { id: 7, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KF SERIES', code: 'FTKF09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KF_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 8, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KC SERIES', code: 'FTKC09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KC_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 9, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KM SERIES', code: 'FTKM09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KM_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 10, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR KZ SERIES', code: 'FTKZ09YV', btu: 9200, img: 'MAX_INVERTER_STAR_KZ_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 11, brand: 'DAIKIN', type: 'ติดผนัง', system: 'Inverter', model: 'MAX INVERTER STAR FAVF SERIES', code: 'FAVF30XV', btu: 30000, img: 'MAX_INVERTER_STAR_FAVF_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
-            { id: 12, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC13', btu: 13600, img: 'SKY_AIR_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
+            { id: 8, brand: 'DAIKIN', type: '4 ทิศทาง', system: 'Inverter', model: 'SKY AIR SERIES', code: 'FCFC13', btu: 13600, img: 'SKY_AIR_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/daikin.png' },
 
-            // 2. CARRIER
-            { id: 13, brand: 'CARRIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'COPPER 7', code: '42TSAA010', btu: 9200, img: 'COPPER 7.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 14, brand: 'CARRIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'COPPER 8', code: '42LAN010', btu: 9200, img: 'COPPER 8.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 15, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COPPER 11', code: '42TVDA010', btu: 9200, img: 'COPPER 11.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 16, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COPPER 11', code: '42TVDA013', btu: 12100, img: 'COPPER 11.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 17, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COPPER ION', code: '42TVBA010', btu: 9200, img: 'COPPER ION.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 18, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COLORSMART', code: '42TVCA010', btu: 9200, img: 'COLORSMART.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
-            { id: 19, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'ION STRIKE', code: '42TVAB010', btu: 9200, img: 'ION_STRIKE.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
+            // CARRIER
+            { id: 9, brand: 'CARRIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'COPPER 7', code: '42TSAA010', btu: 9200, img: 'COPPER 7.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
+            { id: 10, brand: 'CARRIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'COPPER 8', code: '42LAN010', btu: 9200, img: 'COPPER 8.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
+            { id: 11, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COPPER 11', code: '42TVDA010', btu: 9200, img: 'COPPER 11.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
+            { id: 12, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COPPER 11', code: '42TVDA013', btu: 12100, img: 'COPPER 11.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
+            { id: 13, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COPPER ION', code: '42TVBA010', btu: 9200, img: 'COPPER ION.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
+            { id: 14, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'COLORSMART', code: '42TVCA010', btu: 9200, img: 'COLORSMART.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
+            { id: 15, brand: 'CARRIER', type: 'ติดผนัง', system: 'Inverter', model: 'ION STRIKE', code: '42TVAB010', btu: 9200, img: 'ION_STRIKE.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/carrier.png' },
 
-            // 3. MITSUBISHI
-            { id: 20, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'HARU', code: 'SRK10YYM', btu: 9200, img: 'HARU.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
-            { id: 21, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'HARU', code: 'SRK13YYM', btu: 12300, img: 'HARU.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
-            { id: 22, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'FUYU', code: 'SRK10YXP', btu: 9200, img: 'FUYU.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
-            { id: 23, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'KAZE', code: 'SRK10CXV', btu: 9200, img: 'KAZE.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
+            // MITSUBISHI
+            { id: 16, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'HARU', code: 'SRK10YYM', btu: 9200, img: 'HARU.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
+            { id: 17, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'HARU', code: 'SRK13YYM', btu: 12300, img: 'HARU.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
+            { id: 18, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'FUYU', code: 'SRK10YXP', btu: 9200, img: 'FUYU.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
+            { id: 19, brand: 'MITSUBISHI', type: 'ติดผนัง', system: 'Inverter', model: 'KAZE', code: 'SRK10CXV', btu: 9200, img: 'KAZE.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/mitsubishi.png' },
 
-            // 4. HAIER
-            { id: 24, brand: 'HAIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'CLEAN COOL', code: 'HSU-10CTR', btu: 9200, img: 'CLEAN COOL.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/haier.png' },
-            { id: 25, brand: 'HAIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'CLEAN COOL', code: 'HSU-13CTR', btu: 12500, img: 'CLEAN COOL.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/haier.png' },
-            { id: 26, brand: 'HAIER', type: 'ติดผนัง', system: 'Inverter', model: 'CANDY', code: 'CSU-10VNS', btu: 9200, img: 'CANDY.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/haier.png' },
+            // HAIER
+            { id: 20, brand: 'HAIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'CLEAN COOL', code: 'HSU-10CTR', btu: 9200, img: 'CLEAN COOL.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/haier.png' },
+            { id: 21, brand: 'HAIER', type: 'ติดผนัง', system: 'Fixed Speed', model: 'CLEAN COOL', code: 'HSU-13CTR', btu: 12500, img: 'CLEAN COOL.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/haier.png' },
+            { id: 22, brand: 'HAIER', type: 'ติดผนัง', system: 'Inverter', model: 'CANDY', code: 'CSU-10VNS', btu: 9200, img: 'CANDY.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/haier.png' },
 
-            // 5. HISENSE
-            { id: 27, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-10TRKD2T', btu: 9500, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 28, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-13TRKD2T', btu: 12000, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
-            { id: 29, brand: 'HISENSE', type: '4 ทิศทาง', system: 'Inverter', model: 'AUC SERIES', code: 'AUC-18TRJA2T', btu: 18000, img: 'AUC SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            // HISENSE
+            { id: 23, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-10TRKD2T', btu: 9500, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 24, brand: 'HISENSE', type: 'ติดผนัง', system: 'Inverter', model: 'KD SERIES', code: 'AS-13TRKD2T', btu: 12000, img: 'KD_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
+            { id: 25, brand: 'HISENSE', type: '4 ทิศทาง', system: 'Inverter', model: 'AUC SERIES', code: 'AUC-18TRJA2T', btu: 18000, img: 'AUC SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/hisense.png' },
 
-            // 6. GREE
-            { id: 30, brand: 'GREE', type: 'ติดผนัง', system: 'Fixed Speed', model: 'Bora SERIES', code: 'GWC09AAA', btu: 9000, img: 'Bora SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/gree.png' },
-            { id: 31, brand: 'GREE', type: 'ติดผนัง', system: 'Inverter', model: 'Pular_SERIES', code: 'GWC09AGB', btu: 9200, img: 'Pular_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/gree.png' },
-            { id: 32, brand: 'GREE', type: 'ติดผนัง', system: 'Inverter', model: 'Pular_SERIES', code: 'GWC12AGB', btu: 12000, img: 'Pular_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/gree.png' },
+            // GREE
+            { id: 26, brand: 'GREE', type: 'ติดผนัง', system: 'Fixed Speed', model: 'Bora SERIES', code: 'GWC09AAA', btu: 9000, img: 'Bora SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/gree.png' },
+            { id: 27, brand: 'GREE', type: 'ติดผนัง', system: 'Inverter', model: 'Pular_SERIES', code: 'GWC09AGB', btu: 9200, img: 'Pular_SERIES.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/gree.png' },
 
-            // 7. CENTRAL AIR
-            { id: 33, brand: 'CENTRAL AIR', type: 'ติดผนัง', system: 'Inverter', model: '2JSFE', code: 'CFW-2JSFE09', btu: 9200, img: '2JSFE.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/central_air.png' },
-            { id: 34, brand: 'CENTRAL AIR', type: 'ติดผนัง', system: 'Inverter', model: '2JSFE', code: 'CFW-2JSFE13', btu: 12300, img: '2JSFE.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/central_air.png' }
+            // CENTRAL AIR
+            { id: 28, brand: 'CENTRAL AIR', type: 'ติดผนัง', system: 'Inverter', model: '2JSFE', code: 'CFW-2JSFE09', btu: 9200, img: '2JSFE.jpg', logo: 'https://becoolsrc.github.io/becool-air-sriracha/central_air.png' }
         ];
 
         function renderProducts(items) {
@@ -219,7 +212,7 @@
                 const btuFormatted = p.btu.toLocaleString();
                 const lineUrl = `https://line.me/ti/p/~becoolair?text=${encodeURIComponent('สนใจสอบถามราคาแอร์ ' + p.brand + ' รุ่น ' + p.code + ' (' + btuFormatted + ' BTU) พร้อมติดตั้งครับ')}`;
                 
-                // ดึงรูปแอร์จากโฟลเดอร์ img/ ป้องกันอักขระพิเศษด้วย encodeURIComponent
+                // แปลงพาธรูปภาพให้รองรับชื่อไฟล์ที่มีการเว้นวรรค
                 const imgUrl = `https://becoolsrc.github.io/becool-air-sriracha/img/${encodeURIComponent(p.img)}`;
 
                 const card = `
